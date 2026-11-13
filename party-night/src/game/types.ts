@@ -2,6 +2,15 @@ export type GirlId = 'maya' | 'riley' | 'jade'
 
 export type Affection = Record<GirlId, number>
 
+export type EndingId =
+  | 'solo_maya'
+  | 'solo_riley'
+  | 'solo_jade'
+  | 'threesome'
+  | 'harem'
+  | 'messy'
+  | 'caught'
+
 export type Flags = {
   playerName: string
   kissedMaya: boolean
@@ -13,6 +22,14 @@ export type Flags = {
   balconyMaya: boolean
   kitchenRiley: boolean
   stairsJade: boolean
+  laundryMaya: boolean
+  dormRiley: boolean
+  blackmailJade: boolean
+  exBetrayal: boolean
+  bodyWriting: boolean
+  girlOnGirl: boolean
+  oathPayment: boolean
+  roommateRule: boolean
   pactBroken: boolean
   toldOnFriend: boolean
   watchedSecret: boolean
@@ -25,6 +42,9 @@ export type Flags = {
   markedByJade: boolean
   rileyConfessed: boolean
   mayaBet: boolean
+  deepMaya: boolean
+  deepRiley: boolean
+  deepJade: boolean
   phase: 'early' | 'mid' | 'late'
 }
 
@@ -55,7 +75,7 @@ export type Scene = {
   text: string
   focus?: GirlId | 'all' | 'none'
   nsfw?: boolean
-  ending?: 'solo' | 'messy' | 'threesome' | 'reject' | 'caught' | 'harem'
+  ending?: EndingId | 'reject'
   choices?: Choice[]
 }
 
@@ -70,6 +90,14 @@ export const INITIAL_FLAGS: Flags = {
   balconyMaya: false,
   kitchenRiley: false,
   stairsJade: false,
+  laundryMaya: false,
+  dormRiley: false,
+  blackmailJade: false,
+  exBetrayal: false,
+  bodyWriting: false,
+  girlOnGirl: false,
+  oathPayment: false,
+  roommateRule: false,
   pactBroken: false,
   toldOnFriend: false,
   watchedSecret: false,
@@ -82,6 +110,9 @@ export const INITIAL_FLAGS: Flags = {
   markedByJade: false,
   rileyConfessed: false,
   mayaBet: false,
+  deepMaya: false,
+  deepRiley: false,
+  deepJade: false,
   phase: 'early',
 }
 
@@ -93,4 +124,8 @@ export const INITIAL_AFFECTION: Affection = {
 
 export function hookedCount(flags: Flags): number {
   return [flags.bathroomMaya, flags.couchRiley, flags.closetJade].filter(Boolean).length
+}
+
+export function deepCount(flags: Flags): number {
+  return [flags.deepMaya, flags.deepRiley, flags.deepJade].filter(Boolean).length
 }

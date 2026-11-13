@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { EndingArt } from './components/EndingArt'
 import { PartyCast } from './components/Portrait'
 import { Meters } from './components/Meters'
 import { CHARACTERS } from './game/characters'
@@ -8,6 +9,7 @@ import {
   INITIAL_FLAGS,
   type Affection,
   type Choice,
+  type EndingId,
   type Flags,
   type GameState,
 } from './game/types'
@@ -119,21 +121,27 @@ export default function App() {
             <p className="eyebrow">Single-player · NSFW · Choice-driven</p>
             <h1>After Hours</h1>
             <p className="lede">
-              Three slutty best friends swore never to share a man. Tonight is their first big college house party —
-              and you are the loophole. Break the pact. Get caught. Or make them rewrite the rules on their knees.
+              Three slutty roommates swore never to share a man — with oath payment if anyone breaks it. Tonight is
+              their house party. Cheat. Get watched. Collect. Or rewrite the lease with your body.
             </p>
             <div className="title-cast">
               <PartyCast focus="all" />
             </div>
           </section>
         ) : (
-          <section className="scene-panel">
-            <PartyCast focus={scene.focus ?? 'none'} />
+          <section className={`scene-panel ${scene.ending && scene.ending !== 'reject' ? 'has-ending' : ''}`}>
+            {scene.ending && scene.ending !== 'reject' ? (
+              <EndingArt ending={scene.ending as EndingId} />
+            ) : (
+              <PartyCast focus={scene.focus ?? 'none'} />
+            )}
             <article className={`dialogue ${scene.nsfw ? 'is-nsfw' : ''}`}>
               <div className="speaker" style={speakerColor ? { color: speakerColor } : undefined}>
                 {speakerLabel}
                 {scene.nsfw && <span className="nsfw-tag">NSFW</span>}
-                {scene.ending && <span className="ending-tag">{scene.ending}</span>}
+                {scene.ending && scene.ending !== 'reject' && (
+                  <span className="ending-tag">{scene.ending.replace('_', ' ')}</span>
+                )}
               </div>
               <p>{text}</p>
             </article>
