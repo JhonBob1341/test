@@ -11,6 +11,8 @@ export type EndingId =
   | 'messy'
   | 'caught'
 
+export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning'
+
 export type Flags = {
   playerName: string
   kissedMaya: boolean
@@ -45,7 +47,13 @@ export type Flags = {
   deepMaya: boolean
   deepRiley: boolean
   deepJade: boolean
-  phase: 'early' | 'mid' | 'late'
+  haremRoute: boolean
+  claimedMaya: boolean
+  claimedRiley: boolean
+  claimedJade: boolean
+  haremRules: boolean
+  ceremonyDone: boolean
+  phase: 'early' | 'mid' | 'late' | 'harem'
 }
 
 export type GameState = {
@@ -76,6 +84,8 @@ export type Scene = {
   focus?: GirlId | 'all' | 'none'
   nsfw?: boolean
   ending?: EndingId | 'reject'
+  art?: SceneArtId
+  chapter?: string
   choices?: Choice[]
 }
 
@@ -113,6 +123,12 @@ export const INITIAL_FLAGS: Flags = {
   deepMaya: false,
   deepRiley: false,
   deepJade: false,
+  haremRoute: false,
+  claimedMaya: false,
+  claimedRiley: false,
+  claimedJade: false,
+  haremRules: false,
+  ceremonyDone: false,
   phase: 'early',
 }
 
@@ -128,4 +144,8 @@ export function hookedCount(flags: Flags): number {
 
 export function deepCount(flags: Flags): number {
   return [flags.deepMaya, flags.deepRiley, flags.deepJade].filter(Boolean).length
+}
+
+export function claimedCount(flags: Flags): number {
+  return [flags.claimedMaya, flags.claimedRiley, flags.claimedJade].filter(Boolean).length
 }

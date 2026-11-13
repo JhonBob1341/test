@@ -1,8 +1,8 @@
-import type { EndingId } from '../game/types'
-import { ENDING_ART } from '../game/endings'
+import type { SceneArtId } from '../game/types'
+import { SCENE_ART } from '../game/endings'
 
-export function EndingArt({ ending }: { ending: EndingId }) {
-  const src = ENDING_ART[ending]
+export function EndingArt({ art }: { art: SceneArtId }) {
+  const src = SCENE_ART[art]
   return (
     <figure className="ending-art">
       <img src={src} alt="" />

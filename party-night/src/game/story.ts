@@ -1,11 +1,13 @@
-import { deepCount, hookedCount, type Flags, type Scene } from './types'
+import { HAREM_SCENES } from './haremRoute'
+import { claimedCount, deepCount, hookedCount, type Flags, type Scene } from './types'
 
-export const SCENES: Record<string, Scene> = {
+const BASE_SCENES: Record<string, Scene> = {
   title: {
     id: 'title',
     speaker: 'narrator',
     text: 'THREE ROOMMATES. ONE BLOOD PACT. ONE HOUSE PARTY THAT WILL MAKE THEM SHARE ANYWAY.',
     focus: 'none',
+    chapter: 'Title',
     choices: [{ text: 'Enter the party (21+)', next: 'agegate' }],
   },
 
@@ -34,7 +36,38 @@ export const SCENES: Record<string, Scene> = {
     speaker: 'narrator',
     text: 'Bass bleeds through the front door of an off-campus house that smells like perfume, laundry detergent, and bad ideas. What do they call you tonight?',
     focus: 'none',
-    choices: [{ text: 'Continue', next: 'arrive' }],
+    chapter: 'Act I · Arrival',
+    choices: [{ text: 'Continue', next: 'street' }],
+  },
+
+  street: {
+    id: 'street',
+    speaker: 'narrator',
+    text: 'The street is wet with spilled beer and bad decisions. Two guys argue about the guest list. A girl in glitter heels warns you, “Careful — the roommates who throw this thing collect people.” You keep walking.',
+    focus: 'none',
+    chapter: 'Act I · Arrival',
+    choices: [
+      { text: 'Approach the porch', next: 'porch' },
+      { text: 'Slip in through the side gate', next: 'side_gate' },
+    ],
+  },
+
+  porch: {
+    id: 'porch',
+    speaker: 'narrator',
+    text: 'On the porch you overhear three voices through an open window. Maya: “If someone hot shows up, I am breaking the pact.” Riley: “Maya.” Jade: “Let her say it. I want the recording for later.”',
+    focus: 'all',
+    chapter: 'Act I · Arrival',
+    choices: [{ text: 'Walk in like you heard nothing', next: 'arrive' }],
+  },
+
+  side_gate: {
+    id: 'side_gate',
+    speaker: 'narrator',
+    text: 'The side gate sticks. In the yard, laundry hangs like surrender flags. A sticky note on the back door in Jade’s handwriting: NO EXES. NO COPS. NO FEELINGS UNLESS SCHEDULED.',
+    focus: 'none',
+    chapter: 'Act I · Arrival',
+    choices: [{ text: 'Enter through the kitchen', next: 'arrive' }],
   },
 
   arrive: {
@@ -42,6 +75,7 @@ export const SCENES: Record<string, Scene> = {
     speaker: 'narrator',
     text: 'First real college house party of the year — and it is happening in their living room. Solo cups on textbooks. A sock on one bedroom doorknob already. Near the kitchen island, three roommates own the night like they paid for it in secrets.',
     focus: 'all',
+    chapter: 'Act I · Arrival',
     choices: [{ text: 'Walk over', next: 'meet_maya' }],
   },
 
@@ -109,6 +143,7 @@ export const SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya leans in until her mouth almost brushes your ear. “So. Are you the disaster we finally collect on — or are you smart enough to pick one of us and stay loyal?” Jade watches. Riley pretends to check her drink.',
     focus: 'maya',
+    chapter: 'Act I · The Pact',
     choices: [
       {
         text: 'Flirt with Maya first — break the ice',
@@ -129,6 +164,11 @@ export const SCENES: Record<string, Scene> = {
         text: 'Ask who is already taken',
         next: 'ex_reveal',
         effect: { affection: { maya: 1 } },
+      },
+      {
+        text: 'Propose a harem — refuse to pick only one',
+        next: 'harem_pitch',
+        effect: { affection: { maya: 1, riley: 1, jade: 1 }, flags: { haremRoute: true } },
       },
     ],
   },
@@ -874,8 +914,9 @@ export const SCENES: Record<string, Scene> = {
   mid_hub: {
     id: 'mid_hub',
     speaker: 'narrator',
-    text: 'The party is hotter, drunker, meaner. Secrets float like perfume. You can deepen one bond, cross another line, collect oath payment, or light the whole roommate lease on fire.',
+    text: 'The party is hotter, drunker, meaner. Secrets float like perfume. You can deepen one bond, cross another line, start a harem trial, collect oath payment, or light the whole roommate lease on fire.',
     focus: 'all',
+    chapter: 'Act II · Fallout',
     choices: [
       {
         text: 'Find Maya on the balcony',
@@ -913,6 +954,22 @@ export const SCENES: Record<string, Scene> = {
         require: (s) => s.flags.blackmailJade || s.affection.jade >= 4,
       },
       {
+        text: 'Start / continue the harem claiming trial',
+        next: 'harem_terms',
+        require: (s) => !s.flags.ceremonyDone,
+        effect: { flags: { haremRoute: true, threesomeUnlocked: true } },
+      },
+      {
+        text: 'Negotiate “rent” with the house',
+        next: 'rent_negotiation',
+        require: (s) => hookedCount(s.flags) >= 1,
+      },
+      {
+        text: 'Step onto the porch with Jade',
+        next: 'porch_blackmail',
+        require: (s) => s.affection.jade >= 3 || s.flags.blackmailJade,
+      },
+      {
         text: 'Push into late-night territory',
         next: 'late_hub',
         require: (s) =>
@@ -921,6 +978,7 @@ export const SCENES: Record<string, Scene> = {
           s.flags.stairsJade ||
           s.flags.dareSpiral ||
           s.flags.oathPayment ||
+          s.flags.haremRoute ||
           hookedCount(s.flags) >= 2 ||
           deepCount(s.flags) >= 1,
         effect: { flags: { phase: 'late' } },
@@ -1428,7 +1486,19 @@ export const SCENES: Record<string, Scene> = {
     speaker: 'narrator',
     text: 'Upstairs air is thick with perfume and bad decisions. The pact is a corpse. The lease is a joke. Dawn is coming for everyone. Choose how filthy the ending gets.',
     focus: 'all',
+    chapter: 'Act III · After Hours',
     choices: [
+      {
+        text: 'Enter the full harem claiming arc',
+        next: 'harem_terms',
+        require: (s) => !s.flags.ceremonyDone,
+        effect: { flags: { haremRoute: true, threesomeUnlocked: true, phase: 'harem' } },
+      },
+      {
+        text: 'Resume harem joint night',
+        next: 'harem_joint_intro',
+        require: (s) => claimedCount(s.flags) >= 3 && !s.flags.ceremonyDone,
+      },
       {
         text: 'Text all three to the bedroom',
         next: 'group_setup',
@@ -1694,6 +1764,8 @@ export const SCENES: Record<string, Scene> = {
     text: 'Maya steals your hoodie and texts a photo of her in nothing else before you hit the sidewalk. Tyler is blocked. Riley is mad. Jade is plotting. Maya is thriving. “Same party next week. Wear something easy to take off.”',
     focus: 'maya',
     ending: 'solo_maya',
+    art: 'solo_maya',
+    chapter: 'Ending',
     choices: [{ text: 'Play again', next: 'title' }],
   },
 
@@ -1703,6 +1775,8 @@ export const SCENES: Record<string, Scene> = {
     text: 'Riley walks you out holding your hand like you are wholesome. Then she whispers exactly how she wants to be woken up — and that she will lie to the group chat for you if you keep choosing her. Soft girl. Filthy treaty. Roommate traitor with a heart.',
     focus: 'riley',
     ending: 'solo_riley',
+    art: 'solo_riley',
+    chapter: 'Ending',
     choices: [{ text: 'Play again', next: 'title' }],
   },
 
@@ -1712,6 +1786,8 @@ export const SCENES: Record<string, Scene> = {
     text: 'Jade does not ask for your number. She puts it in her phone herself. “You are not a fling. You are a project.” From her, that is a love poem, a threat, and a calendar invite with the folder attached.',
     focus: 'jade',
     ending: 'solo_jade',
+    art: 'solo_jade',
+    chapter: 'Ending',
     choices: [{ text: 'Play again', next: 'title' }],
   },
 
@@ -1721,15 +1797,19 @@ export const SCENES: Record<string, Scene> = {
     text: 'They share a rideshare and an unspoken treaty: nobody talks in public… and everybody texts you before noon. Taboo tastes better with matching hickeys. You did not pick one roommate. You detonated the lease in the hottest way possible.',
     focus: 'all',
     ending: 'threesome',
+    art: 'threesome',
+    chapter: 'Ending',
     choices: [{ text: 'Play again', next: 'title' }],
   },
 
   ending_harem: {
     id: 'ending_harem',
     speaker: 'all',
-    text: 'Monday, the pact is rewritten in a notes app: no exclusivity, no screenshots without consent, weekly “study sessions,” Tyler stays blocked. Maya adds heart emojis she does not mean. Riley adds rules she will break. Jade adds veto power. You somehow agreed to all of it.',
+    text: 'Monday, HOUSE HAREM v1 is live: shared calendar, veto clause, free-use party nights, mandatory aftercare, Tyler permanently blocked. Maya adds heart emojis she does not mean. Riley adds soft nights. Jade adds enforcement. You did not date one girl. You joined a lease.',
     focus: 'all',
     ending: 'harem',
+    art: 'harem',
+    chapter: 'Ending · Harem',
     choices: [{ text: 'Play again', next: 'title' }],
   },
 
@@ -1739,6 +1819,8 @@ export const SCENES: Record<string, Scene> = {
     text: 'You played too many sides without enough charm. Maya calls you a coward. Riley laughs and means it. Jade blocks you before breakfast. The party was fun. The aftermath is a group chat you are not in — and a lease that still has their names.',
     focus: 'none',
     ending: 'messy',
+    art: 'messy',
+    chapter: 'Ending',
     choices: [{ text: 'Play again', next: 'title' }],
   },
 
@@ -1748,8 +1830,15 @@ export const SCENES: Record<string, Scene> = {
     text: 'Someone opens the wrong door — or the right one, if fame was the goal. The house howls. Your night becomes campus folklore before sunrise. The roommates? Unbothered — famous, even. You? Assigned a nickname you will never live down.',
     focus: 'all',
     ending: 'caught',
+    art: 'caught',
+    chapter: 'Ending',
     choices: [{ text: 'Play again', next: 'title' }],
   },
+}
+
+export const SCENES: Record<string, Scene> = {
+  ...BASE_SCENES,
+  ...HAREM_SCENES,
 }
 
 export function resolveEndingScene(state: {
@@ -1765,14 +1854,21 @@ export function resolveEndingScene(state: {
 
   const hooked = hookedCount(state.flags)
   const deep = deepCount(state.flags)
+  const claimed = claimedCount(state.flags)
 
+  if (state.flags.ceremonyDone || (state.flags.haremRoute && claimed >= 3)) {
+    return 'ending_harem'
+  }
+  if (state.flags.haremRoute && state.flags.haremRules && hooked >= 2) {
+    return 'ending_harem'
+  }
   if (state.flags.caughtAlmost && state.flags.phoneLeak && scores[0].n < 8 && !state.flags.threesomeUnlocked) {
     return 'ending_caught'
   }
   if (
     (state.flags.threesomeUnlocked || state.flags.oathPayment) &&
     (hooked >= 2 || deep >= 2) &&
-    (state.flags.jealousyTrap || state.flags.girlOnGirl || state.flags.oathPayment)
+    (state.flags.jealousyTrap || state.flags.girlOnGirl || state.flags.oathPayment || state.flags.haremRoute)
   ) {
     return 'ending_harem'
   }

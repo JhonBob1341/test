@@ -9,9 +9,9 @@ import {
   INITIAL_FLAGS,
   type Affection,
   type Choice,
-  type EndingId,
   type Flags,
   type GameState,
+  type SceneArtId,
 } from './game/types'
 import './App.css'
 
@@ -43,6 +43,14 @@ function freshState(name = 'You'): GameState {
   }
 }
 
+function chapterFor(state: GameState, fallback?: string): string {
+  if (fallback) return fallback
+  if (state.flags.phase === 'harem' || state.flags.haremRoute) return 'Harem Arc'
+  if (state.flags.phase === 'late') return 'Act III · After Hours'
+  if (state.flags.phase === 'mid') return 'Act II · Fallout'
+  return 'Act I · The Pact'
+}
+
 export default function App() {
   const [state, setState] = useState<GameState>(() => freshState())
   const [nameDraft, setNameDraft] = useState('Alex')
@@ -58,7 +66,7 @@ export default function App() {
   function go(choice: Choice) {
     let next = applyChoice(state, choice)
 
-    if (choice.next === 'arrive') {
+    if (choice.next === 'street') {
       next = {
         ...next,
         flags: { ...next.flags, playerName: nameDraft.trim() || 'You' },
@@ -95,8 +103,15 @@ export default function App() {
       ? CHARACTERS[scene.speaker].color
       : undefined
 
+  const artKey: SceneArtId | null =
+    scene.art ??
+    (scene.ending && scene.ending !== 'reject' ? (scene.ending as SceneArtId) : null)
+
+  const showArt = Boolean(artKey)
+  const chapter = chapterFor(state, scene.chapter)
+
   return (
-    <div className={`app ${entered ? 'in-game' : 'at-title'} ${scene.nsfw ? 'nsfw' : ''}`}>
+    <div className={`app ${entered ? 'in-game' : 'at-title'} ${scene.nsfw ? 'nsfw' : ''} ${state.flags.haremRoute ? 'harem-mode' : ''}`}>
       <div className="atmosphere" aria-hidden>
         <div className="blob blob-a" />
         <div className="blob blob-b" />
@@ -108,7 +123,7 @@ export default function App() {
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark">AFTER HOURS</span>
-          <span className="brand-sub">a taboo party dating game · 21+</span>
+          <span className="brand-sub">taboo roommate dating · harem route · 21+</span>
         </div>
         {entered && scene.id !== 'title' && scene.id !== 'agegate' && scene.id !== 'name' && (
           <Meters affection={state.affection} />
@@ -118,23 +133,22 @@ export default function App() {
       <main className="stage">
         {scene.id === 'title' ? (
           <section className="title-hero">
-            <p className="eyebrow">Single-player · NSFW · Choice-driven</p>
+            <p className="eyebrow">Single-player · NSFW · Longform · Harem route</p>
             <h1>After Hours</h1>
             <p className="lede">
-              Three slutty roommates swore never to share a man — with oath payment if anyone breaks it. Tonight is
-              their house party. Cheat. Get watched. Collect. Or rewrite the lease with your body.
+              Three slutty roommates swore never to share a man — with oath payment if anyone breaks it. Cheat on a
+              situationship. Get watched. Collect the house. Or open the full harem arc and rewrite the lease.
             </p>
             <div className="title-cast">
               <PartyCast focus="all" />
             </div>
           </section>
         ) : (
-          <section className={`scene-panel ${scene.ending && scene.ending !== 'reject' ? 'has-ending' : ''}`}>
-            {scene.ending && scene.ending !== 'reject' ? (
-              <EndingArt ending={scene.ending as EndingId} />
-            ) : (
-              <PartyCast focus={scene.focus ?? 'none'} />
+          <section className={`scene-panel ${showArt ? 'has-ending' : ''}`}>
+            {entered && scene.id !== 'agegate' && scene.id !== 'name' && (
+              <div className="chapter-pill">{chapter}</div>
             )}
+            {showArt && artKey ? <EndingArt art={artKey} /> : <PartyCast focus={scene.focus ?? 'none'} />}
             <article className={`dialogue ${scene.nsfw ? 'is-nsfw' : ''}`}>
               <div className="speaker" style={speakerColor ? { color: speakerColor } : undefined}>
                 {speakerLabel}
@@ -142,6 +156,7 @@ export default function App() {
                 {scene.ending && scene.ending !== 'reject' && (
                   <span className="ending-tag">{scene.ending.replace('_', ' ')}</span>
                 )}
+                {state.flags.haremRoute && !scene.ending && <span className="ending-tag">harem</span>}
               </div>
               <p>{text}</p>
             </article>
