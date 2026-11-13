@@ -216,15 +216,17 @@
   border: 1px solid var(--line);
   background: var(--panel);
   backdrop-filter: blur(10px);
-  padding: 0.6rem;
-  transition: transform 0.35s ease, opacity 0.35s ease, border-color 0.35s ease;
+  padding: 0.45rem;
+  transition: transform 0.35s ease, opacity 0.35s ease, border-color 0.35s ease, filter 0.35s ease;
   opacity: 0.45;
   transform: scale(0.96);
+  filter: grayscale(0.35) brightness(0.85);
 }
 
 .portrait.active {
   opacity: 1;
   transform: scale(1);
+  filter: none;
   border-color: color-mix(in srgb, var(--girl) 55%, transparent);
   animation: pulse-border 2.8s ease-in-out infinite;
 }
@@ -232,21 +234,33 @@
 .portrait.compact {
   opacity: 0.28;
   transform: scale(0.92);
+  filter: grayscale(0.55) brightness(0.7);
 }
 
 .portrait-glow {
   position: absolute;
-  inset: auto 10% 18% 10%;
+  inset: auto 8% 22% 8%;
   height: 40%;
   background: radial-gradient(circle, color-mix(in srgb, var(--girl) 35%, transparent), transparent 70%);
   filter: blur(12px);
   pointer-events: none;
+  z-index: 0;
 }
 
-.portrait-svg {
+.portrait-frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: #1a1014;
+}
+
+.portrait-photo {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .portrait-meta {

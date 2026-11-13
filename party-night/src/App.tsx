@@ -119,8 +119,8 @@ export default function App() {
             <p className="eyebrow">Single-player · NSFW · Choice-driven</p>
             <h1>After Hours</h1>
             <p className="lede">
-              Three slutty best friends. One first-of-the-year college house party. Your job is to survive the night —
-              or ruin the friend group deliciously.
+              Three slutty best friends swore never to share a man. Tonight is their first big college house party —
+              and you are the loophole. Break the pact. Get caught. Or make them rewrite the rules on their knees.
             </p>
             <div className="title-cast">
               <PartyCast focus="all" />
