@@ -55,39 +55,39 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_hub: {
     id: 'skill_hub',
     speaker: 'narrator',
-    text: 'The party has pockets of sport: a dance circle, a sticky kitchen table poker game, a rumor mill on the stairs, a hallway endurance dare. Training here makes later options real.',
+    text: 'Same party, deeper veins. Maya’s circle is still grinding. Jade’s poker table still eats secrets. Riley is still half-swallowed by hallway gossip. The plank dare still has a queue.',
     focus: 'all',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
-        text: 'Join the dance circle (Nerve / Stamina)',
+        text: 'Step into Maya’s dance circle',
         next: 'skill_dance',
         require: (s) => !s.flags.danceOff,
       },
       {
-        text: 'Sit poker with Jade watching (Insight / Discretion)',
+        text: 'Sit at Jade’s poker table',
         next: 'skill_poker',
         require: (s) => !s.flags.pokerNight,
       },
       {
-        text: 'Work the rumor mill (Charm / Insight)',
+        text: 'Pull Riley out of the rumor knot',
         next: 'skill_rumor',
         require: (s) => !s.flags.rumorMill,
       },
       {
-        text: 'Take the hallway endurance dare (Stamina / Dominance)',
+        text: 'Take the hallway plank dare',
         next: 'skill_endurance',
         require: (s) => !s.flags.enduranceTest,
       },
       {
-        text: 'Scout quietly for leverage (Insight / Discretion)',
+        text: 'Scout the house for leverage [INS 3]',
         next: 'skill_scout',
         need: { insight: 3 },
         softLock: true,
       },
       {
-        text: 'Return to the main night',
-        next: 'mid_hub',
+        text: 'Cut back to the roommates',
+        next: 'fallout_continue',
         effect: { flags: { skillTour: true, phase: 'mid' } },
       },
     ],
@@ -96,9 +96,9 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_dance: {
     id: 'skill_dance',
     speaker: 'maya',
-    text: 'Maya owns the circle. “If you can keep up, I might keep you.” The beat is nasty. Eyes are watching. This is Nerve with a Stamina tax.',
+    text: 'Maya owns the circle. “If you can keep up, I might keep you.” The beat is nasty. Eyes are watching. Keep pace or get replaced.',
     focus: 'maya',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Match her shameless [NRV 3]',
@@ -130,7 +130,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Bank the heat',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { danceOff: true }, skills: { nerve: 1 } },
       },
       {
@@ -155,7 +155,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Keep dancing like nothing happened',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: {
           affection: { maya: 2 },
           flags: { danceOff: true, caughtAlmost: true },
@@ -173,7 +173,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Swallow the L',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { danceOff: true }, skills: { stamina: 1 } },
       },
     ],
@@ -184,7 +184,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Kitchen-table poker. Jade is not playing chips — she is playing people. “Blind bets. Losers answer a question. Winners ask one.” Insight reads tells. Discretion keeps you from bleeding secrets.',
     focus: 'jade',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Read Jade’s tell and win [INS 3]',
@@ -216,7 +216,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Hold that intel',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { pokerNight: true }, skills: { insight: 1 }, affection: { jade: 1 } },
       },
       {
@@ -240,7 +240,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Smile like you meant it',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { pokerNight: true }, skills: { dominance: 1, charm: 1 } },
       },
     ],
@@ -254,7 +254,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'File the tells',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: {
           flags: { pokerNight: true, rileyConfessed: true, exBetrayal: true },
           skills: { insight: 2 },
@@ -268,7 +268,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'riley',
     text: 'Riley is trapped in a hallway gossip knot and looks at you like rescue. Charm opens mouths. Insight sorts truth from thirst.',
     focus: 'riley',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Extract her gracefully [CHM 3]',
@@ -300,7 +300,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Ask nicer later',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { rumorMill: true }, skills: { charm: 1 } },
       },
       {
@@ -321,7 +321,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Ride the chaos',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: {
           flags: { rumorMill: true, jealousyTrap: true, phoneLeak: true },
           skills: { insight: 1, nerve: 1 },
@@ -338,7 +338,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Walk her to water',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { rumorMill: true }, affection: { riley: 1 }, skills: { charm: 1 } },
       },
     ],
@@ -349,7 +349,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya’s hallway dare: hold a plank while she sits on your back and whispers filth. “Last thirty seconds and I owe you a favor. Fail and you owe Jade a kneel.” Stamina is the gate. Dominance decides whether the favor is useful.',
     focus: 'maya',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Hold the plank [STM 3]',
@@ -381,7 +381,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Bank the favor',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { flags: { enduranceTest: true }, skills: { stamina: 1 } },
       },
       {
@@ -406,7 +406,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Collect later',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: {
           flags: { enduranceTest: true, threesomeUnlocked: true },
           skills: { dominance: 1 },
@@ -423,7 +423,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Take the lesson',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: {
           flags: { enduranceTest: true },
           affection: { jade: 1 },
@@ -438,7 +438,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'narrator',
     text: 'Insight paints the house: Maya’s phone face-up with Tyler typing, Riley’s bedroom door cracked, Jade’s laptop warm in her room, a group chat poll already drafting your fate.',
     focus: 'none',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Steal a glance at the poll [DSC 3]',
@@ -456,7 +456,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
       },
       {
         text: 'Back out clean',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: { skills: { discretion: 1 } },
       },
     ],
@@ -470,7 +470,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Return wiser',
-        next: 'skill_hub',
+        next: 'party_floor',
         effect: {
           flags: { threesomeUnlocked: true, roommateRule: true },
           skills: { insight: 2 },
@@ -485,7 +485,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Jade offers a “private lesson” in the linen closet: posture, eye contact, when to speak. “Dominance without timing is just noise. Fail my drill and I keep your phone until dawn.”',
     focus: 'jade',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Take the drill [DOM 2]',
@@ -501,7 +501,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
       },
       {
         text: 'Decline',
-        next: 'mid_hub',
+        next: 'fallout_continue',
       },
     ],
   },
@@ -515,7 +515,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Accept homework',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: { affection: { jade: 2 }, skills: { dominance: 2, stamina: 1 }, flags: { markedByJade: true } },
       },
     ],
@@ -529,7 +529,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Keep her secret',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: { affection: { jade: 2 }, skills: { charm: 1, dominance: 1 }, flags: { sharedSecret: true } },
       },
     ],
@@ -540,7 +540,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'riley',
     text: 'Riley is stress-baking at 1 a.m. with party bass still thumping. “Help me or distract me. Charm gets cookies. Dominance gets me on the counter. Discretion gets both without Jade noticing.”',
     focus: 'riley',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Help bake and talk soft [CHM 2]',
@@ -574,7 +574,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Kiss flour off her cheek',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: { affection: { riley: 2 }, flags: { kissedRiley: true, sharedSecret: true }, skills: { charm: 1 } },
       },
     ],
@@ -589,7 +589,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Help her fix her clothes',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { riley: 2 },
           flags: { couchRiley: true, kitchenRiley: true, pactBroken: true },
@@ -608,7 +608,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Leave no crumbs',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { riley: 3 },
           flags: { couchRiley: true, kitchenRiley: true, sharedSecret: true, pactBroken: true },
@@ -623,7 +623,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya corners you with two shots. “Truth or slut, but skill-check edition. Nerve lets you match me. Charm lets you redirect. Insight lets you catch me lying about Tyler.”',
     focus: 'maya',
-    chapter: 'Side · Skills',
+    chapter: 'Act II · The Floor',
     choices: [
       {
         text: 'Match her shameless truth [NRV 3]',
@@ -654,7 +654,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Promise a witnessed sin',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 3 },
           flags: { watchedSecret: true, jealousyTrap: true },
@@ -672,7 +672,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Keep her smiling',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: { affection: { maya: 2 }, skills: { charm: 2 }, flags: { kissedMaya: true } },
       },
     ],
@@ -686,7 +686,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Use that leverage gently',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 2 },
           flags: { exBetrayal: true, sharedSecret: true },

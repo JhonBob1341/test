@@ -1,6 +1,7 @@
 import { EXTREME_TABOO_SCENES } from './extremeTaboo'
 import { HAREM_SCENES } from './haremRoute'
 import { SKILL_EVENT_SCENES } from './skillEvents'
+import { STORY_BRIDGE_SCENES } from './storyBridges'
 import { claimedCount, deepCount, hookedCount, type Flags, type Scene } from './types'
 
 const BASE_SCENES: Record<string, Scene> = {
@@ -168,20 +169,20 @@ const BASE_SCENES: Record<string, Scene> = {
         effect: { affection: { maya: 1 } },
       },
       {
-        text: 'Propose a harem — refuse to pick only one',
+        text: 'Refuse to pick — tell them you want the house',
         next: 'harem_pitch',
         effect: { affection: { maya: 1, riley: 1, jade: 1 }, flags: { haremRoute: true } },
       },
       {
-        text: 'Read the room before choosing [INS 3]',
+        text: 'Read their tells before choosing [INS 3]',
         next: 'insight_read',
         need: { insight: 3 },
         softLock: true,
         effect: { skills: { insight: 1 } },
       },
       {
-        text: 'Suggest a skill warm-up around the party first',
-        next: 'skill_hub',
+        text: 'Hang back and let the party pull you first',
+        next: 'party_floor',
         effect: { flags: { phase: 'mid' } },
       },
     ],
@@ -439,8 +440,13 @@ const BASE_SCENES: Record<string, Scene> = {
         effect: { affection: { maya: 2 }, flags: { exBetrayal: true, deepMaya: true } },
       },
       {
-        text: 'Beg her to keep it quiet',
-        next: 'mid_hub',
+        text: 'Ask what else she is willing to ruin tonight',
+        next: 'maya_escalate',
+        effect: { affection: { maya: 1 }, flags: { phase: 'mid' } },
+      },
+      {
+        text: 'Beg her to keep it quiet — for now',
+        next: 'fallout_continue',
         effect: { affection: { maya: 1 }, flags: { sharedSecret: true, phase: 'mid' } },
       },
     ],
@@ -463,7 +469,7 @@ const BASE_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Finish down her throat',
-        next: 'mid_hub',
+        next: 'maya_escalate',
         effect: { affection: { maya: 3 }, flags: { phase: 'mid', deepMaya: true } },
       },
       {
@@ -483,7 +489,7 @@ const BASE_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Make them kiss through Maya’s orgasm',
-        next: 'mid_hub',
+        next: 'escalate_offer',
         effect: {
           affection: { maya: 3, riley: 3 },
           flags: { phase: 'mid', girlOnGirl: true, couchRiley: true, threesomeUnlocked: true },
@@ -497,7 +503,18 @@ const BASE_SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya sends a cropped photo — your forearm, her waist, enough implication to start a war. “Oops. Pact autopsy begins now.”',
     focus: 'maya',
-    choices: [{ text: 'Face the fallout', next: 'mid_hub', effect: { flags: { phase: 'mid', toldOnFriend: true } } }],
+    choices: [
+      {
+        text: 'Face the fallout in the living room',
+        next: 'fallout_continue',
+        effect: { flags: { phase: 'mid', toldOnFriend: true } },
+      },
+      {
+        text: 'Ask Maya how much worse she wants it',
+        next: 'maya_escalate',
+        effect: { flags: { phase: 'mid', toldOnFriend: true } },
+      },
+    ],
   },
 
   // ════════════ RILEY EARLY ════════════
@@ -750,8 +767,13 @@ const BASE_SCENES: Record<string, Scene> = {
         effect: { affection: { riley: 2 }, flags: { deepRiley: true } },
       },
       {
-        text: 'Go start the war',
-        next: 'mid_hub',
+        text: 'Ask what she is scared to want next',
+        next: 'riley_escalate',
+        effect: { flags: { phase: 'mid' } },
+      },
+      {
+        text: 'Go start the war downstairs',
+        next: 'fallout_continue',
         effect: { flags: { phase: 'mid' } },
       },
     ],
@@ -763,7 +785,18 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Round two is quieter and filthier. Riley on her stomach, face in a pillow embroidered with the house name, begging you to leave marks Jade will interrogate. You do. She comes muffling your name into cotton.',
     focus: 'riley',
     nsfw: true,
-    choices: [{ text: 'Sneak back to the party', next: 'mid_hub', effect: { affection: { riley: 2 }, flags: { phase: 'mid' } } }],
+    choices: [
+      {
+        text: 'Ask what she is scared to want next',
+        next: 'riley_escalate',
+        effect: { affection: { riley: 2 }, flags: { phase: 'mid' } },
+      },
+      {
+        text: 'Sneak back into the party noise',
+        next: 'fallout_continue',
+        effect: { affection: { riley: 2 }, flags: { phase: 'mid' } },
+      },
+    ],
   },
 
   riley_to_jade: {
@@ -977,8 +1010,13 @@ const BASE_SCENES: Record<string, Scene> = {
     nsfw: true,
     choices: [
       {
-        text: 'Return to the party',
-        next: 'mid_hub',
+        text: 'Ask Jade what comes after cute treason',
+        next: 'escalate_offer',
+        effect: { flags: { phase: 'mid', threesomeUnlocked: true } },
+      },
+      {
+        text: 'Slip back into the party noise',
+        next: 'fallout_continue',
         effect: { flags: { phase: 'mid', threesomeUnlocked: true } },
       },
     ],
@@ -996,8 +1034,13 @@ const BASE_SCENES: Record<string, Scene> = {
         effect: { affection: { jade: 2 }, flags: { deepJade: true } },
       },
       {
+        text: 'Ask what escalation looks like',
+        next: 'jade_escalate',
+        effect: { flags: { phase: 'mid' } },
+      },
+      {
         text: 'Step back into the noise',
-        next: 'mid_hub',
+        next: 'fallout_continue',
         effect: { flags: { phase: 'mid' } },
       },
     ],
@@ -1012,7 +1055,7 @@ const BASE_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Accept the brand',
-        next: 'mid_hub',
+        next: 'jade_escalate',
         effect: { affection: { jade: 3 }, flags: { phase: 'mid', markedByJade: true, bodyWriting: true } },
       },
     ],
@@ -1022,94 +1065,88 @@ const BASE_SCENES: Record<string, Scene> = {
   mid_hub: {
     id: 'mid_hub',
     speaker: 'narrator',
-    text: 'The party is hotter, drunker, meaner. Secrets float like perfume. You can deepen one bond, cross another line, start a harem trial, collect oath payment, or light the whole roommate lease on fire.',
+    text: 'Midnight thickens. Maya is smoke on the balcony. Riley clatters ice in the kitchen like she is building an alibi. Jade owns the stairs. Phones light up with half-confessions. The pact is bleeding — and the house has not decided whether to bandage it or make it art.',
     focus: 'all',
     chapter: 'Act II · Fallout',
     choices: [
       {
-        text: 'Find Maya on the balcony',
+        text: 'Follow Maya’s cigarette out to the balcony',
         next: 'maya_balcony',
         require: (s) => !s.flags.balconyMaya,
       },
       {
-        text: 'Find Riley in the kitchen',
+        text: 'Find Riley stealing dessert in the kitchen',
         next: 'riley_kitchen',
         require: (s) => !s.flags.kitchenRiley,
       },
       {
-        text: 'Find Jade on the stairs',
+        text: 'Meet Jade’s stare on the stairs',
         next: 'jade_stairs',
         require: (s) => !s.flags.stairsJade,
       },
       {
-        text: 'Check the group chat fallout',
+        text: 'Open the group chat while it detonates',
         next: 'groupchat',
         require: (s) => (s.flags.phoneLeak || s.flags.toldOnFriend || s.flags.pactBroken) && !s.flags.roommateRule,
       },
       {
-        text: 'Accept a dangerous dare from all three',
+        text: 'Accept when they corner you with a house dare',
         next: 'dare_offer',
         require: (s) => !s.flags.dareSpiral && hookedCount(s.flags) >= 1,
       },
       {
-        text: 'Trigger oath payment',
+        text: 'Let Jade collect oath payment',
         next: 'oath_payment',
         require: (s) => s.flags.pactBroken && !s.flags.oathPayment,
       },
       {
-        text: 'Snoop Jade’s evidence folder',
+        text: 'Slip into Jade’s room while her laptop is warm',
         next: 'folder_snoop',
         require: (s) => s.flags.blackmailJade || s.affection.jade >= 4,
       },
       {
-        text: 'Start / continue the harem claiming trial',
+        text: 'Tell them outright you want all three',
         next: 'harem_terms',
         require: (s) => !s.flags.ceremonyDone,
         effect: { flags: { haremRoute: true, threesomeUnlocked: true } },
       },
       {
-        text: 'Negotiate “rent” with the house',
+        text: 'Ask how “rent” gets paid in this house',
         next: 'rent_negotiation',
         require: (s) => hookedCount(s.flags) >= 1,
       },
       {
-        text: 'Step onto the porch with Jade',
+        text: 'Step onto the porch when Jade says “walk with me”',
         next: 'porch_blackmail',
         require: (s) => s.affection.jade >= 3 || s.flags.blackmailJade,
       },
       {
-        text: 'Train skills around the party',
-        next: 'skill_hub',
+        text: 'Drift back through the party’s side chaos',
+        next: 'party_floor',
       },
       {
-        text: 'Private lesson with Jade [DOM 2]',
-        next: 'skill_private_lesson',
-        need: { dominance: 2 },
-        softLock: true,
-        require: (s) => s.affection.jade >= 2 || s.flags.closetJade,
+        text: 'Let Maya pull you into another game',
+        next: 'maya_escalate',
+        require: (s) => s.affection.maya >= 2 || s.flags.bathroomMaya || s.flags.danceOff,
       },
       {
-        text: 'Help Riley stress-bake [CHM 2]',
-        next: 'skill_riley_bake',
-        need: { charm: 2 },
-        softLock: true,
-        require: (s) => s.affection.riley >= 2 || s.flags.rumorMill,
+        text: 'Let Riley confess what she still wants',
+        next: 'riley_escalate',
+        require: (s) => s.affection.riley >= 2 || s.flags.couchRiley || s.flags.rumorMill,
       },
       {
-        text: 'Truth-or-slut with Maya [NRV 2]',
-        next: 'skill_maya_truth',
-        need: { nerve: 2 },
-        softLock: true,
-        require: (s) => s.affection.maya >= 2 || s.flags.danceOff,
+        text: 'Let Jade name the next escalation',
+        next: 'jade_escalate',
+        require: (s) => s.affection.jade >= 2 || s.flags.closetJade || s.flags.markedByJade,
       },
       {
-        text: 'Open the extreme taboo wing',
-        next: 'extreme_hub',
+        text: 'When Jade says cute treason is over — listen',
+        next: 'escalate_offer',
         require: (s) =>
           s.flags.pactBroken || hookedCount(s.flags) >= 1 || s.flags.threesomeUnlocked || s.flags.blackmailJade,
       },
       {
-        text: 'Push into late-night territory',
+        text: 'Follow the night upstairs before dawn',
         next: 'late_hub',
         require: (s) =>
           s.flags.balconyMaya ||
@@ -1127,7 +1164,7 @@ const BASE_SCENES: Record<string, Scene> = {
         effect: { flags: { phase: 'late' } },
       },
       {
-        text: 'Call it a night',
+        text: 'Try to leave before the house finishes you',
         next: 'ending_route',
       },
     ],
@@ -1627,52 +1664,52 @@ const BASE_SCENES: Record<string, Scene> = {
   late_hub: {
     id: 'late_hub',
     speaker: 'narrator',
-    text: 'Upstairs air is thick with perfume and bad decisions. The pact is a corpse. The lease is a joke. Dawn is coming for everyone. Choose how filthy the ending gets.',
+    text: 'Upstairs smells like perfume and decisions that will not fit in a group chat. The pact is a corpse on the carpet. Dawn is bullying the blinds. Whatever you do next becomes the version of the night they keep.',
     focus: 'all',
     chapter: 'Act III · After Hours',
     choices: [
       {
-        text: 'Enter the full harem claiming arc',
+        text: 'Start claiming them one by one for the house',
         next: 'harem_terms',
         require: (s) => !s.flags.ceremonyDone,
         effect: { flags: { haremRoute: true, threesomeUnlocked: true, phase: 'harem' } },
       },
       {
-        text: 'Resume harem joint night',
+        text: 'Pull them into the guest bed for the joint night',
         next: 'harem_joint_intro',
         require: (s) => claimedCount(s.flags) >= 3 && !s.flags.ceremonyDone,
       },
       {
-        text: 'Text all three to the bedroom',
+        text: 'Text all three the same upstairs invite',
         next: 'group_setup',
         require: (s) => s.flags.threesomeUnlocked || hookedCount(s.flags) >= 2 || s.flags.oathPayment,
       },
       {
-        text: 'Private finale with Maya',
+        text: 'Take Maya alone for a last ruin',
         next: 'finale_maya',
         require: (s) => s.affection.maya >= 6,
       },
       {
-        text: 'Private finale with Riley',
+        text: 'Take Riley alone while the house sleeps',
         next: 'finale_riley',
         require: (s) => s.affection.riley >= 6,
       },
       {
-        text: 'Private finale with Jade',
+        text: 'Take Jade alone and accept the project',
         next: 'finale_jade',
         require: (s) => s.affection.jade >= 6,
       },
       {
-        text: 'Stage a “caught” scene on purpose',
+        text: 'Leave a door unlocked on purpose',
         next: 'finale_caught_bait',
         require: (s) => s.flags.caughtAlmost || s.flags.phoneLeak,
       },
       {
-        text: 'Open the extreme taboo wing',
-        next: 'extreme_hub',
+        text: 'Let Jade escalate past games',
+        next: 'escalate_offer',
       },
       {
-        text: 'Push the corruption funeral ending',
+        text: 'Ask if the friendship is ending on camera [DOM 3]',
         next: 'xt_break_bond',
         require: (s) =>
           s.flags.corruptRiley || s.flags.freeUse || s.flags.friendshipBroken || hookedCount(s.flags) >= 2,
@@ -1680,7 +1717,7 @@ const BASE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'Try to sneak out',
+        text: 'Try to sneak out before sunrise',
         next: 'ending_route',
       },
     ],
@@ -1996,6 +2033,7 @@ export const SCENES: Record<string, Scene> = {
   ...HAREM_SCENES,
   ...SKILL_EVENT_SCENES,
   ...EXTREME_TABOO_SCENES,
+  ...STORY_BRIDGE_SCENES,
 }
 
 export function resolveEndingScene(state: {

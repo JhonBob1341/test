@@ -8,70 +8,70 @@ import type { Scene } from './types'
 export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   extreme_hub: {
     id: 'extreme_hub',
-    speaker: 'narrator',
-    text: 'Past flirtation. Past “oops.” This is the wing of the night where the house stops pretending the games are cute. Free-use contracts. Breeding dares. Collars. Blackmail timers. Corruption. Pick how far you drag them.',
+    speaker: 'jade',
+    text: 'Jade does not bother whispering. “Cute treason is finished. If you stay, we stop pretending. Contracts. Collars. Timers. Public use. Breeding dares. Riley corruption. Tyler on speaker. Say which knife you want — or walk.” Maya’s eyes shine. Riley’s hands shake and stay.',
     focus: 'all',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
-        text: 'Draft a free-use weekend contract',
+        text: 'Ask Jade to draft the free-use weekend',
         next: 'xt_freeuse',
         require: (s) => !s.flags.freeUse,
         need: { dominance: 3 },
         softLock: true,
       },
       {
-        text: 'Collar claim with Jade watching',
+        text: 'Ask about the black choker in her jewelry box',
         next: 'xt_collar',
         require: (s) => !s.flags.collarClaim,
         need: { dominance: 4 },
         softLock: true,
       },
       {
-        text: 'Breeding-risk dare with Maya',
+        text: 'Let Maya name the breeding dare',
         next: 'xt_breed',
         require: (s) => !s.flags.breedingDare,
         need: { nerve: 4, stamina: 3 },
         softLock: true,
       },
       {
-        text: 'Corrupt Riley on purpose',
+        text: 'Tell Riley you are going to finish corrupting her',
         next: 'xt_corrupt_riley',
         require: (s) => !s.flags.corruptRiley,
         need: { charm: 3, dominance: 3 },
         softLock: true,
       },
       {
-        text: 'Start a blackmail countdown',
+        text: 'Ask what happens if the draft post timer hits zero',
         next: 'xt_blackmail_timer',
-        require: (s) => !s.flags.blackmailTimer && (s.flags.blackmailJade || s.flags.phoneLeak),
+        require: (s) => !s.flags.blackmailTimer && (s.flags.blackmailJade || s.flags.phoneLeak || s.flags.closetJade),
         need: { insight: 3, dominance: 2 },
         softLock: true,
       },
       {
-        text: 'Cuckold Tyler on live Facetime',
+        text: 'Tell Maya to put Tyler on Facetime',
         next: 'xt_cuck_tyler',
         require: (s) => !s.flags.cuckoldLive && (s.flags.exBetrayal || s.affection.maya >= 4),
         need: { nerve: 5 },
         softLock: true,
       },
       {
-        text: 'Hallway free-use while guests pass',
+        text: 'Take them to the hallway while guests still roam',
         next: 'xt_hallway_use',
         require: (s) => !s.flags.publicUse,
         need: { nerve: 4, discretion: 2 },
         softLock: true,
       },
       {
-        text: 'Make them destroy the friendship on camera',
+        text: 'Ask if the friendship dies on camera tonight',
         next: 'xt_break_bond',
         require: (s) => !s.flags.friendshipBroken && hookedCountGate(s),
         need: { dominance: 4, insight: 3 },
         softLock: true,
       },
       {
-        text: 'Return to the main night',
-        next: 'mid_hub',
+        text: 'Not yet — step back into the party',
+        next: 'fallout_continue',
       },
     ],
   },
@@ -82,7 +82,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Jade opens Notes. Title: FREE-USE WEEKEND. “Consenting adults. Revocable by safeword ‘lease.’ Until then: mouth, cunt, time — house property.” Maya: “Evil. I’m in.” Riley’s hands shake. “If I sign… I’m not the good one anymore.”',
     focus: 'all',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Make all three sign',
@@ -131,7 +131,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Mark the contract satisfied',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 2, riley: 2, jade: 2 },
           flags: {
@@ -154,7 +154,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Jade produces a black choker from her jewelry box like she planned this semester. “Not fashion. Claim. You put it on one of us — or all of us in turn — and we stop pretending this is dating.”',
     focus: 'jade',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Collar Jade first',
@@ -185,7 +185,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Leave it on her',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { jade: 3 },
           flags: { collarClaim: true, markedByJade: true, closetJade: true, deepJade: true },
@@ -204,7 +204,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Call her house property',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { riley: 3, jade: 2 },
           flags: { collarClaim: true, corruptRiley: true, couchRiley: true, deepRiley: true },
@@ -223,7 +223,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Tighten it one notch',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 3 },
           flags: { collarClaim: true, exBetrayal: true, bathroomMaya: true, caughtAlmost: true, deepMaya: true },
@@ -239,7 +239,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya locks the guest room and drops her pills bottle on the nightstand unopened. “Dare. No pull-out. No condom. I want the risk. I want to feel like a ruined roommate.” She is 21, grinning, deadly serious.',
     focus: 'maya',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Take the breeding dare',
@@ -255,7 +255,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
       },
       {
         text: 'Refuse the risk — keep the heat',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: { affection: { maya: 1 }, skills: { discretion: 1 } },
       },
     ],
@@ -270,7 +270,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Hold her through the aftershock',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 3 },
           flags: { breedingDare: true, bathroomMaya: true, deepMaya: true, exBetrayal: true },
@@ -304,7 +304,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Log the clause',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 2, riley: 2, jade: 2 },
           flags: {
@@ -326,7 +326,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'riley',
     text: 'Riley knows what you came for. “If you corrupt me, I will still bake for them tomorrow. That is the worst part.” She offers her phone. “Make me send Jade something I cannot unsend.”',
     focus: 'riley',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Make her send a live video to Jade',
@@ -381,7 +381,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Add her to the extreme ledger',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { riley: 2, jade: 3 },
           flags: {
@@ -404,7 +404,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Jade sets a sixty-minute lock on a draft post: faces cropped, bodies obvious, caption “roommate ethics.” “Perform what I ask before it posts. Or we all get famous. I am curious which you fear more.”',
     focus: 'jade',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Play her game',
@@ -451,7 +451,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Jade cancels the post with one thumb. “Good pets. The draft stays in the folder forever. Motivation.” She kisses you like a receipt.',
     focus: 'jade',
-    choices: [{ text: 'Accept the leash', next: 'extreme_hub', effect: { flags: { markedByJade: true } } }],
+    choices: [{ text: 'Accept the leash', next: 'fallout_continue', effect: { flags: { markedByJade: true } } }],
   },
 
   xt_blackmail_post: {
@@ -479,7 +479,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya Facetimes Tyler with the camera aimed at her face only — at first. “Hey baby, lonely.” Then she angles lower on purpose. “Say hi to the reason I will never be exclusive.”',
     focus: 'maya',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Fuck her on camera for him',
@@ -505,7 +505,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Brand the win',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 3 },
           flags: { cuckoldLive: true, bathroomMaya: true, deepMaya: true, phoneLeak: true },
@@ -524,7 +524,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Leave him muted in the archive',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 3, jade: 1 },
           flags: { cuckoldLive: true, bathroomMaya: true, blackmailJade: true, deepMaya: true },
@@ -540,7 +540,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'narrator',
     text: 'Jade posts you all in the upstairs hallway with a rule: do not stop when people walk by. Eyes only. No names. Maya faces the wall. Riley faces the stairs. Guests pretend not to see — badly.',
     focus: 'all',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     nsfw: true,
     choices: [
       {
@@ -597,7 +597,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     choices: [
       {
         text: 'Log it and move on',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: {
           affection: { jade: 2, maya: 1, riley: 1 },
           flags: { publicUse: true, closetJade: true, threesomeUnlocked: true, caughtAlmost: true },
@@ -613,7 +613,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Jade’s worst idea yet: “Say the friendship is over on camera. Then fuck like you mean the funeral.” Maya looks thrilled. Riley looks like she might vomit and still say yes.',
     focus: 'all',
-    chapter: 'Act X · Extreme',
+    chapter: 'Act II · Escalation',
     choices: [
       {
         text: 'Make them say it',
@@ -622,7 +622,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
       },
       {
         text: 'Refuse — keep the bond twisted instead',
-        next: 'extreme_hub',
+        next: 'fallout_continue',
         effect: { affection: { riley: 1 }, skills: { charm: 1 } },
       },
     ],
