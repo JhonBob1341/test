@@ -139,6 +139,11 @@ export default function App() {
     }))
   }
 
+  function restartGame() {
+    setEntered(false)
+    setState(freshState(nameDraft.trim() || 'You'))
+  }
+
   return (
     <div
       className={`app ${entered ? 'in-game' : 'at-title'} ${scene.nsfw ? 'nsfw' : ''} ${state.flags.haremRoute ? 'harem-mode' : ''}`}
@@ -152,9 +157,14 @@ export default function App() {
       </div>
 
       {entered && scene.id !== 'title' && (
-        <button type="button" className="cheat-btn" onClick={maxStats} title="Max skills and affection">
-          CHEAT · MAX STATS
-        </button>
+        <div className="top-actions">
+          <button type="button" className="cheat-btn restart-btn" onClick={restartGame} title="Restart from title">
+            Restart
+          </button>
+          <button type="button" className="cheat-btn" onClick={maxStats} title="Max skills and affection">
+            Cheat · Max Stats
+          </button>
+        </div>
       )}
 
       <header className="topbar">

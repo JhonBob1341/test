@@ -96,11 +96,16 @@
   50% { box-shadow: 0 0 0 1px rgba(255, 77, 109, 0.55), 0 0 24px rgba(255, 77, 109, 0.15); }
 }
 
-.cheat-btn {
+.top-actions {
   position: fixed;
   top: 0.85rem;
   right: 0.85rem;
   z-index: 40;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.cheat-btn {
   appearance: none;
   border: 1px solid rgba(244, 162, 97, 0.55);
   background: rgba(12, 7, 9, 0.88);
@@ -115,12 +120,23 @@
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
+.restart-btn {
+  border-color: rgba(247, 235, 228, 0.28);
+  color: var(--ink);
+}
+
 .cheat-btn:hover,
 .cheat-btn:focus-visible {
   background: rgba(244, 162, 97, 0.16);
   border-color: var(--amber);
   color: #fff;
   outline: none;
+}
+
+.restart-btn:hover,
+.restart-btn:focus-visible {
+  background: rgba(247, 235, 228, 0.1);
+  border-color: rgba(247, 235, 228, 0.55);
 }
 
 .topbar {
@@ -130,7 +146,7 @@
   align-items: flex-end;
   justify-content: space-between;
   padding: 1.25rem 1.5rem 0.5rem;
-  padding-right: 8.5rem;
+  padding-right: 14rem;
 }
 
 .brand-mark {
