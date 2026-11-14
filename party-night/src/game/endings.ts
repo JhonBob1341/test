@@ -19,6 +19,7 @@ export const SCENE_ART: Record<SceneArtId, string> = {
   harem_morning: endingHaremMorning,
   messy: endingMessy,
   caught: endingCaught,
+  corrupt: endingCaught,
 }
 
 /** Keep old name for EndingArt */
@@ -30,4 +31,5 @@ export const ENDING_ART: Record<EndingId, string> = {
   harem: endingHarem,
   messy: endingMessy,
   caught: endingCaught,
+  corrupt: endingCaught,
 }

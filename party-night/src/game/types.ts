@@ -12,6 +12,7 @@ export type EndingId =
   | 'harem'
   | 'messy'
   | 'caught'
+  | 'corrupt'
 
 export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning'
 
@@ -61,6 +62,14 @@ export type Flags = {
   pokerNight: boolean
   rumorMill: boolean
   enduranceTest: boolean
+  freeUse: boolean
+  collarClaim: boolean
+  breedingDare: boolean
+  corruptRiley: boolean
+  blackmailTimer: boolean
+  cuckoldLive: boolean
+  publicUse: boolean
+  friendshipBroken: boolean
   phase: 'early' | 'mid' | 'late' | 'harem'
 }
 
@@ -149,6 +158,14 @@ export const INITIAL_FLAGS: Flags = {
   pokerNight: false,
   rumorMill: false,
   enduranceTest: false,
+  freeUse: false,
+  collarClaim: false,
+  breedingDare: false,
+  corruptRiley: false,
+  blackmailTimer: false,
+  cuckoldLive: false,
+  publicUse: false,
+  friendshipBroken: false,
   phase: 'early',
 }
 

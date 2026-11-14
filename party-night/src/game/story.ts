@@ -1,3 +1,4 @@
+import { EXTREME_TABOO_SCENES } from './extremeTaboo'
 import { HAREM_SCENES } from './haremRoute'
 import { SKILL_EVENT_SCENES } from './skillEvents'
 import { claimedCount, deepCount, hookedCount, type Flags, type Scene } from './types'
@@ -1102,6 +1103,12 @@ const BASE_SCENES: Record<string, Scene> = {
         require: (s) => s.affection.maya >= 2 || s.flags.danceOff,
       },
       {
+        text: 'Open the extreme taboo wing',
+        next: 'extreme_hub',
+        require: (s) =>
+          s.flags.pactBroken || hookedCount(s.flags) >= 1 || s.flags.threesomeUnlocked || s.flags.blackmailJade,
+      },
+      {
         text: 'Push into late-night territory',
         next: 'late_hub',
         require: (s) =>
@@ -1112,6 +1119,9 @@ const BASE_SCENES: Record<string, Scene> = {
           s.flags.oathPayment ||
           s.flags.haremRoute ||
           s.flags.skillTour ||
+          s.flags.freeUse ||
+          s.flags.breedingDare ||
+          s.flags.publicUse ||
           hookedCount(s.flags) >= 2 ||
           deepCount(s.flags) >= 1,
         effect: { flags: { phase: 'late' } },
@@ -1658,6 +1668,18 @@ const BASE_SCENES: Record<string, Scene> = {
         require: (s) => s.flags.caughtAlmost || s.flags.phoneLeak,
       },
       {
+        text: 'Open the extreme taboo wing',
+        next: 'extreme_hub',
+      },
+      {
+        text: 'Push the corruption funeral ending',
+        next: 'xt_break_bond',
+        require: (s) =>
+          s.flags.corruptRiley || s.flags.freeUse || s.flags.friendshipBroken || hookedCount(s.flags) >= 2,
+        need: { dominance: 3 },
+        softLock: true,
+      },
+      {
         text: 'Try to sneak out',
         next: 'ending_route',
       },
@@ -1973,6 +1995,7 @@ export const SCENES: Record<string, Scene> = {
   ...BASE_SCENES,
   ...HAREM_SCENES,
   ...SKILL_EVENT_SCENES,
+  ...EXTREME_TABOO_SCENES,
 }
 
 export function resolveEndingScene(state: {
@@ -1990,6 +2013,16 @@ export function resolveEndingScene(state: {
   const deep = deepCount(state.flags)
   const claimed = claimedCount(state.flags)
 
+  if (state.flags.friendshipBroken && (state.flags.corruptRiley || state.flags.freeUse)) {
+    return 'ending_corrupt'
+  }
+  if (
+    state.flags.breedingDare &&
+    state.flags.cuckoldLive &&
+    (state.flags.collarClaim || state.flags.freeUse)
+  ) {
+    return 'ending_corrupt'
+  }
   if (state.flags.ceremonyDone || (state.flags.haremRoute && claimed >= 3)) {
     return 'ending_harem'
   }

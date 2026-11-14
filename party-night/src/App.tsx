@@ -161,8 +161,8 @@ export default function App() {
             <p className="eyebrow">Single-player · NSFW · Skills · Longform · Harem</p>
             <h1>After Hours</h1>
             <p className="lede">
-              Pick an archetype, train Charm, Dominance, Nerve, Discretion, Stamina, and Insight, then break a roommate
-              pact — or claim the whole house.
+              Pick an archetype, train your skills, then push past soft betrayal into free-use contracts, collars,
+              breeding dares, blackmail timers, and a full harem rewrite of the lease.
             </p>
             <div className="title-cast">
               <PartyCast focus="all" />
