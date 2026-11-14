@@ -96,6 +96,33 @@
   50% { box-shadow: 0 0 0 1px rgba(255, 77, 109, 0.55), 0 0 24px rgba(255, 77, 109, 0.15); }
 }
 
+.cheat-btn {
+  position: fixed;
+  top: 0.85rem;
+  right: 0.85rem;
+  z-index: 40;
+  appearance: none;
+  border: 1px solid rgba(244, 162, 97, 0.55);
+  background: rgba(12, 7, 9, 0.88);
+  color: var(--amber);
+  font: inherit;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.75rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.cheat-btn:hover,
+.cheat-btn:focus-visible {
+  background: rgba(244, 162, 97, 0.16);
+  border-color: var(--amber);
+  color: #fff;
+  outline: none;
+}
+
 .topbar {
   display: flex;
   flex-wrap: wrap;
@@ -103,6 +130,7 @@
   align-items: flex-end;
   justify-content: space-between;
   padding: 1.25rem 1.5rem 0.5rem;
+  padding-right: 8.5rem;
 }
 
 .brand-mark {

@@ -4,7 +4,7 @@ import { PartyCast } from './components/Portrait'
 import { Meters } from './components/Meters'
 import { SkillsPanel } from './components/SkillsPanel'
 import { CHARACTERS } from './game/characters'
-import { applySkillDelta, hasSkills, skillReqLabel } from './game/skills'
+import { applySkillDelta, hasSkills, skillReqLabel, SKILL_ORDER, type Skills } from './game/skills'
 import { resolveEndingScene, SCENES } from './game/story'
 import {
   INITIAL_AFFECTION,
@@ -130,6 +130,15 @@ export default function App() {
   const showHud =
     entered && scene.id !== 'title' && scene.id !== 'agegate' && scene.id !== 'name' && scene.id !== 'archetype'
 
+  function maxStats() {
+    const skills = Object.fromEntries(SKILL_ORDER.map((id) => [id, 10])) as Skills
+    setState((prev) => ({
+      ...prev,
+      skills,
+      affection: { maya: 10, riley: 10, jade: 10 },
+    }))
+  }
+
   return (
     <div
       className={`app ${entered ? 'in-game' : 'at-title'} ${scene.nsfw ? 'nsfw' : ''} ${state.flags.haremRoute ? 'harem-mode' : ''}`}
@@ -141,6 +150,12 @@ export default function App() {
         <div className="grain" />
         <div className="light-sweep" />
       </div>
+
+      {entered && scene.id !== 'title' && (
+        <button type="button" className="cheat-btn" onClick={maxStats} title="Max skills and affection">
+          CHEAT · MAX STATS
+        </button>
+      )}
 
       <header className="topbar">
         <div className="brand">
