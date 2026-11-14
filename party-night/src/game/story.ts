@@ -1,4 +1,5 @@
 import { HAREM_SCENES } from './haremRoute'
+import { SKILL_EVENT_SCENES } from './skillEvents'
 import { claimedCount, deepCount, hookedCount, type Flags, type Scene } from './types'
 
 const BASE_SCENES: Record<string, Scene> = {
@@ -37,7 +38,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Bass bleeds through the front door of an off-campus house that smells like perfume, laundry detergent, and bad ideas. What do they call you tonight?',
     focus: 'none',
     chapter: 'Act I · Arrival',
-    choices: [{ text: 'Continue', next: 'street' }],
+    choices: [{ text: 'Continue', next: 'archetype' }],
   },
 
   street: {
@@ -170,6 +171,50 @@ const BASE_SCENES: Record<string, Scene> = {
         next: 'harem_pitch',
         effect: { affection: { maya: 1, riley: 1, jade: 1 }, flags: { haremRoute: true } },
       },
+      {
+        text: 'Read the room before choosing [INS 3]',
+        next: 'insight_read',
+        need: { insight: 3 },
+        softLock: true,
+        effect: { skills: { insight: 1 } },
+      },
+      {
+        text: 'Suggest a skill warm-up around the party first',
+        next: 'skill_hub',
+        effect: { flags: { phase: 'mid' } },
+      },
+    ],
+  },
+
+  insight_read: {
+    id: 'insight_read',
+    speaker: 'narrator',
+    text: 'Insight paints tells: Maya’s pupils blow when risk is mentioned. Riley’s throat jumps at the word “pact.” Jade catalogues everyone who laughs too loud. You know who breaks first — and who collects after.',
+    focus: 'all',
+    chapter: 'Act I · The Pact',
+    choices: [
+      {
+        text: 'Exploit Maya’s nerve first',
+        next: 'maya_dance',
+        effect: { affection: { maya: 2 }, skills: { nerve: 1 } },
+      },
+      {
+        text: 'Exploit Riley’s guilt first',
+        next: 'riley_drink',
+        effect: { affection: { riley: 2 }, skills: { charm: 1 } },
+      },
+      {
+        text: 'Exploit Jade’s need for control',
+        next: 'jade_corner',
+        effect: { affection: { jade: 2 }, skills: { dominance: 1 } },
+      },
+      {
+        text: 'Open with the harem proposal [DOM 3 · CHM 2]',
+        next: 'harem_pitch',
+        need: { dominance: 3, charm: 2 },
+        softLock: true,
+        effect: { affection: { maya: 1, riley: 1, jade: 1 }, flags: { haremRoute: true }, skills: { dominance: 1 } },
+      },
     ],
   },
 
@@ -213,6 +258,24 @@ const BASE_SCENES: Record<string, Scene> = {
         text: 'Ask her to text Tyler a lie right now',
         next: 'maya_text_tyler',
         effect: { affection: { maya: 2 }, flags: { exBetrayal: true } },
+      },
+      {
+        text: 'Out-shameless her in the circle [NRV 3]',
+        next: 'skill_dance_win',
+        need: { nerve: 3 },
+        softLock: true,
+        effect: { affection: { maya: 2 }, skills: { nerve: 1, stamina: 1 } },
+      },
+      {
+        text: 'Discreetly finger her while dancing [DSC 4 · NRV 2]',
+        next: 'maya_grind',
+        need: { discretion: 4, nerve: 2 },
+        softLock: true,
+        effect: {
+          affection: { maya: 3 },
+          skills: { discretion: 1 },
+          flags: { caughtAlmost: true },
+        },
       },
     ],
   },
@@ -504,6 +567,28 @@ const BASE_SCENES: Record<string, Scene> = {
         next: 'riley_confession',
         effect: { affection: { riley: 1, jade: 1 }, flags: { rileyConfessed: true, threesomeUnlocked: true } },
       },
+      {
+        text: 'Talk her into it soft and filthy [CHM 3]',
+        next: 'riley_bedroom',
+        need: { charm: 3 },
+        softLock: true,
+        effect: {
+          affection: { riley: 3 },
+          skills: { charm: 1 },
+          flags: { kissedRiley: true, pactBroken: true },
+        },
+      },
+      {
+        text: 'Order her to the couch [DOM 3]',
+        next: 'riley_couch',
+        need: { dominance: 3 },
+        softLock: true,
+        effect: {
+          affection: { riley: 2 },
+          skills: { dominance: 1 },
+          flags: { kissedRiley: true, pactBroken: true },
+        },
+      },
     ],
   },
 
@@ -779,6 +864,28 @@ const BASE_SCENES: Record<string, Scene> = {
         next: 'jade_nsfw_folder',
         effect: { affection: { jade: 3 }, flags: { closetJade: true, blackmailJade: true, phoneLeak: true } },
       },
+      {
+        text: 'Take control and flip the power [DOM 4 · STM 3]',
+        next: 'jade_nsfw_stand',
+        need: { dominance: 4, stamina: 3 },
+        softLock: true,
+        effect: {
+          affection: { jade: 3 },
+          skills: { dominance: 1, stamina: 1 },
+          flags: { closetJade: true, markedByJade: true },
+        },
+      },
+      {
+        text: 'Stay silent and survive longer [STM 4 · DSC 2]',
+        next: 'jade_nsfw_mouth',
+        need: { stamina: 4, discretion: 2 },
+        softLock: true,
+        effect: {
+          affection: { jade: 3 },
+          skills: { stamina: 1 },
+          flags: { closetJade: true },
+        },
+      },
     ],
   },
 
@@ -970,6 +1077,31 @@ const BASE_SCENES: Record<string, Scene> = {
         require: (s) => s.affection.jade >= 3 || s.flags.blackmailJade,
       },
       {
+        text: 'Train skills around the party',
+        next: 'skill_hub',
+      },
+      {
+        text: 'Private lesson with Jade [DOM 2]',
+        next: 'skill_private_lesson',
+        need: { dominance: 2 },
+        softLock: true,
+        require: (s) => s.affection.jade >= 2 || s.flags.closetJade,
+      },
+      {
+        text: 'Help Riley stress-bake [CHM 2]',
+        next: 'skill_riley_bake',
+        need: { charm: 2 },
+        softLock: true,
+        require: (s) => s.affection.riley >= 2 || s.flags.rumorMill,
+      },
+      {
+        text: 'Truth-or-slut with Maya [NRV 2]',
+        next: 'skill_maya_truth',
+        need: { nerve: 2 },
+        softLock: true,
+        require: (s) => s.affection.maya >= 2 || s.flags.danceOff,
+      },
+      {
         text: 'Push into late-night territory',
         next: 'late_hub',
         require: (s) =>
@@ -979,6 +1111,7 @@ const BASE_SCENES: Record<string, Scene> = {
           s.flags.dareSpiral ||
           s.flags.oathPayment ||
           s.flags.haremRoute ||
+          s.flags.skillTour ||
           hookedCount(s.flags) >= 2 ||
           deepCount(s.flags) >= 1,
         effect: { flags: { phase: 'late' } },
@@ -1839,6 +1972,7 @@ const BASE_SCENES: Record<string, Scene> = {
 export const SCENES: Record<string, Scene> = {
   ...BASE_SCENES,
   ...HAREM_SCENES,
+  ...SKILL_EVENT_SCENES,
 }
 
 export function resolveEndingScene(state: {

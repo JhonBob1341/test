@@ -2,11 +2,14 @@ import { useMemo, useState } from 'react'
 import { EndingArt } from './components/EndingArt'
 import { PartyCast } from './components/Portrait'
 import { Meters } from './components/Meters'
+import { SkillsPanel } from './components/SkillsPanel'
 import { CHARACTERS } from './game/characters'
+import { applySkillDelta, hasSkills, skillReqLabel } from './game/skills'
 import { resolveEndingScene, SCENES } from './game/story'
 import {
   INITIAL_AFFECTION,
   INITIAL_FLAGS,
+  INITIAL_SKILLS,
   type Affection,
   type Choice,
   type Flags,
@@ -18,6 +21,8 @@ import './App.css'
 function applyChoice(state: GameState, choice: Choice): GameState {
   const affection: Affection = { ...state.affection }
   const flags: Flags = { ...state.flags }
+  let skills = { ...state.skills }
+
   if (choice.effect?.affection) {
     for (const [k, v] of Object.entries(choice.effect.affection)) {
       const key = k as keyof Affection
@@ -25,10 +30,13 @@ function applyChoice(state: GameState, choice: Choice): GameState {
     }
   }
   if (choice.effect?.flags) Object.assign(flags, choice.effect.flags)
+  if (choice.effect?.skills) skills = applySkillDelta(skills, choice.effect.skills)
+
   return {
     ...state,
     affection,
     flags,
+    skills,
     sceneId: choice.next,
     history: [...state.history, state.sceneId],
   }
@@ -38,6 +46,7 @@ function freshState(name = 'You'): GameState {
   return {
     sceneId: 'title',
     affection: { ...INITIAL_AFFECTION },
+    skills: { ...INITIAL_SKILLS },
     flags: { ...INITIAL_FLAGS, playerName: name },
     history: [],
   }
@@ -60,18 +69,27 @@ export default function App() {
 
   const visibleChoices = useMemo(() => {
     const choices = scene.choices ?? []
-    return choices.filter((c) => !c.require || c.require(state))
+    return choices.filter((c) => {
+      if (c.require && !c.require(state)) return false
+      if (c.need && !hasSkills(state.skills, c.need) && !c.softLock) return false
+      return true
+    })
   }, [scene, state])
 
   function go(choice: Choice) {
+    if (choice.need && !hasSkills(state.skills, choice.need)) return
+
     let next = applyChoice(state, choice)
 
-    if (choice.next === 'street') {
+    if (choice.next === 'archetype' || choice.next === 'street') {
       next = {
         ...next,
         flags: { ...next.flags, playerName: nameDraft.trim() || 'You' },
       }
     }
+
+    // Archetype choices add to base 1s already in INITIAL; values in effect are bonuses.
+    // Already applied via applySkillDelta.
 
     if (choice.next === 'ending_resolve' || next.sceneId === 'ending_resolve') {
       const endingId = resolveEndingScene(next)
@@ -109,9 +127,13 @@ export default function App() {
 
   const showArt = Boolean(artKey)
   const chapter = chapterFor(state, scene.chapter)
+  const showHud =
+    entered && scene.id !== 'title' && scene.id !== 'agegate' && scene.id !== 'name' && scene.id !== 'archetype'
 
   return (
-    <div className={`app ${entered ? 'in-game' : 'at-title'} ${scene.nsfw ? 'nsfw' : ''} ${state.flags.haremRoute ? 'harem-mode' : ''}`}>
+    <div
+      className={`app ${entered ? 'in-game' : 'at-title'} ${scene.nsfw ? 'nsfw' : ''} ${state.flags.haremRoute ? 'harem-mode' : ''}`}
+    >
       <div className="atmosphere" aria-hidden>
         <div className="blob blob-a" />
         <div className="blob blob-b" />
@@ -123,21 +145,24 @@ export default function App() {
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark">AFTER HOURS</span>
-          <span className="brand-sub">taboo roommate dating · harem route · 21+</span>
+          <span className="brand-sub">skills · taboo roommates · harem · 21+</span>
         </div>
-        {entered && scene.id !== 'title' && scene.id !== 'agegate' && scene.id !== 'name' && (
-          <Meters affection={state.affection} />
+        {showHud && (
+          <div className="hud">
+            <Meters affection={state.affection} />
+            <SkillsPanel skills={state.skills} />
+          </div>
         )}
       </header>
 
       <main className="stage">
         {scene.id === 'title' ? (
           <section className="title-hero">
-            <p className="eyebrow">Single-player · NSFW · Longform · Harem route</p>
+            <p className="eyebrow">Single-player · NSFW · Skills · Longform · Harem</p>
             <h1>After Hours</h1>
             <p className="lede">
-              Three slutty roommates swore never to share a man — with oath payment if anyone breaks it. Cheat on a
-              situationship. Get watched. Collect the house. Or open the full harem arc and rewrite the lease.
+              Pick an archetype, train Charm, Dominance, Nerve, Discretion, Stamina, and Insight, then break a roommate
+              pact — or claim the whole house.
             </p>
             <div className="title-cast">
               <PartyCast focus="all" />
@@ -177,11 +202,22 @@ export default function App() {
             </label>
           )}
 
-          {visibleChoices.map((choice) => (
-            <button key={choice.text + choice.next} type="button" className="choice" onClick={() => go(choice)}>
-              {choice.text}
-            </button>
-          ))}
+          {visibleChoices.map((choice) => {
+            const locked = Boolean(choice.need && !hasSkills(state.skills, choice.need))
+            const req = skillReqLabel(choice.need)
+            return (
+              <button
+                key={choice.text + choice.next}
+                type="button"
+                className={`choice ${locked ? 'locked' : ''}`}
+                disabled={locked}
+                onClick={() => go(choice)}
+              >
+                <span>{choice.text}</span>
+                {req && <span className="choice-req">{locked ? `Need ${req}` : req}</span>}
+              </button>
+            )
+          })}
         </section>
       </main>
 

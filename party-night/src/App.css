@@ -120,10 +120,45 @@
   letter-spacing: 0.04em;
 }
 
+.hud {
+  display: grid;
+  gap: 0.75rem;
+  min-width: min(360px, 100%);
+}
+
 .meters {
   display: grid;
   gap: 0.45rem;
-  min-width: min(320px, 100%);
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.35rem 0.55rem;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.1rem;
+}
+
+.skill-track {
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--skill), #fff3);
+  transition: width 0.45s ease;
 }
 
 .meter-label {
@@ -364,7 +399,24 @@
   text-align: left;
   padding: 0.95rem 1.05rem;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
   transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.choice-req {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--amber);
+  opacity: 0.85;
+}
+
+.choice.locked {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .choice:hover,
@@ -373,6 +425,13 @@
   border-color: rgba(255, 77, 109, 0.55);
   transform: translateX(4px);
   outline: none;
+}
+
+.choice.locked:hover,
+.choice.locked:focus-visible {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--line);
+  transform: none;
 }
 
 .fineprint {

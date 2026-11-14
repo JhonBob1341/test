@@ -1,3 +1,5 @@
+import { INITIAL_SKILLS, type Skills } from './skills'
+
 export type GirlId = 'maya' | 'riley' | 'jade'
 
 export type Affection = Record<GirlId, number>
@@ -15,6 +17,7 @@ export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning'
 
 export type Flags = {
   playerName: string
+  archetype: string
   kissedMaya: boolean
   kissedRiley: boolean
   kissedJade: boolean
@@ -53,18 +56,25 @@ export type Flags = {
   claimedJade: boolean
   haremRules: boolean
   ceremonyDone: boolean
+  skillTour: boolean
+  danceOff: boolean
+  pokerNight: boolean
+  rumorMill: boolean
+  enduranceTest: boolean
   phase: 'early' | 'mid' | 'late' | 'harem'
 }
 
 export type GameState = {
   sceneId: string
   affection: Affection
+  skills: Skills
   flags: Flags
   history: string[]
 }
 
 export type Effect = {
   affection?: Partial<Affection>
+  skills?: Partial<Skills>
   flags?: Partial<Omit<Flags, 'playerName'> & { playerName?: string }>
 }
 
@@ -72,6 +82,10 @@ export type Choice = {
   text: string
   next: string
   effect?: Effect
+  /** Minimum skills required to see/use this choice */
+  need?: Partial<Skills>
+  /** Soft gate: show locked button with requirement */
+  softLock?: boolean
   require?: (state: GameState) => boolean
 }
 
@@ -91,6 +105,7 @@ export type Scene = {
 
 export const INITIAL_FLAGS: Flags = {
   playerName: 'You',
+  archetype: '',
   kissedMaya: false,
   kissedRiley: false,
   kissedJade: false,
@@ -129,6 +144,11 @@ export const INITIAL_FLAGS: Flags = {
   claimedJade: false,
   haremRules: false,
   ceremonyDone: false,
+  skillTour: false,
+  danceOff: false,
+  pokerNight: false,
+  rumorMill: false,
+  enduranceTest: false,
   phase: 'early',
 }
 
@@ -137,6 +157,8 @@ export const INITIAL_AFFECTION: Affection = {
   riley: 0,
   jade: 0,
 }
+
+export { INITIAL_SKILLS }
 
 export function hookedCount(flags: Flags): number {
   return [flags.bathroomMaya, flags.couchRiley, flags.closetJade].filter(Boolean).length
