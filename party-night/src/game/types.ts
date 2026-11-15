@@ -124,14 +124,17 @@ export type Flags = {
   mayaFacesit: boolean
   mayaSpit: boolean
   mayaMirror: boolean
+  mayaCnc: boolean
   rileyPraise: boolean
   rileyPet: boolean
   rileyOverstim: boolean
   rileyDegrade: boolean
+  rileyCnc: boolean
   jadeFemdom: boolean
   jadeService: boolean
   jadeSensory: boolean
   jadeDenial: boolean
+  jadeCnc: boolean
   phase: 'early' | 'mid' | 'late' | 'harem'
 }
 
@@ -237,14 +240,17 @@ export const INITIAL_FLAGS: Flags = {
   mayaFacesit: false,
   mayaSpit: false,
   mayaMirror: false,
+  mayaCnc: false,
   rileyPraise: false,
   rileyPet: false,
   rileyOverstim: false,
   rileyDegrade: false,
+  rileyCnc: false,
   jadeFemdom: false,
   jadeService: false,
   jadeSensory: false,
   jadeDenial: false,
+  jadeCnc: false,
   phase: 'early',
 }
 

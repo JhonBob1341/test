@@ -141,13 +141,13 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
       },
       {
         text: 'CNC laundry ambush script [DOM 6]',
-        next: 'xt_cnc_maya',
+        next: 'kink_maya_cnc',
         need: { dominance: 6, nerve: 5 },
         softLock: true,
-        require: (s) => !s.flags.cncPlay,
+        require: (s) => !s.flags.mayaCnc,
       },
       {
-        text: 'Open Maya’s kink menu (4 kinks)',
+        text: 'Open Maya’s kink menu (5 kinks)',
         next: 'kink_maya_hub',
       },
       {
@@ -204,7 +204,14 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.bdsmSession,
       },
       {
-        text: 'Open Riley’s kink menu (4 kinks)',
+        text: 'CNC hallway ambush script [DOM 5]',
+        next: 'kink_riley_cnc',
+        need: { dominance: 5, charm: 3 },
+        softLock: true,
+        require: (s) => !s.flags.rileyCnc,
+      },
+      {
+        text: 'Open Riley’s kink menu (5 kinks)',
         next: 'kink_riley_hub',
       },
       {
@@ -263,13 +270,13 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
       },
       {
         text: 'Negotiate CNC with her as the scene partner [DOM 6]',
-        next: 'xt_cnc',
+        next: 'kink_jade_cnc',
         need: { dominance: 6, nerve: 5 },
         softLock: true,
-        require: (s) => !s.flags.cncPlay,
+        require: (s) => !s.flags.jadeCnc,
       },
       {
-        text: 'Open Lola’s submissive kink menu',
+        text: 'Open Lola’s submissive kink menu (5 kinks)',
         next: 'kink_jade_hub',
       },
       {

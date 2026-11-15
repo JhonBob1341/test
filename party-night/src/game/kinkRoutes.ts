@@ -1,17 +1,17 @@
 import type { Scene } from './types'
 
 /**
- * Four signature kinks per roommate (all 21+, negotiated, safeword: lease).
- * Maya: exhibition, facesitting, spit/sloppy, mirror-cheating
- * Riley: praise, pet play, overstim, soft degradation
- * Lola: kneel, beg, blindfold, being edged (submissive)
+ * Five signature kinks per roommate (all 21+, negotiated, safeword: lease).
+ * Maya: exhibition, facesitting, spit/sloppy, mirror-cheating, CNC laundry ambush
+ * Riley: praise, pet play, overstim, soft degradation, CNC hallway ambush
+ * Lola: kneel, beg, blindfold, edged, CNC “planned to be taken” (submissive)
  */
 export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   // —— MAYA KINK HUB ——
   kink_maya_hub: {
     id: 'kink_maya_hub',
     speaker: 'maya',
-    text: 'Maya ticks options on her fingers like a drink order. “Four of mine, if you can keep up: exhibition — people almost seeing. Facesitting until you tap. Spit and sloppy. Mirror — make me watch myself cheat. Safeword lease. Pick.”',
+    text: 'Maya ticks options on her fingers like a drink order. “Five of mine, if you can keep up: exhibition — people almost seeing. Facesitting until you tap. Spit and sloppy. Mirror — make me watch myself cheat. And CNC — laundry ambush script, we negotiate first. Safeword lease. Pick.”',
     focus: 'maya',
     chapter: 'Act II · Kinks',
     choices: [
@@ -37,6 +37,13 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         next: 'kink_maya_mirror',
         require: (s) => !s.flags.mayaMirror,
         need: { nerve: 3 },
+        softLock: true,
+      },
+      {
+        text: 'CNC — laundry ambush script [DOM 5]',
+        next: 'kink_maya_cnc',
+        require: (s) => !s.flags.mayaCnc,
+        need: { dominance: 5, nerve: 4 },
         softLock: true,
       },
       { text: 'Back to escalating with Maya', next: 'maya_escalate' },
@@ -124,11 +131,65 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
     ],
   },
 
+  kink_maya_cnc: {
+    id: 'kink_maya_cnc',
+    speaker: 'maya',
+    text: 'Maya sits on the dryer and goes deadly clear. “CNC. Caught-in-laundry script. I fight, I swear, I say no. You pin me anyway. Lease ends it instantly — two taps if my mouth is busy. Aftercare on this exact dryer. If you freeze when I safeword, we never do this again. Ready?”',
+    focus: 'maya',
+    chapter: 'Act II · Kinks',
+    choices: [
+      {
+        text: 'Confirm the script and start the ambush',
+        next: 'kink_maya_cnc_play',
+        effect: { affection: { maya: 1 }, skills: { dominance: 1 } },
+      },
+      { text: 'Back out — not tonight', next: 'kink_maya_hub' },
+    ],
+  },
+
+  kink_maya_cnc_play: {
+    id: 'kink_maya_cnc_play',
+    speaker: 'maya',
+    text: 'Ten minutes later she ‘accidentally’ finds you in laundry and the script flips — shove, pinned wrists, her protests filthy and half-real against the machines. She thrashes, comes thrashing, then taps twice on purpose just to test you. You stop cold. She laughs wetly, eyes bright. “Good. Now finish me for real — still green.”',
+    focus: 'maya',
+    nsfw: true,
+    art: 'sex_maya_laundry',
+    choices: [
+      {
+        text: 'Finish her, then dryer aftercare',
+        next: 'kink_maya_cnc_after',
+        effect: {
+          affection: { maya: 3 },
+          flags: {
+            mayaCnc: true,
+            cncPlay: true,
+            bathroomMaya: true,
+            laundryMaya: true,
+            deepMaya: true,
+          },
+          skills: { dominance: 1, nerve: 1 },
+        },
+      },
+    ],
+  },
+
+  kink_maya_cnc_after: {
+    id: 'kink_maya_cnc_after',
+    speaker: 'maya',
+    text: 'Maya drinks water on the dryer with her legs hooked around yours. “Checklist: breathing fine, wrists fine, head fine. That was hot because you stopped when I tested you.” She bumps her forehead to yours. “Rematch next weekend. Same rules.”',
+    focus: 'maya',
+    art: 'sex_maya_after',
+    choices: [
+      { text: 'Back to Maya’s kinks', next: 'kink_maya_hub' },
+      { text: 'Back into the party', next: 'mid_hub' },
+    ],
+  },
+
   // —— RILEY KINK HUB ——
   kink_riley_hub: {
     id: 'kink_riley_hub',
     speaker: 'riley',
-    text: 'Riley’s list is quieter and somehow filthier. “Praise — call me good while I am bad. Pet stuff — collar voice, not forever. Overstim — make me come until I cry. Soft degradation — mean words, then cuddles. Safeword lease. Please do not laugh.”',
+    text: 'Riley’s list is quieter and somehow filthier. “Praise — call me good while I am bad. Pet stuff — collar voice, not forever. Overstim — make me come until I cry. Soft degradation — mean words, then cuddles. And… CNC. Hallway ambush. With a script. Safeword lease. Please do not laugh.”',
     focus: 'riley',
     chapter: 'Act II · Kinks',
     choices: [
@@ -156,6 +217,13 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         next: 'kink_riley_degrade',
         require: (s) => !s.flags.rileyDegrade,
         need: { dominance: 3 },
+        softLock: true,
+      },
+      {
+        text: 'CNC — hallway ambush script [DOM 5]',
+        next: 'kink_riley_cnc',
+        require: (s) => !s.flags.rileyCnc,
+        need: { dominance: 5, charm: 3 },
         softLock: true,
       },
       { text: 'Back to escalating with Riley', next: 'riley_escalate' },
@@ -243,11 +311,65 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
     ],
   },
 
+  kink_riley_cnc: {
+    id: 'kink_riley_cnc',
+    speaker: 'riley',
+    text: 'Riley shows you her phone twice — limits typed neat. “Hallway ambush. Soft noes. Mean voice. Lease stops everything. Lola can watch from a cracked door as safety if you want. Aftercare is blanket and checking I am okay. I am scared and I still want it.”',
+    focus: 'riley',
+    chapter: 'Act II · Kinks',
+    choices: [
+      {
+        text: 'Agree to the script and wait in the hall',
+        next: 'kink_riley_cnc_play',
+        effect: { affection: { riley: 1 }, skills: { dominance: 1 } },
+      },
+      { text: 'Back out — not tonight', next: 'kink_riley_hub' },
+    ],
+  },
+
+  kink_riley_cnc_play: {
+    id: 'kink_riley_cnc_play',
+    speaker: 'riley',
+    text: 'She plays startled perfect — soft noes, shaking, clinging as you pin her against the hallway wall. Mid-scene she whispers lease; you freeze. She kisses you shaking and breathes, “Green again. Keep going.” She comes crying into your shoulder while Lola’s door stays cracked, silent safety.',
+    focus: 'riley',
+    nsfw: true,
+    art: 'sex_group_hallway',
+    choices: [
+      {
+        text: 'Wrap her in a blanket and check in',
+        next: 'kink_riley_cnc_after',
+        effect: {
+          affection: { riley: 3, jade: 1 },
+          flags: {
+            rileyCnc: true,
+            cncPlay: true,
+            couchRiley: true,
+            deepRiley: true,
+            corruptRiley: true,
+          },
+          skills: { dominance: 1, charm: 1 },
+        },
+      },
+    ],
+  },
+
+  kink_riley_cnc_after: {
+    id: 'kink_riley_cnc_after',
+    speaker: 'riley',
+    text: 'Under a throw blanket Riley counts breaths with you. “Scary. Safe. Both.” She hides her face in your chest. “Thank you for stopping when I said it. Thank you for starting again when I asked.” Lola leaves water and vanishes without commenting.',
+    focus: 'riley',
+    art: 'sex_riley_bed',
+    choices: [
+      { text: 'Back to Riley’s kinks', next: 'kink_riley_hub' },
+      { text: 'Back into the party', next: 'mid_hub' },
+    ],
+  },
+
   // —— LOLA KINK HUB (submissive) ——
   kink_jade_hub: {
     id: 'kink_jade_hub',
     speaker: 'jade',
-    text: 'Lola’s voice goes tiny. “Four things I… want. Kneeling until my knees hurt. Begging out loud. Blindfold so I cannot brace. Being edged until I cry. Safeword lease. Please pick. Please do not make me pick.”',
+    text: 'Lola’s voice goes tiny. “Five things I… want. Kneeling until my knees hurt. Begging out loud. Blindfold so I cannot brace. Being edged until I cry. And CNC — please take me like I planned to be taken. Safeword lease. Please pick. Please do not make me pick.”',
     focus: 'jade',
     chapter: 'Act II · Kinks',
     choices: [
@@ -275,6 +397,13 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         next: 'kink_jade_denial',
         require: (s) => !s.flags.jadeDenial,
         need: { dominance: 4, stamina: 3 },
+        softLock: true,
+      },
+      {
+        text: 'CNC — planned to be taken [DOM 6]',
+        next: 'kink_jade_cnc',
+        require: (s) => !s.flags.jadeCnc,
+        need: { dominance: 6, nerve: 4 },
         softLock: true,
       },
       { text: 'Back to escalating with Lola', next: 'jade_escalate' },
@@ -359,6 +488,60 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
           skills: { dominance: 2 },
         },
       },
+    ],
+  },
+
+  kink_jade_cnc: {
+    id: 'kink_jade_cnc',
+    speaker: 'jade',
+    text: 'Lola scripts her CNC soft and scared on purpose, eyes on the floor. “I will fight a little. I will say no. Lease stops everything. Two taps if I cannot speak. Aftercare means you hold me and say I was brave — and that I am still good. Please… decide for me.”',
+    focus: 'jade',
+    chapter: 'Act II · Kinks',
+    choices: [
+      {
+        text: 'Take the script and claim her',
+        next: 'kink_jade_cnc_play',
+        effect: { affection: { jade: 1 }, skills: { dominance: 1 } },
+      },
+      { text: 'Back out — not tonight', next: 'kink_jade_hub' },
+    ],
+  },
+
+  kink_jade_cnc_play: {
+    id: 'kink_jade_cnc_play',
+    speaker: 'jade',
+    text: 'In-scene Lola trembles through the struggle-play — soft resistance, whispered noes, then melting when you pin her. She comes crying, then drops character straight into your chest, shaking. “Water. Then praise. Then tell me I am still good. Please.”',
+    focus: 'jade',
+    nsfw: true,
+    art: 'sex_jade_pin',
+    choices: [
+      {
+        text: 'Hold her and debrief gently',
+        next: 'kink_jade_cnc_after',
+        effect: {
+          affection: { jade: 3 },
+          flags: {
+            jadeCnc: true,
+            cncPlay: true,
+            closetJade: true,
+            deepJade: true,
+            markedByJade: true,
+          },
+          skills: { dominance: 2, insight: 1 },
+        },
+      },
+    ],
+  },
+
+  kink_jade_cnc_after: {
+    id: 'kink_jade_cnc_after',
+    speaker: 'jade',
+    text: 'You run Lola’s checklist with her: breathing, hydration, “was anything actually bad.” She nods through each answer, then whispers, “I liked being taken because I asked first. Consent theater is still consent. Keep me on that side of the curtain.”',
+    focus: 'jade',
+    art: 'sex_jade_closet',
+    choices: [
+      { text: 'Back to Lola’s kinks', next: 'kink_jade_hub' },
+      { text: 'Back into the party', next: 'mid_hub' },
     ],
   },
 }

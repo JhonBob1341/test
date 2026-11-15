@@ -101,7 +101,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
       {
         text: 'Negotiate a CNC rape-play scene [DOM 6 · NRV 5]',
         next: 'xt_cnc',
-        require: (s) => !s.flags.cncPlay,
+        require: (s) => !(s.flags.mayaCnc && s.flags.rileyCnc && s.flags.jadeCnc),
         need: { dominance: 6, nerve: 5 },
         softLock: true,
       },
@@ -1144,16 +1144,19 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
       {
         text: 'Script Maya’s “caught in laundry” CNC',
         next: 'xt_cnc_maya',
+        require: (s) => !s.flags.mayaCnc,
         effect: { affection: { maya: 2 } },
       },
       {
         text: 'Script Riley’s “hallway ambush” CNC',
         next: 'xt_cnc_riley',
+        require: (s) => !s.flags.rileyCnc,
         effect: { affection: { riley: 2 } },
       },
       {
         text: 'Script Lola’s “she planned to be taken” CNC',
         next: 'xt_cnc_jade',
+        require: (s) => !s.flags.jadeCnc,
         need: { dominance: 7 },
         softLock: true,
         effect: { affection: { jade: 2 } },
@@ -1161,6 +1164,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
       {
         text: 'Run a house CNC night with all three opted in [STM 6]',
         next: 'xt_cnc_house',
+        require: (s) => !(s.flags.mayaCnc && s.flags.rileyCnc && s.flags.jadeCnc),
         need: { stamina: 6, dominance: 6, nerve: 5 },
         softLock: true,
       },
@@ -1173,14 +1177,20 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Pre-scene, Maya is crystal clear: “I will fight and swear. Lease stops everything. Aftercare on the dryer. Go.” Ten minutes later she ‘accidentally’ finds you in laundry and the script flips — shove, pinned wrists, her protests filthy and half-real. She comes thrashing, then taps twice on purpose just to test you stop. You stop. She laughs wetly. “Good. Now finish me for real.”',
     focus: 'maya',
     nsfw: true,
-    art: 'sex_cnc',
+    art: 'sex_maya_laundry',
     choices: [
       {
         text: 'Finish with aftercare as promised',
         next: 'xt_cnc_after',
         effect: {
           affection: { maya: 3 },
-          flags: { cncPlay: true, bathroomMaya: true, laundryMaya: true, deepMaya: true },
+          flags: {
+            mayaCnc: true,
+            cncPlay: true,
+            bathroomMaya: true,
+            laundryMaya: true,
+            deepMaya: true,
+          },
           skills: { dominance: 1, nerve: 1 },
         },
       },
@@ -1193,14 +1203,20 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley writes her limits on her phone and shows you twice. “Please do the mean voice. Please stop if I say lease.” In the hallway she plays startled perfect — soft noes, shaking, clinging. Lola watches from a cracked door as safety. When Riley safewords mid-scene you freeze; she kisses you shaking and whispers, “Green again. Keep going.” She comes crying into your shoulder.',
     focus: 'riley',
     nsfw: true,
-    art: 'sex_cnc',
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Wrap her in a blanket and check in',
         next: 'xt_cnc_after',
         effect: {
           affection: { riley: 3, jade: 1 },
-          flags: { cncPlay: true, couchRiley: true, deepRiley: true, corruptRiley: true },
+          flags: {
+            rileyCnc: true,
+            cncPlay: true,
+            couchRiley: true,
+            deepRiley: true,
+            corruptRiley: true,
+          },
           skills: { dominance: 1, charm: 1 },
         },
       },
@@ -1213,14 +1229,20 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Lola scripts her CNC soft and scared on purpose: “I will fight a little. I will say no. Lease stops everything. Aftercare means you hold me and say I was brave.” In-scene she trembles through the struggle-play, comes crying, then drops character into your chest: “Water. Then praise. Then tell me I am still good.”',
     focus: 'jade',
     nsfw: true,
-    art: 'sex_cnc',
+    art: 'sex_jade_pin',
     choices: [
       {
         text: 'Hold her and debrief gently',
         next: 'xt_cnc_after',
         effect: {
           affection: { jade: 3 },
-          flags: { cncPlay: true, closetJade: true, deepJade: true, markedByJade: true },
+          flags: {
+            jadeCnc: true,
+            cncPlay: true,
+            closetJade: true,
+            deepJade: true,
+            markedByJade: true,
+          },
           skills: { dominance: 2, insight: 1 },
         },
       },
@@ -1242,6 +1264,9 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
           affection: { maya: 3, riley: 3, jade: 3 },
           flags: {
             cncPlay: true,
+            mayaCnc: true,
+            rileyCnc: true,
+            jadeCnc: true,
             bathroomMaya: true,
             couchRiley: true,
             closetJade: true,
