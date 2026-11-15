@@ -98,7 +98,13 @@ export default function App() {
 
     let next = applyChoice(state, choice)
 
-    if (choice.next === 'archetype' || choice.next === 'street') {
+    if (
+      choice.next === 'archetype' ||
+      choice.next === 'street' ||
+      choice.next === 'skip_intro' ||
+      choice.next === 'early_cnc_hub' ||
+      choice.next === 'pact_threat'
+    ) {
       next = {
         ...next,
         flags: { ...next.flags, playerName: nameDraft.trim() || 'You' },
@@ -120,7 +126,68 @@ export default function App() {
     }
 
     setState(next)
-    if (scene.id === 'title' || scene.id === 'agegate') setEntered(true)
+    if (
+      scene.id === 'title' ||
+      scene.id === 'agegate' ||
+      scene.id === 'agegate_skip' ||
+      scene.id === 'skip_intro'
+    ) {
+      setEntered(true)
+    }
+  }
+
+  const introScenes = new Set([
+    'title',
+    'agegate',
+    'agegate_skip',
+    'name',
+    'archetype',
+    'street',
+    'porch',
+    'side_gate',
+    'arrive',
+    'meet_maya',
+    'meet_riley',
+    'meet_jade',
+    'house_rules',
+    'pact_payment',
+    'pact_history',
+  ])
+
+  function skipIntro() {
+    const playerName = nameDraft.trim() || 'You'
+    if (scene.id === 'title') {
+      setState((prev) => ({ ...prev, sceneId: 'agegate_skip', history: [...prev.history, prev.sceneId] }))
+      return
+    }
+    if (scene.id === 'agegate' || scene.id === 'agegate_skip') {
+      setEntered(true)
+      setState((prev) => ({
+        ...prev,
+        sceneId: 'skip_intro',
+        flags: { ...prev.flags, playerName },
+        history: [...prev.history, prev.sceneId],
+      }))
+      return
+    }
+    setEntered(true)
+    setState((prev) => ({
+      ...prev,
+      sceneId: 'early_cnc_hub',
+      flags: {
+        ...prev.flags,
+        playerName,
+        oathPayment: true,
+        archetype: prev.flags.archetype || 'handler',
+      },
+      skills: {
+        ...prev.skills,
+        dominance: Math.max(prev.skills.dominance, 4),
+        nerve: Math.max(prev.skills.nerve, 3),
+        stamina: Math.max(prev.skills.stamina, 3),
+      },
+      history: [...prev.history, prev.sceneId],
+    }))
   }
 
   const text = scene.text.replace(/\bYou\b/g, state.flags.playerName === 'You' ? 'You' : state.flags.playerName)
@@ -145,7 +212,13 @@ export default function App() {
   const showArt = Boolean(artKey)
   const chapter = chapterFor(state, scene.chapter)
   const showHud =
-    entered && scene.id !== 'title' && scene.id !== 'agegate' && scene.id !== 'name' && scene.id !== 'archetype'
+    entered &&
+    scene.id !== 'title' &&
+    scene.id !== 'agegate' &&
+    scene.id !== 'agegate_skip' &&
+    scene.id !== 'name' &&
+    scene.id !== 'archetype' &&
+    scene.id !== 'skip_intro'
 
   function maxStats() {
     const skills = Object.fromEntries(SKILL_ORDER.map((id) => [id, 10])) as Skills
@@ -180,6 +253,11 @@ export default function App() {
           <span className="brand-mark">AFTER HOURS</span>
           <span className="brand-sub">skills · taboo roommates · harem · 21+</span>
         </div>
+        {introScenes.has(scene.id) && (
+          <button type="button" className="skip-intro-btn" onClick={skipIntro}>
+            Skip intro
+          </button>
+        )}
       </header>
 
       <main className="stage">
@@ -228,7 +306,7 @@ export default function App() {
         )}
 
         <section className="choices">
-          {scene.id === 'name' && (
+          {(scene.id === 'name' || scene.id === 'skip_intro') && (
             <label className="name-field">
               <span>Your name</span>
               <input

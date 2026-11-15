@@ -13,6 +13,7 @@ export const GIRL_KINKS: Record<GirlId, GirlKink[]> = {
     { id: 'spit', label: 'spit', flag: 'mayaSpit' },
     { id: 'mirror', label: 'mirror', flag: 'mayaMirror' },
     { id: 'cnc', label: 'cnc', flag: 'mayaCnc' },
+    { id: 'rough', label: 'rough', flag: 'mayaCncRough' },
   ],
   riley: [
     { id: 'praise', label: 'praise', flag: 'rileyPraise' },
@@ -20,6 +21,7 @@ export const GIRL_KINKS: Record<GirlId, GirlKink[]> = {
     { id: 'overstim', label: 'overstim', flag: 'rileyOverstim' },
     { id: 'degrade', label: 'degrade', flag: 'rileyDegrade' },
     { id: 'cnc', label: 'cnc', flag: 'rileyCnc' },
+    { id: 'rough', label: 'rough', flag: 'rileyCncRough' },
   ],
   jade: [
     { id: 'kneel', label: 'kneel', flag: 'jadeFemdom' },
@@ -27,6 +29,7 @@ export const GIRL_KINKS: Record<GirlId, GirlKink[]> = {
     { id: 'blind', label: 'blind', flag: 'jadeSensory' },
     { id: 'edged', label: 'edged', flag: 'jadeDenial' },
     { id: 'cnc', label: 'cnc', flag: 'jadeCnc' },
+    { id: 'rough', label: 'rough', flag: 'jadeCncRough' },
   ],
 }
 

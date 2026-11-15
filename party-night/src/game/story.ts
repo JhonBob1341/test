@@ -1,3 +1,4 @@
+import { EARLY_CNC_SCENES } from './earlyCnc'
 import { EXTREME_TABOO_SCENES } from './extremeTaboo'
 import { HAREM_SCENES } from './haremRoute'
 import { KINK_ROUTE_SCENES } from './kinkRoutes'
@@ -12,7 +13,10 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'THREE ROOMMATES. ONE BLOOD PACT. ONE HOUSE PARTY THAT WILL MAKE THEM SHARE ANYWAY.',
     focus: 'none',
     chapter: 'Title',
-    choices: [{ text: 'Enter the party (21+)', next: 'agegate' }],
+    choices: [
+      { text: 'Enter the party (21+)', next: 'agegate' },
+      { text: 'Skip intro — jump to rough CNC (21+)', next: 'agegate_skip', for: 'house' },
+    ],
   },
 
   agegate: {
@@ -22,7 +26,47 @@ const BASE_SCENES: Record<string, Scene> = {
     focus: 'none',
     choices: [
       { text: 'I am 21 or older — start', next: 'name' },
+      { text: 'Skip intro — I am 21+', next: 'skip_intro', for: 'house' },
       { text: 'Leave', next: 'too_young' },
+    ],
+  },
+
+  agegate_skip: {
+    id: 'agegate_skip',
+    speaker: 'narrator',
+    text: 'Skipping the meet-cute. Adult game — all characters are 21+. Confirm your age to jump straight into the rough CNC menu.',
+    focus: 'none',
+    choices: [
+      { text: 'I am 21+ — skip to rough CNC', next: 'skip_intro', for: 'house' },
+      { text: 'Leave', next: 'too_young' },
+    ],
+  },
+
+  skip_intro: {
+    id: 'skip_intro',
+    speaker: 'narrator',
+    text: 'You skip the porch small talk. Inside, the playlist is already wrong and the roommates are already watching you like a decision. Name yourself, then take the rough door or the slower pact talk.',
+    focus: 'all',
+    chapter: 'Act I · Skip',
+    choices: [
+      {
+        text: 'Open rough CNC now',
+        next: 'early_cnc_hub',
+        for: 'house',
+        effect: {
+          flags: { oathPayment: true, archetype: 'handler' },
+          skills: { dominance: 3, nerve: 2, stamina: 2 },
+        },
+      },
+      {
+        text: 'Jump to the pact choice instead',
+        next: 'pact_threat',
+        for: 'house',
+        effect: {
+          flags: { oathPayment: true, archetype: 'handler' },
+          skills: { dominance: 3, nerve: 2, stamina: 2 },
+        },
+      },
     ],
   },
 
@@ -41,7 +85,10 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Bass bleeds through the front door of an off-campus house that smells like perfume, laundry detergent, and bad ideas. What do they call you tonight?',
     focus: 'none',
     chapter: 'Act I · Arrival',
-    choices: [{ text: 'Continue', next: 'archetype' }],
+    choices: [
+      { text: 'Continue', next: 'archetype' },
+      { text: 'Skip intro — rough CNC', next: 'skip_intro', for: 'house' },
+    ],
   },
 
   street: {
@@ -185,6 +232,30 @@ const BASE_SCENES: Record<string, Scene> = {
         text: 'Hang back and let the party pull you first',
         next: 'party_floor',
         effect: { flags: { phase: 'mid' } },
+      },
+      {
+        text: 'Skip soft talk — open rough CNC now',
+        next: 'early_cnc_hub',
+        for: 'house',
+        effect: { flags: { oathPayment: true } },
+      },
+      {
+        text: 'Drag Maya to the bathroom for rough CNC',
+        next: 'early_cnc_maya',
+        require: (s) => !s.flags.mayaCncRough,
+        for: 'maya',
+      },
+      {
+        text: 'Shove Riley into her room for rough CNC',
+        next: 'early_cnc_riley',
+        require: (s) => !s.flags.rileyCncRough,
+        for: 'riley',
+      },
+      {
+        text: 'Grab Lola and ruin her on the floor — CNC',
+        next: 'early_cnc_jade',
+        require: (s) => !s.flags.jadeCncRough,
+        for: 'jade',
       },
     ],
   },
@@ -2082,6 +2153,7 @@ export const SCENES: Record<string, Scene> = {
   ...SKILL_EVENT_SCENES,
   ...EXTREME_TABOO_SCENES,
   ...KINK_ROUTE_SCENES,
+  ...EARLY_CNC_SCENES,
   ...STORY_BRIDGE_SCENES,
 }
 

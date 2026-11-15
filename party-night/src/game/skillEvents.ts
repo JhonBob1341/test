@@ -49,6 +49,15 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
           flags: { archetype: 'athlete' },
         },
       },
+      {
+        text: 'Skip intro — rough CNC now',
+        next: 'early_cnc_hub',
+        for: 'house',
+        effect: {
+          skills: { dominance: 3, nerve: 2, stamina: 2 },
+          flags: { archetype: 'handler', oathPayment: true },
+        },
+      },
     ],
   },
 

@@ -64,7 +64,14 @@ export function groupChoices(choices: Choice[], scene: Scene): Record<ChoiceBuck
 
 export function shouldUseCastDropdowns(scene: Scene, choices: Choice[]): boolean {
   if (!choices.length) return false
-  if (scene.id === 'title' || scene.id === 'agegate' || scene.id === 'name' || scene.id === 'archetype') {
+  if (
+    scene.id === 'title' ||
+    scene.id === 'agegate' ||
+    scene.id === 'agegate_skip' ||
+    scene.id === 'name' ||
+    scene.id === 'archetype' ||
+    scene.id === 'skip_intro'
+  ) {
     return false
   }
   const groups = groupChoices(choices, scene)
