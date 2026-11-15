@@ -1174,14 +1174,45 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_maya: {
     id: 'xt_cnc_maya',
     speaker: 'maya',
-    text: 'Pre-scene, Maya is crystal clear: “I will fight and swear. Lease stops everything. Aftercare on the dryer. Go.” Ten minutes later she ‘accidentally’ finds you in laundry and the script flips — shove, pinned wrists, her protests filthy and half-real. She comes thrashing, then taps twice on purpose just to test you stop. You stop. She laughs wetly. “Good. Now finish me for real.”',
+    text: 'Pre-scene, Maya is crystal clear: “I will fight and swear. Lease stops everything. Go.” Ten minutes later she ‘accidentally’ finds you in laundry and the script flips — shove, pinned wrists, her protests filthy and half-real. She comes thrashing, then taps twice on purpose just to test you stop. You stop. She laughs wetly. “Good. Now finish me for real.” You do.',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_laundry',
     choices: [
       {
-        text: 'Finish with aftercare as promised',
-        next: 'xt_cnc_after',
+        text: 'Return to the escalation menu',
+        next: 'extreme_hub',
+        effect: {
+          affection: { maya: 3 },
+          flags: {
+            mayaCnc: true,
+            cncPlay: true,
+            bathroomMaya: true,
+            laundryMaya: true,
+            deepMaya: true,
+          },
+          skills: { dominance: 1, nerve: 1 },
+        },
+      },
+      {
+        text: 'Push the house toward harem',
+        next: 'harem_pitch',
+        effect: {
+          affection: { maya: 3 },
+          flags: {
+            mayaCnc: true,
+            cncPlay: true,
+            bathroomMaya: true,
+            laundryMaya: true,
+            deepMaya: true,
+            haremRoute: true,
+          },
+          skills: { dominance: 1, nerve: 1 },
+        },
+      },
+      {
+        text: 'Step back into the party',
+        next: 'fallout_continue',
         effect: {
           affection: { maya: 3 },
           flags: {
@@ -1200,14 +1231,45 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_riley: {
     id: 'xt_cnc_riley',
     speaker: 'riley',
-    text: 'Riley writes her limits on her phone and shows you twice. “Please do the mean voice. Please stop if I say lease.” In the hallway she plays startled perfect — soft noes, shaking, clinging. Lola watches from a cracked door as safety. When Riley safewords mid-scene you freeze; she kisses you shaking and whispers, “Green again. Keep going.” She comes crying into your shoulder.',
+    text: 'Riley writes her limits on her phone and shows you twice. “Please do the mean voice. Please stop if I say lease.” In the hallway she plays startled perfect — soft noes, shaking, clinging. Lola watches from a cracked door as safety. When Riley safewords mid-scene you freeze; she kisses you shaking and whispers, “Green again. Keep going.” She comes crying into your shoulder, then straightens her clothes like nothing happened.',
     focus: 'riley',
     nsfw: true,
     art: 'sex_group_hallway',
     choices: [
       {
-        text: 'Wrap her in a blanket and check in',
-        next: 'xt_cnc_after',
+        text: 'Return to the escalation menu',
+        next: 'extreme_hub',
+        effect: {
+          affection: { riley: 3, jade: 1 },
+          flags: {
+            rileyCnc: true,
+            cncPlay: true,
+            couchRiley: true,
+            deepRiley: true,
+            corruptRiley: true,
+          },
+          skills: { dominance: 1, charm: 1 },
+        },
+      },
+      {
+        text: 'Push the house toward harem',
+        next: 'harem_pitch',
+        effect: {
+          affection: { riley: 3, jade: 1 },
+          flags: {
+            rileyCnc: true,
+            cncPlay: true,
+            couchRiley: true,
+            deepRiley: true,
+            corruptRiley: true,
+            haremRoute: true,
+          },
+          skills: { dominance: 1, charm: 1 },
+        },
+      },
+      {
+        text: 'Step back into the party',
+        next: 'fallout_continue',
         effect: {
           affection: { riley: 3, jade: 1 },
           flags: {
@@ -1226,14 +1288,45 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_jade: {
     id: 'xt_cnc_jade',
     speaker: 'jade',
-    text: 'Lola scripts her CNC soft and scared on purpose: “I will fight a little. I will say no. Lease stops everything. Aftercare means you hold me and say I was brave.” In-scene she trembles through the struggle-play, comes crying, then drops character into your chest: “Water. Then praise. Then tell me I am still good.”',
+    text: 'Lola scripts her CNC soft and scared on purpose: “I will fight a little. I will say no. Lease stops everything.” In-scene she trembles through the struggle-play, comes crying, then drops character with a ruined smile. “Again. Harder.”',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_pin',
     choices: [
       {
-        text: 'Hold her and debrief gently',
-        next: 'xt_cnc_after',
+        text: 'Return to the escalation menu',
+        next: 'extreme_hub',
+        effect: {
+          affection: { jade: 3 },
+          flags: {
+            jadeCnc: true,
+            cncPlay: true,
+            closetJade: true,
+            deepJade: true,
+            markedByJade: true,
+          },
+          skills: { dominance: 2, insight: 1 },
+        },
+      },
+      {
+        text: 'Push the house toward harem',
+        next: 'harem_pitch',
+        effect: {
+          affection: { jade: 3 },
+          flags: {
+            jadeCnc: true,
+            cncPlay: true,
+            closetJade: true,
+            deepJade: true,
+            markedByJade: true,
+            haremRoute: true,
+          },
+          skills: { dominance: 2, insight: 1 },
+        },
+      },
+      {
+        text: 'Step back into the party',
+        next: 'fallout_continue',
         effect: {
           affection: { jade: 3 },
           flags: {
@@ -1252,14 +1345,14 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_house: {
     id: 'xt_cnc_house',
     speaker: 'narrator',
-    text: 'They each sign a one-night CNC waiver in Notes — joke formatting, serious rules. For an hour the house is a negotiated nightmare: Maya ‘caught,’ Riley ‘ambushed,’ Lola ‘claimed.’ Safewords fire twice and are honored both times. When the clock ends, character drops. Blankets. Water. Stupid jokes. Riley: “That was the scariest safe thing I have ever done.”',
+    text: 'They each sign a one-night CNC waiver in Notes — joke formatting, serious rules. For an hour the house is a negotiated nightmare: Maya ‘caught,’ Riley ‘ambushed,’ Lola ‘claimed.’ Safewords fire twice and are honored both times. When the clock ends they are wrecked and already hungry for the next escalation.',
     focus: 'all',
     nsfw: true,
     art: 'sex_cnc',
     choices: [
       {
-        text: 'Hold the group aftercare',
-        next: 'xt_cnc_after',
+        text: 'Return to the escalation menu',
+        next: 'extreme_hub',
         effect: {
           affection: { maya: 3, riley: 3, jade: 3 },
           flags: {
@@ -1278,18 +1371,49 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
           skills: { dominance: 2, nerve: 1, stamina: 1 },
         },
       },
-    ],
-  },
-
-  xt_cnc_after: {
-    id: 'xt_cnc_after',
-    speaker: 'jade',
-    text: 'Lola runs the checklist like a drill sergeant who cares: breathing, hydration, “was anything actually bad.” Maya wants a rematch next weekend. Riley wants cuddles and a dumb movie. Lola files the night under EXTREME / CNC and looks at you. “Consent theater is still consent. Do not forget which side of the curtain you are on.”',
-    focus: 'all',
-    choices: [
-      { text: 'Return to the escalation menu', next: 'extreme_hub' },
-      { text: 'Push the house toward harem', next: 'harem_pitch', effect: { flags: { haremRoute: true } } },
-      { text: 'Step back into the party', next: 'fallout_continue' },
+      {
+        text: 'Push the house toward harem',
+        next: 'harem_pitch',
+        effect: {
+          affection: { maya: 3, riley: 3, jade: 3 },
+          flags: {
+            cncPlay: true,
+            mayaCnc: true,
+            rileyCnc: true,
+            jadeCnc: true,
+            bathroomMaya: true,
+            couchRiley: true,
+            closetJade: true,
+            deepMaya: true,
+            deepRiley: true,
+            deepJade: true,
+            threesomeUnlocked: true,
+            haremRoute: true,
+          },
+          skills: { dominance: 2, nerve: 1, stamina: 1 },
+        },
+      },
+      {
+        text: 'Step back into the party',
+        next: 'fallout_continue',
+        effect: {
+          affection: { maya: 3, riley: 3, jade: 3 },
+          flags: {
+            cncPlay: true,
+            mayaCnc: true,
+            rileyCnc: true,
+            jadeCnc: true,
+            bathroomMaya: true,
+            couchRiley: true,
+            closetJade: true,
+            deepMaya: true,
+            deepRiley: true,
+            deepJade: true,
+            threesomeUnlocked: true,
+          },
+          skills: { dominance: 2, nerve: 1, stamina: 1 },
+        },
+      },
     ],
   },
 

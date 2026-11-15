@@ -52,11 +52,8 @@ import sexImpact from '../assets/scenes/sex-impact.jpg'
 import sexBdsm from '../assets/scenes/sex-bdsm.jpg'
 import sexCnc from '../assets/scenes/sex-cnc.jpg'
 import sexMayaCncRough from '../assets/scenes/sex-maya-cnc-rough.jpg'
-import sexMayaCncAfter from '../assets/scenes/sex-maya-cnc-after.jpg'
 import sexRileyCncRough from '../assets/scenes/sex-riley-cnc-rough.jpg'
-import sexRileyCncAfter from '../assets/scenes/sex-riley-cnc-after.jpg'
 import sexJadeCncRough from '../assets/scenes/sex-jade-cnc-rough.jpg'
-import sexJadeCncAfter from '../assets/scenes/sex-jade-cnc-after.jpg'
 import sexCncHouseRough from '../assets/scenes/sex-cnc-house-rough.jpg'
 
 export const SCENE_ART: Record<SceneArtId, string> = {
@@ -114,11 +111,8 @@ export const SCENE_ART: Record<SceneArtId, string> = {
   sex_bdsm: sexBdsm,
   sex_cnc: sexCnc,
   sex_maya_cnc_rough: sexMayaCncRough,
-  sex_maya_cnc_after: sexMayaCncAfter,
   sex_riley_cnc_rough: sexRileyCncRough,
-  sex_riley_cnc_after: sexRileyCncAfter,
   sex_jade_cnc_rough: sexJadeCncRough,
-  sex_jade_cnc_after: sexJadeCncAfter,
   sex_cnc_house_rough: sexCncHouseRough,
 }
 
