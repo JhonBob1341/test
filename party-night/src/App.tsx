@@ -168,28 +168,13 @@ export default function App() {
         <div className="light-sweep" />
       </div>
 
-      {entered && scene.id !== 'title' && (
-        <div className="top-actions">
-          <button type="button" className="cheat-btn restart-btn" onClick={restartGame} title="Restart from title">
-            Restart
-          </button>
-          <button type="button" className="cheat-btn" onClick={maxStats} title="Max skills and affection">
-            Cheat · Max Stats
-          </button>
-        </div>
-      )}
-
+      <div className={`shell ${showHud ? 'has-hud' : ''}`}>
+      <div className="shell-main">
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark">AFTER HOURS</span>
           <span className="brand-sub">skills · taboo roommates · harem · 21+</span>
         </div>
-        {showHud && (
-          <div className="hud">
-            <Meters affection={state.affection} flags={state.flags} />
-            <SkillsPanel skills={state.skills} />
-          </div>
-        )}
       </header>
 
       <main className="stage">
@@ -257,6 +242,27 @@ export default function App() {
           })}
         </section>
       </main>
+      </div>
+
+      {showHud && (
+        <aside className="hud-rail" aria-label="Stats">
+          <div className="hud-rail-actions">
+            <button type="button" className="cheat-btn restart-btn" onClick={restartGame} title="Restart from title">
+              Restart
+            </button>
+            <button type="button" className="cheat-btn" onClick={maxStats} title="Max skills and affection">
+              Cheat · Max Stats
+            </button>
+          </div>
+          <div className="hud">
+            <h2 className="hud-title">Roommates</h2>
+            <Meters affection={state.affection} flags={state.flags} />
+            <h2 className="hud-title">Skills</h2>
+            <SkillsPanel skills={state.skills} />
+          </div>
+        </aside>
+      )}
+      </div>
 
       <footer className="fineprint">
         All characters are consenting adults (21+). Fiction only.
