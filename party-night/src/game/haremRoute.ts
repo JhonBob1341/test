@@ -176,7 +176,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Riley comes with the friendship photo in her peripheral vision, whispering sorry and thank you in the same breath. You leave a necklace of marks Jade will inventory. “Tell them I’m claimed,” she begs softly. “Tell Maya I am not sweet tonight.”',
     focus: 'riley',
     nsfw: true,
-    art: 'sex_riley_bed',
+    art: 'sex_riley_ride',
     choices: [
       {
         text: 'Seal Riley’s claim',
@@ -239,7 +239,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Jade kneels like a queen temporarily loaning the floor. “Do not get used to this.” Then she takes you with archival focus, eyes open, recording nothing — for once — because the claim itself is the file.',
     focus: 'jade',
     nsfw: true,
-    art: 'sex_jade_bed',
+    art: 'sex_jade_kneel',
     choices: [
       {
         text: 'Pull her up and finish the claim',
@@ -327,7 +327,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'They start by using each other for you — Maya’s mouth on Riley while Jade holds Riley’s wrists and narrates. “Look how soft she breaks. Look how loud Maya gets when she is not the center.” When Riley comes, Jade kisses the sound off her lips and points you in.',
     focus: 'all',
     nsfw: true,
-    art: 'sex_group_couch',
+    art: 'sex_maya_riley',
     choices: [
       {
         text: 'Take Riley while they kiss',
@@ -390,7 +390,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Final round is slower and filthier — less performance, more possession. They take turns saying your name like a password. When you finish, they pass the proof between their mouths without being told. Jade: “Archive optional.” Maya: “Archive mandatory.” Riley: “Please just hold me after.”',
     focus: 'all',
     nsfw: true,
-    art: 'sex_group_couch',
+    art: 'sex_group_living',
     choices: [
       {
         text: 'Hold all three into morning',
@@ -483,7 +483,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'They take rent on the kitchen counter in shifts while the party thumps. Maya films ten seconds “for accounting.” Riley tallies orgasms like chores. Jade initials your throat in eyeliner: PAID.',
     focus: 'all',
     nsfw: true,
-    art: 'sex_group_couch',
+    art: 'sex_group_kitchen',
     choices: [
       {
         text: 'Receipt accepted',

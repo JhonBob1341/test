@@ -404,7 +404,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     text: 'You hold the plank and tell Maya exactly how you would use the favor. She goes quiet, then grins. “Fuck. Jade is going to hate how hard that just made me.”',
     focus: 'maya',
     nsfw: true,
-    art: 'sex_maya_after',
+    art: 'sex_maya_edge',
     choices: [
       {
         text: 'Collect later',

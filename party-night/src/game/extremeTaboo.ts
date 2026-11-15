@@ -129,7 +129,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'You test free-use in the living room after locking the front door. No romance. No asking. Maya on her knees first, Riley bent over the couch arm, Jade timing rounds like a tyrant. When someone knocks, Jade mouths “still free” and does not stop you.',
     focus: 'all',
     nsfw: true,
-    art: 'sex_group_couch',
+    art: 'sex_group_living',
     choices: [
       {
         text: 'Mark the contract satisfied',
@@ -184,7 +184,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Jade lifts her hair. You buckle the choker. Her pulse jumps against your knuckles. “Say it.” You say she belongs to the night. She fucks you with the collar on, eyes furious with relief, and comes whispering “keep it.”',
     focus: 'jade',
     nsfw: true,
-    art: 'sex_jade_bed',
+    art: 'sex_jade_collar',
     choices: [
       {
         text: 'Leave it on her',
@@ -204,7 +204,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley sobs when the buckle clicks — not from pain. Jade stands behind her and holds her wrists. “Good girl traitors wear jewelry,” Jade says. You take Riley from behind while she stares at their friendship photo and comes with the collar tight.',
     focus: 'riley',
     nsfw: true,
-    art: 'sex_riley_couch',
+    art: 'sex_riley_collar',
     choices: [
       {
         text: 'Call her house property',
@@ -224,7 +224,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Maya wants the window open. Collar on, skirt up, she waves at the street between thrusts. “If Tyler ever drives by, he can learn visually.” She comes laughing with the choker printed into her throat.',
     focus: 'maya',
     nsfw: true,
-    art: 'sex_maya_after',
+    art: 'sex_maya_collar',
     choices: [
       {
         text: 'Tighten it one notch',
@@ -292,7 +292,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley sits in the corner chair as ordered. Maya makes eye contact with her while you finish inside. Riley’s hand is under her jersey. “I am so fucked up for watching,” she whispers. Maya: “Join the club. Literally.”',
     focus: 'all',
     nsfw: true,
-    art: 'sex_group_hallway',
+    art: 'sex_maya_riley',
     choices: [
       {
         text: 'Pull Riley over to clean Maya up',
@@ -308,7 +308,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley’s mouth on Maya is apology and theft at once. Jade opens the door mid-act, watches ten seconds, and says, “Add breeding clause to the doc,” like she is updating a syllabus.',
     focus: 'all',
     nsfw: true,
-    art: 'sex_group_couch',
+    art: 'sex_maya_riley',
     choices: [
       {
         text: 'Log the clause',
@@ -356,7 +356,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley films herself taking you, voice breaking as she addresses Jade by name. “I broke the pact. I wanted to. Come punish me.” Send. Delivered. She comes from the notification buzz alone.',
     focus: 'riley',
     nsfw: true,
-    art: 'sex_riley_bed',
+    art: 'sex_riley_record',
     choices: [
       {
         text: 'Wait for Jade’s arrival',
@@ -514,7 +514,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Tyler’s face goes white, then ugly. Maya rides you harder for the lens. “This is what boring gets you.” She finishes loud, ends the call, and blocks him mid-vibration. “Situationship: deceased. Roommate slut: thriving.”',
     focus: 'maya',
     nsfw: true,
-    art: 'sex_maya_bathroom',
+    art: 'sex_maya_phone',
     choices: [
       {
         text: 'Brand the win',
@@ -579,7 +579,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Maya comes with a stranger’s phone half-raised. She flips them off mid-orgasm. “Post it. Caption: ethics.” Jade confiscates the phone and keeps walking like security for sin.',
     focus: 'maya',
     nsfw: true,
-    art: 'sex_maya_outside',
+    art: 'sex_maya_public',
     choices: [
       {
         text: 'Continue the hallway shift',
