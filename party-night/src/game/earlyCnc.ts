@@ -2,36 +2,36 @@ import type { Scene } from './types'
 
 /**
  * Aggressive CNC routes available from the very start (no skill gates).
- * Still negotiated / safeword lease — just rougher once the scene starts.
+ * Negotiated first / safeword lease — brutal once the scene starts.
  */
 export const EARLY_CNC_SCENES: Record<string, Scene> = {
   early_cnc_hub: {
     id: 'early_cnc_hub',
     speaker: 'narrator',
-    text: 'The party is barely warm and they already want it mean. Safeword is lease. Two taps stop everything. After that, they asked for the rough version — pinned, silenced, used like the pact never existed. Pick who gets ruined first.',
+    text: 'The party is barely warm and they already want it vicious. Safeword is lease. Two taps stop everything. Past that line they begged for the ugly version — slammed doors, covered mouths, hair in fists, fucked like stolen property until they break. Pick who gets destroyed first.',
     focus: 'all',
     chapter: 'Act I · Rough CNC',
     choices: [
       {
-        text: 'Drag Maya into the bathroom and pin her',
+        text: 'Slam Maya into the bathroom and force her',
         next: 'early_cnc_maya',
         require: (s) => !s.flags.mayaCncRough,
         for: 'maya',
       },
       {
-        text: 'Shove Riley into her room and take her',
+        text: 'Kick Riley’s door in and wreck her',
         next: 'early_cnc_riley',
         require: (s) => !s.flags.rileyCncRough,
         for: 'riley',
       },
       {
-        text: 'Grab Lola by the hair and claim her',
+        text: 'Yank Lola down and use her like prey',
         next: 'early_cnc_jade',
         require: (s) => !s.flags.jadeCncRough,
         for: 'jade',
       },
       {
-        text: 'Lock all three in and run the rough house script',
+        text: 'Lock all three in and brutalize the house script',
         next: 'early_cnc_house',
         require: (s) => !(s.flags.mayaCncRough && s.flags.rileyCncRough && s.flags.jadeCncRough),
         for: 'house',
@@ -48,7 +48,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
   early_cnc_maya: {
     id: 'early_cnc_maya',
     speaker: 'maya',
-    text: 'Maya already texted you one line: bathroom. green. lease. Then she plays the bitch who doesn’t want it — shoving your chest, swearing, “Get off me—” while her thighs lock around you. You pin her wrists to the tile, cover her mouth with your hand, and fuck her hard enough the mirror rattles. She comes furious and wet, then taps twice. You stop. She gasps, “Good. Now don’t be gentle.” You finish her rough against the sink until she laughs like a crime.',
+    text: 'Maya’s pre-send is one line: bathroom. green. lease. make it hurt. Then she sells the fight — clawing your shoulders, spitting “Get the fuck off me—” while you slam her into the sink hard enough the mirror cracks a hairline. You wrench her wrists behind her back, shove two fingers between her teeth to shut her up, and fuck her from behind until her knees buckle. She thrashes, comes screaming into your palm, taps twice. You freeze. She snarls wetly, “Green. Now choke me and finish like you stole me.” You do — hand on her throat, brutal strokes, until she is shaking and ruined against the porcelain.',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_cnc_rough',
@@ -113,7 +113,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
   early_cnc_riley: {
     id: 'early_cnc_riley',
     speaker: 'riley',
-    text: 'Riley left her door cracked on purpose. Limits already in your messages: mean voice, hold me down, lease stops it. In-scene she gasps “wait— don’t—” as you shove her onto the bed, yank her jersey up, and take her hard. She fights soft, then breaks into shaking yeses she pretends are noes. Midway she whispers lease; you freeze. She pulls you back in, crying. “Green. Harder.” You hold her down and finish her wrecked into the sheets.',
+    text: 'Riley’s texts are trembling and filthy: kick the door. hold me down. spit. mean voice. lease stops it. You shoulder her door open. She yelps “No— wait— please don’t—” as you throw her face-down, yank her jersey to her throat, and drive into her hard enough the headboard bangs the wall. She kicks, sobs, claws sheets — then comes undone anyway, choking on fake noes. Midway she gasps lease; you stop cold. She twists back, mascara ruined, and begs, “Green. Harder. Make it feel like I didn’t ask.” You pin her wrists above her head and fuck her until she is sobbing through another orgasm into the mattress.',
     focus: 'riley',
     nsfw: true,
     art: 'sex_riley_cnc_rough',
@@ -181,7 +181,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
   early_cnc_jade: {
     id: 'early_cnc_jade',
     speaker: 'jade',
-    text: 'Lola kneels first — then begs you to ignore that she asked. “Please take me like I said no. Hair. Floor. Rough. Lease if I mean it.” You fist her hair, shove her down, and use her mouth then her cunt while she whimpers no into the carpet. She comes shaking, then taps twice. You release only long enough to pin her again and finish using her until she is wrecked and smiling.',
+    text: 'Lola’s voice is tiny and precise before it starts: “Drag me. Ignore please. Hair. Throat. Floor. Make me take it. Lease if I mean stop.” Then you do exactly that — fist in her bob, knee in her back, shoving her face to the carpet while she whimpers “no, no, please—” around your cock. You fuck her throat until spit strings, then yank her hips up and slam into her cunt while she sobs into the floorboards. She comes hard, taps twice; you release her hair. She crawls back onto you shaking. “Green. Hurt me properly.” You pin her ankles open and use her until she is a wrecked, smiling mess.',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_cnc_rough',
@@ -249,7 +249,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
   early_cnc_house: {
     id: 'early_cnc_house',
     speaker: 'narrator',
-    text: 'They lock the guest room together — three greens in the chat, one safeword, one hour. What follows is messy and loud on purpose: Maya pinned to the dresser, Riley muffled into a pillow, Lola held open between them. Safewords fire once and are honored instantly. When the timer ends they are wrecked and grinning — no soft landing, just the next move.',
+    text: 'Three greens. One safeword. One locked guest room. What follows is ugly on purpose: Maya slammed over the dresser with a hand on her throat; Riley face-down, jersey stuffed in her mouth, hips yanked back; Lola on the floor between them taking whatever is shoved into her. They fight. They sob. They come anyway. Safeword fires once — everything stops dead — then Maya snarls green and the room goes feral again until the timer kills it. No soft landing. Just three ruined roommates and a pact already dead.',
     focus: 'all',
     nsfw: true,
     art: 'sex_cnc_house_rough',

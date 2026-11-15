@@ -240,19 +240,19 @@ const BASE_SCENES: Record<string, Scene> = {
         effect: { flags: { oathPayment: true } },
       },
       {
-        text: 'Drag Maya to the bathroom for rough CNC',
+        text: 'Slam Maya in the bathroom — brutal CNC',
         next: 'early_cnc_maya',
         require: (s) => !s.flags.mayaCncRough,
         for: 'maya',
       },
       {
-        text: 'Shove Riley into her room for rough CNC',
+        text: 'Kick Riley’s door in — brutal CNC',
         next: 'early_cnc_riley',
         require: (s) => !s.flags.rileyCncRough,
         for: 'riley',
       },
       {
-        text: 'Grab Lola and ruin her on the floor — CNC',
+        text: 'Yank Lola down and destroy her — brutal CNC',
         next: 'early_cnc_jade',
         require: (s) => !s.flags.jadeCncRough,
         for: 'jade',

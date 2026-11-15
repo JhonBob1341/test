@@ -140,7 +140,7 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.impactPlay,
       },
       {
-        text: 'Ambush Maya in the laundry — CNC [DOM 6]',
+        text: 'Force Maya in the laundry — brutal CNC [DOM 6]',
         next: 'kink_maya_cnc',
         need: { dominance: 6, nerve: 5 },
         softLock: true,
@@ -204,7 +204,7 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.bdsmSession,
       },
       {
-        text: 'Ambush Riley in the hallway — CNC [DOM 5]',
+        text: 'Force Riley in the hallway — brutal CNC [DOM 5]',
         next: 'kink_riley_cnc',
         need: { dominance: 5, charm: 3 },
         softLock: true,
@@ -269,7 +269,7 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.orgyNight,
       },
       {
-        text: 'Take Lola in a CNC scene [DOM 6]',
+        text: 'Ruin Lola on the floor — brutal CNC [DOM 6]',
         next: 'kink_jade_cnc',
         need: { dominance: 6, nerve: 5 },
         softLock: true,

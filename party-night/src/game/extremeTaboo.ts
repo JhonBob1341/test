@@ -99,7 +99,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'Force a CNC rape-play scene [DOM 6 · NRV 5]',
+        text: 'Force a brutal CNC rape-play scene [DOM 6 · NRV 5]',
         next: 'xt_cnc',
         require: (s) => !(s.flags.mayaCnc && s.flags.rileyCnc && s.flags.jadeCnc),
         need: { dominance: 6, nerve: 5 },
@@ -1137,24 +1137,24 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc: {
     id: 'xt_cnc',
     speaker: 'jade',
-    text: 'Lola’s voice goes clinical. “CNC. Consensual non-consent. Rape play. Limits first, then we pretend we did not. Hard rules: safeword lease ends it instantly. Two taps ends it if you cannot speak. No permanent injury. No involving anyone who did not opt in.” Maya’s grin is feral. Riley’s voice shakes: “I… I want to try. With a script.” Pick who you take.',
+    text: 'Lola’s voice goes clinical and cold. “CNC. Consensual non-consent. Rape play. Limits first, then we pretend we did not. Hard rules: safeword lease ends it instantly. Two taps ends it if you cannot speak. No permanent injury. No involving anyone who did not opt in. Inside the scene: hair, throat, force, ignore every no that is not lease.” Maya’s grin is feral. Riley’s voice shakes: “I want the mean version. Make it ugly.” Pick who you destroy.',
     focus: 'all',
     chapter: 'Act II · Escalation',
     choices: [
       {
-        text: 'Catch Maya in the laundry — CNC',
+        text: 'Force Maya in the laundry — brutal CNC',
         next: 'xt_cnc_maya',
         require: (s) => !s.flags.mayaCnc,
         effect: { affection: { maya: 2 } },
       },
       {
-        text: 'Ambush Riley in the hallway — CNC',
+        text: 'Force Riley in the hallway — brutal CNC',
         next: 'xt_cnc_riley',
         require: (s) => !s.flags.rileyCnc,
         effect: { affection: { riley: 2 } },
       },
       {
-        text: 'Take Lola like she planned — CNC',
+        text: 'Ruin Lola on the floor — brutal CNC',
         next: 'xt_cnc_jade',
         require: (s) => !s.flags.jadeCnc,
         need: { dominance: 7 },
@@ -1162,7 +1162,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
         effect: { affection: { jade: 2 } },
       },
       {
-        text: 'Claim all three in a house CNC night [STM 6]',
+        text: 'Brutalize all three in a house CNC night [STM 6]',
         next: 'xt_cnc_house',
         require: (s) => !(s.flags.mayaCnc && s.flags.rileyCnc && s.flags.jadeCnc),
         need: { stamina: 6, dominance: 6, nerve: 5 },
@@ -1174,7 +1174,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_maya: {
     id: 'xt_cnc_maya',
     speaker: 'maya',
-    text: 'Pre-scene, Maya is crystal clear: “I will fight and swear. Lease stops everything. Go.” Ten minutes later she ‘accidentally’ finds you in laundry and the script flips — shove, pinned wrists, her protests filthy and half-real. She comes thrashing, then taps twice on purpose just to test you stop. You stop. She laughs wetly. “Good. Now finish me for real.” You do.',
+    text: 'Pre-scene, Maya is crystal clear: “I will fight and swear. Lease stops everything. Make it feel stolen.” Ten minutes later she ‘accidentally’ finds you in laundry and the script flips vicious — you slam her over the dryer, fist her hair, and fuck her through spit-curses and thrashing. She comes hard against the machine, taps twice. You stop. She laughs wet and mean. “Green. Choke me and finish.” You do until she is shaking and ruined.',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_laundry',
@@ -1231,7 +1231,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_riley: {
     id: 'xt_cnc_riley',
     speaker: 'riley',
-    text: 'Riley writes her limits on her phone and shows you twice. “Please do the mean voice. Please stop if I say lease.” In the hallway she plays startled perfect — soft noes, shaking, clinging. Lola watches from a cracked door as safety. When Riley safewords mid-scene you freeze; she kisses you shaking and whispers, “Green again. Keep going.” She comes crying into your shoulder, then straightens her clothes like nothing happened.',
+    text: 'Riley writes her limits on her phone and shows you twice. “Mean voice. Cover my mouth. Hold me down. Spit. Lease stops it.” In the hallway you slam her to the wall and take her while she sobs muffled noes and kicks. Lola watches from a cracked door as safety. When Riley safewords you freeze; she kisses you shaking and whispers, “Green. Harder. Ruin me.” You do. She comes crying into your palm, then straightens her clothes like a crime cover-up.',
     focus: 'riley',
     nsfw: true,
     art: 'sex_group_hallway',
@@ -1288,7 +1288,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_jade: {
     id: 'xt_cnc_jade',
     speaker: 'jade',
-    text: 'Lola scripts her CNC soft and scared on purpose: “I will fight a little. I will say no. Lease stops everything.” In-scene she trembles through the struggle-play, comes crying, then drops character with a ruined smile. “Again. Harder.”',
+    text: 'Lola scripts her CNC like a hit list: “Fight. No. Hair. Throat. Floor. Use me. Lease stops everything.” In-scene you drag her down and fuck her throat then her cunt while she sobs into the carpet. She comes crying, taps twice, then crawls back for more with a ruined smile. “Green. Hurt me properly.” You pin her open and finish until she is shaking wreckage.',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_pin',
@@ -1345,7 +1345,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc_house: {
     id: 'xt_cnc_house',
     speaker: 'narrator',
-    text: 'They each sign a one-night CNC waiver in Notes — joke formatting, serious rules. For an hour the house is a negotiated nightmare: Maya ‘caught,’ Riley ‘ambushed,’ Lola ‘claimed.’ Safewords fire twice and are honored both times. When the clock ends they are wrecked and already hungry for the next escalation.',
+    text: 'They each sign a one-night CNC waiver in Notes — joke formatting, serious rules. For an hour the house is a negotiated nightmare made vicious on purpose: Maya choked over furniture, Riley muffled and held down, Lola used on the floor between them. They fight. They sob. They come. Safewords fire twice and are honored both times — then green brings the brutality roaring back. When the clock ends they are wrecked and already hungry for worse.',
     focus: 'all',
     nsfw: true,
     art: 'sex_cnc',

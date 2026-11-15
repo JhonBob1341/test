@@ -40,7 +40,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'Ambush Maya in the laundry — CNC [DOM 5]',
+        text: 'Force Maya in the laundry — brutal CNC [DOM 5]',
         next: 'kink_maya_cnc',
         require: (s) => !s.flags.mayaCnc,
         need: { dominance: 5, nerve: 4 },
@@ -134,12 +134,12 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_maya_cnc: {
     id: 'kink_maya_cnc',
     speaker: 'maya',
-    text: 'Maya sits on the dryer and goes deadly clear. “CNC. Caught-in-laundry script. I fight, I swear, I say no. You pin me anyway. Lease ends it instantly — two taps if my mouth is busy. If you freeze when I safeword, we never do this again.” She hops down and walks out. Your cue.',
+    text: 'Maya sits on the dryer and goes deadly clear. “CNC. Caught-in-laundry. I fight dirty. I swear. I say no. You slam me anyway — throat, hair, bent over the machines. Lease ends it instantly — two taps if my mouth is busy. If you freeze when I safeword, we never do this again. Make it feel stolen.” She hops down and walks out. Your cue.',
     focus: 'maya',
     chapter: 'Act II · Kinks',
     choices: [
       {
-        text: 'Pin her against the machines',
+        text: 'Slam her into the machines and take her',
         next: 'kink_maya_cnc_play',
         effect: { affection: { maya: 1 }, skills: { dominance: 1 } },
       },
@@ -150,7 +150,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_maya_cnc_play: {
     id: 'kink_maya_cnc_play',
     speaker: 'maya',
-    text: 'Ten minutes later she ‘accidentally’ finds you in laundry and the script flips — shove, pinned wrists, her protests filthy and half-real against the machines. She thrashes, comes thrashing, then taps twice on purpose just to test you. You stop cold. She laughs wetly, eyes bright. “Good. Now finish me for real — still green.” You do — hard, until she is wrecked against the dryer.',
+    text: 'Ten minutes later she ‘accidentally’ finds you in laundry and the script flips ugly — you fist her hair, bend her over a shaking dryer, and fuck her through her swearing. She claws enamel, kicks, comes thrashing with your palm over her mouth, then taps twice on purpose. You stop cold. She laughs wet and vicious. “Green. Choke me and finish like Tyler can hear it.” You do — brutal, relentless — until she is a shaking mess against the machine.',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_laundry',
@@ -223,7 +223,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'Ambush Riley in the hallway — CNC [DOM 5]',
+        text: 'Force Riley in the hallway — brutal CNC [DOM 5]',
         next: 'kink_riley_cnc',
         require: (s) => !s.flags.rileyCnc,
         need: { dominance: 5, charm: 3 },
@@ -317,12 +317,12 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_riley_cnc: {
     id: 'kink_riley_cnc',
     speaker: 'riley',
-    text: 'Riley shows you her phone twice — limits typed neat. “Hallway ambush. Soft noes. Mean voice. Lease stops everything. Lola can watch from a cracked door as safety if you want. I am scared and I still want it.” She puts the phone away and steps into the hall.',
+    text: 'Riley shows you her phone twice — limits typed shaking. “Hallway ambush. Hard. Cover my mouth. Call me their whore. Lease stops everything. Lola watches from a cracked door as safety. I am terrified and I still want it brutal.” She puts the phone away and steps into the hall.',
     focus: 'riley',
     chapter: 'Act II · Kinks',
     choices: [
       {
-        text: 'Pin her to the hallway wall',
+        text: 'Slam her into the wall and take her',
         next: 'kink_riley_cnc_play',
         effect: { affection: { riley: 1 }, skills: { dominance: 1 } },
       },
@@ -333,7 +333,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_riley_cnc_play: {
     id: 'kink_riley_cnc_play',
     speaker: 'riley',
-    text: 'She plays startled perfect — soft noes, shaking, clinging as you pin her against the hallway wall. Mid-scene she whispers lease; you freeze. She kisses you shaking and breathes, “Green again. Keep going.” She comes crying into your shoulder while Lola’s door stays cracked, silent safety. No soft landing — she pushes you toward the party before anyone asks questions.',
+    text: 'You hit the hallway like a problem — hand over her mouth, skirt shoved aside, fucking her upright against the wall while she sobs muffled noes and kicks your shins. Mid-scene she taps lease into your wrist; you freeze. She kisses you shaking and breathes, “Green. Meaner. Don’t stop until I can’t stand.” You do. She comes crying into your palm while Lola’s door stays cracked, silent safety. Then Riley fixes her jersey with wrecked eyes and walks like nothing happened.',
     focus: 'riley',
     nsfw: true,
     art: 'sex_group_hallway',
@@ -406,7 +406,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'Take Lola like she planned — CNC [DOM 6]',
+        text: 'Destroy Lola like she begged — brutal CNC [DOM 6]',
         next: 'kink_jade_cnc',
         require: (s) => !s.flags.jadeCnc,
         need: { dominance: 6, nerve: 4 },
@@ -500,12 +500,12 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_jade_cnc: {
     id: 'kink_jade_cnc',
     speaker: 'jade',
-    text: 'Lola scripts her CNC soft and scared on purpose, eyes on the floor. “I will fight a little. I will say no. Lease stops everything. Two taps if I cannot speak.” She stays where she is, waiting to be taken.',
+    text: 'Lola scripts her CNC like a confession, eyes on the floor. “Fight me. Say no. Hair. Throat. Floor. Use my mouth until I gag. Lease stops everything. Two taps if I cannot speak. Please do not be kind.” She stays where she is, waiting to be ruined.',
     focus: 'jade',
     chapter: 'Act II · Kinks',
     choices: [
       {
-        text: 'Grab her and pin her down',
+        text: 'Drag her down and force her',
         next: 'kink_jade_cnc_play',
         effect: { affection: { jade: 1 }, skills: { dominance: 1 } },
       },
@@ -516,7 +516,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_jade_cnc_play: {
     id: 'kink_jade_cnc_play',
     speaker: 'jade',
-    text: 'In-scene Lola trembles through the struggle-play — soft resistance, whispered noes, then melting when you pin her. She comes crying, ruined and smiling, already straightening her skirt. “Again later. Harder.”',
+    text: 'You fist her bob and put her on the floor. She fights — weak, desperate, perfect — whimpering no while you fuck her throat, then flip her and slam into her until she comes sobbing into the carpet. She taps twice; you stop. She crawls back immediately. “Green. Hurt me.” You pin her open and finish using her until she is shaking and smiling like she got exactly what she asked to be denied.',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_pin',
