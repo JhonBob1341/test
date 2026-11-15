@@ -55,7 +55,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_hub: {
     id: 'skill_hub',
     speaker: 'narrator',
-    text: 'Same party, deeper veins. Maya’s circle is still grinding. Jade’s poker table still eats secrets. Riley is still half-swallowed by hallway gossip. The plank dare still has a queue.',
+    text: 'Same party, deeper veins. Maya’s circle is still grinding. Lola’s poker table still eats secrets. Riley is still half-swallowed by hallway gossip. The plank dare still has a queue.',
     focus: 'all',
     chapter: 'Act II · The Floor',
     choices: [
@@ -65,7 +65,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.danceOff,
       },
       {
-        text: 'Sit at Jade’s poker table',
+        text: 'Sit at Lola’s poker table',
         next: 'skill_poker',
         require: (s) => !s.flags.pokerNight,
       },
@@ -149,7 +149,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_dance_filth: {
     id: 'skill_dance_filth',
     speaker: 'maya',
-    text: 'You make it filthy enough that Riley covers her mouth and Jade’s eyes sharpen. Maya moans into your neck on purpose. “If Jade bills me for this, you are paying in oath.”',
+    text: 'You make it filthy enough that Riley covers her mouth and Lola’s eyes sharpen. Maya moans into your neck on purpose. “If Lola bills me for this, you are paying in oath.”',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_outside',
@@ -183,12 +183,12 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_poker: {
     id: 'skill_poker',
     speaker: 'jade',
-    text: 'Kitchen-table poker. Jade is not playing chips — she is playing people. “Blind bets. Losers answer a question. Winners ask one.” Insight reads tells. Discretion keeps you from bleeding secrets.',
+    text: 'Kitchen-table poker. Lola is not playing chips — she is playing people. “Blind bets. Losers answer a question. Winners ask one.” Insight reads tells. Discretion keeps you from bleeding secrets.',
     focus: 'jade',
     chapter: 'Act II · The Floor',
     choices: [
       {
-        text: 'Read Jade’s tell and win [INS 3]',
+        text: 'Read Lola’s tell and win [INS 3]',
         next: 'skill_poker_win',
         need: { insight: 3 },
         softLock: true,
@@ -212,7 +212,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_poker_win: {
     id: 'skill_poker_win',
     speaker: 'jade',
-    text: 'Jade’s eye twitches half a second before she overbets. You call. She loses a rare hand and hates how much she likes it. “Ask,” she says. You ask what she wants tonight. “Control. Proof. You, eventually.”',
+    text: 'Lola’s eye twitches half a second before she overbets. You call. She loses a rare hand and hates how much she likes it. “Ask,” she says. You ask what she wants tonight. “Control. Proof. You, eventually.”',
     focus: 'jade',
     choices: [
       {
@@ -236,7 +236,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_poker_bluff: {
     id: 'skill_poker_bluff',
     speaker: 'jade',
-    text: 'Your bluff should not work. It does. Maya howls. Jade studies you like a new threat class. “Interesting. Liars with posture are my favorite mistake.”',
+    text: 'Your bluff should not work. It does. Maya howls. Lola studies you like a new threat class. “Interesting. Liars with posture are my favorite mistake.”',
     focus: 'jade',
     choices: [
       {
@@ -250,7 +250,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_poker_listen: {
     id: 'skill_poker_listen',
     speaker: 'narrator',
-    text: 'You fold and harvest. Maya admits she texted Tyler a lie already. Riley almost says Jade’s name when she talks about guilt. Jade pretends not to notice you noticing.',
+    text: 'You fold and harvest. Maya admits she texted Tyler a lie already. Riley almost says Lola’s name when she talks about guilt. Lola pretends not to notice you noticing.',
     focus: 'all',
     choices: [
       {
@@ -317,7 +317,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_rumor_steer: {
     id: 'skill_rumor_steer',
     speaker: 'narrator',
-    text: 'You seed a rumor that the roommates’ pact is already cracked. By the time it reaches Jade, it has teeth. She looks impressed and murderous. Riley looks terrified and wet-eyed.',
+    text: 'You seed a rumor that the roommates’ pact is already cracked. By the time it reaches Lola, it has teeth. She looks impressed and murderous. Riley looks terrified and wet-eyed.',
     focus: 'all',
     choices: [
       {
@@ -348,7 +348,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_endurance: {
     id: 'skill_endurance',
     speaker: 'maya',
-    text: 'Maya’s hallway dare: hold a plank while she sits on your back and whispers filth. “Last thirty seconds and I owe you a favor. Fail and you owe Jade a kneel.” Stamina is the gate. Dominance decides whether the favor is useful.',
+    text: 'Maya’s hallway dare: hold a plank while she sits on your back and whispers filth. “Last thirty seconds and I owe you a favor. Fail and you owe Lola a kneel.” Stamina is the gate. Dominance decides whether the favor is useful.',
     focus: 'maya',
     chapter: 'Act II · The Floor',
     choices: [
@@ -401,7 +401,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_endurance_dom: {
     id: 'skill_endurance_dom',
     speaker: 'maya',
-    text: 'You hold the plank and tell Maya exactly how you would use the favor. She goes quiet, then grins. “Fuck. Jade is going to hate how hard that just made me.”',
+    text: 'You hold the plank and tell Maya exactly how you would use the favor. She goes quiet, then grins. “Fuck. Lola is going to hate how hard that just made me.”',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_edge',
@@ -420,7 +420,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_endurance_fail: {
     id: 'skill_endurance_fail',
     speaker: 'jade',
-    text: 'You drop. Jade appears as if summoned by failure. “Kneel. Payment for quitting.” You do. She looks pleased enough to almost be merciful.',
+    text: 'You drop. Lola appears as if summoned by failure. “Kneel. Payment for quitting.” You do. She looks pleased enough to almost be merciful.',
     focus: 'jade',
     choices: [
       {
@@ -438,7 +438,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_scout: {
     id: 'skill_scout',
     speaker: 'narrator',
-    text: 'Insight paints the house: Maya’s phone face-up with Tyler typing, Riley’s bedroom door cracked, Jade’s laptop warm in her room, a group chat poll already drafting your fate.',
+    text: 'Insight paints the house: Maya’s phone face-up with Tyler typing, Riley’s bedroom door cracked, Lola’s laptop warm in her room, a group chat poll already drafting your fate.',
     focus: 'none',
     chapter: 'Act II · The Floor',
     choices: [
@@ -450,7 +450,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
         effect: { skills: { insight: 1, discretion: 1 } },
       },
       {
-        text: 'Slip into Jade’s room for folder crumbs [INS 4 · DSC 3]',
+        text: 'Slip into Lola’s room for folder crumbs [INS 4 · DSC 3]',
         next: 'folder_snoop',
         need: { insight: 4, discretion: 3 },
         softLock: true,
@@ -485,12 +485,12 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_private_lesson: {
     id: 'skill_private_lesson',
     speaker: 'jade',
-    text: 'Jade offers a “private lesson” in the linen closet: posture, eye contact, when to speak. “Dominance without timing is just noise. Fail my drill and I keep your phone until dawn.”',
+    text: 'Lola pulls you into the linen closet and offers herself like homework. “Private… practice. Tell me how to stand. Tell me when to speak. If I do it wrong, correct me. Please.”',
     focus: 'jade',
     chapter: 'Act II · The Floor',
     choices: [
       {
-        text: 'Take the drill [DOM 2]',
+        text: 'Train her [DOM 2]',
         next: 'skill_lesson_drill',
         need: { dominance: 2 },
         softLock: true,
@@ -511,13 +511,13 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_lesson_drill: {
     id: 'skill_lesson_drill',
     speaker: 'jade',
-    text: 'Jade corrects your stance with her knee between your legs and her voice in your ear. When you finally hold the look she wants, she rewards you with a slow, filthy kiss — then stops. “Homework: use that on Riley without crumbling.”',
+    text: 'You correct Lola’s posture with a hand in her hair and your knee between her thighs. She takes every note like gospel. When she finally holds the look you want — eyes up, mouth soft — you reward her with a filthy kiss. She melts. “Homework: tell me to do that again later.”',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_closet',
     choices: [
       {
-        text: 'Accept homework',
+        text: 'Promise you will',
         next: 'fallout_continue',
         effect: { affection: { jade: 2 }, skills: { dominance: 2, stamina: 1 }, flags: { markedByJade: true } },
       },
@@ -527,7 +527,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_lesson_flirt: {
     id: 'skill_lesson_flirt',
     speaker: 'jade',
-    text: 'You turn the lesson into charm. Jade hates that it works. She laughs once — rare — and pins you anyway. “Fine. Soft power counts. Do not tell Maya I smiled.”',
+    text: 'You turn the lesson into charm. Lola blushes hard and leans into it, laughing once — rare — then asking permission to kiss you. “Soft counts too… right? Please do not tell Maya I asked so nicely.”',
     focus: 'jade',
     choices: [
       {
@@ -541,7 +541,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_riley_bake: {
     id: 'skill_riley_bake',
     speaker: 'riley',
-    text: 'Riley is stress-baking at 1 a.m. with party bass still thumping. “Help me or distract me. Charm gets cookies. Dominance gets me on the counter. Discretion gets both without Jade noticing.”',
+    text: 'Riley is stress-baking at 1 a.m. with party bass still thumping. “Help me or distract me. Charm gets cookies. Dominance gets me on the counter. Discretion gets both without Lola noticing.”',
     focus: 'riley',
     chapter: 'Act II · The Floor',
     choices: [
@@ -586,7 +586,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
   skill_bake_dom: {
     id: 'skill_bake_dom',
     speaker: 'riley',
-    text: 'Riley on the counter, jersey up, biting a wooden spoon so Jade will not hear. She comes fast and sorry and grateful. “Okay. Dominance works on me. Please do not weaponize that unless I ask.”',
+    text: 'Riley on the counter, jersey up, biting a wooden spoon so Lola will not hear. She comes fast and sorry and grateful. “Okay. Dominance works on me. Please do not weaponize that unless I ask.”',
     focus: 'riley',
     nsfw: true,
     art: 'sex_riley_kitchen',

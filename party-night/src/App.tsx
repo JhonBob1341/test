@@ -125,7 +125,7 @@ export default function App() {
       : scene.speaker === 'you'
         ? state.flags.playerName
         : scene.speaker === 'all'
-          ? 'Maya · Riley · Jade'
+          ? 'Maya · Riley · Lola'
           : CHARACTERS[scene.speaker].name
 
   const speakerColor =
@@ -186,7 +186,7 @@ export default function App() {
         </div>
         {showHud && (
           <div className="hud">
-            <Meters affection={state.affection} />
+            <Meters affection={state.affection} flags={state.flags} />
             <SkillsPanel skills={state.skills} />
           </div>
         )}

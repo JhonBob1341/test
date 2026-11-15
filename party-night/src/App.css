@@ -10,7 +10,8 @@
   position: relative;
   min-height: 100svh;
   color: var(--ink);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   isolation: isolate;
 }
 
@@ -167,7 +168,7 @@
 .hud {
   display: grid;
   gap: 0.75rem;
-  min-width: min(360px, 100%);
+  min-width: min(420px, 100%);
 }
 
 .meters {
@@ -229,13 +230,38 @@
   transition: width 0.45s ease;
 }
 
+.meter-kinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.45rem;
+  margin-top: 0.28rem;
+}
+
+.meter-kink {
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.meter-kink.is-off {
+  color: color-mix(in srgb, var(--muted) 55%, transparent);
+  opacity: 0.55;
+}
+
+.meter-kink.is-on {
+  color: var(--girl);
+  opacity: 1;
+}
+
 .stage {
   width: min(980px, calc(100% - 2rem));
   margin: 0 auto;
-  padding: 1rem 0 5rem;
+  padding: 1rem 0 5.5rem;
   display: grid;
   gap: 1.25rem;
 }
+
 
 .title-hero {
   min-height: min(70svh, 720px);
@@ -496,23 +522,37 @@
 }
 
 .ending-art {
-  margin: 0;
+  margin: 0 auto;
   border: 1px solid var(--line);
-  overflow: hidden;
+  overflow: visible;
   background: #12080c;
   animation: rise 0.5s ease both;
+  width: fit-content;
+  max-width: min(100%, 420px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ending-art img {
   display: block;
   width: 100%;
-  max-height: min(52vh, 520px);
-  object-fit: cover;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
   object-position: center;
+  aspect-ratio: auto;
 }
 
 .scene-panel.has-ending {
   gap: 0.85rem;
+  justify-items: center;
+}
+
+.scene-panel.has-ending .chapter-pill,
+.scene-panel.has-ending .dialogue {
+  width: 100%;
+  max-width: min(100%, 640px);
 }
 
 .chapter-pill {

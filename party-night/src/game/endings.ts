@@ -46,6 +46,11 @@ import sexGroupLiving from '../assets/scenes/sex-group-living.jpg'
 import sexGroupKitchen from '../assets/scenes/sex-group-kitchen.jpg'
 import sexDareMaya from '../assets/scenes/sex-dare-maya.jpg'
 import sexDareRiley from '../assets/scenes/sex-dare-riley.jpg'
+import sexOrgy from '../assets/scenes/sex-orgy.jpg'
+import sexChoke from '../assets/scenes/sex-choke.jpg'
+import sexImpact from '../assets/scenes/sex-impact.jpg'
+import sexBdsm from '../assets/scenes/sex-bdsm.jpg'
+import sexCnc from '../assets/scenes/sex-cnc.jpg'
 
 export const SCENE_ART: Record<SceneArtId, string> = {
   solo_maya: endingMaya,
@@ -96,6 +101,11 @@ export const SCENE_ART: Record<SceneArtId, string> = {
   sex_group_kitchen: sexGroupKitchen,
   sex_dare_maya: sexDareMaya,
   sex_dare_riley: sexDareRiley,
+  sex_orgy: sexOrgy,
+  sex_choke: sexChoke,
+  sex_impact: sexImpact,
+  sex_bdsm: sexBdsm,
+  sex_cnc: sexCnc,
 }
 
 /** Keep old name for EndingArt */

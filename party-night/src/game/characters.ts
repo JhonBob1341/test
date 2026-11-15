@@ -34,13 +34,13 @@ export const CHARACTERS: Record<GirlId, Character> = {
   },
   jade: {
     id: 'jade',
-    name: 'Jade',
+    name: 'Lola',
     age: 21,
-    tag: 'Owns the ending',
-    vibe: 'Quiet until she wants you. Then she collects interest — and witnesses.',
-    look: 'Black bob, sharp eyeliner, leather mini, slow predatory smile.',
-    color: '#c6ff4a',
-    accent: '#eaffb8',
+    tag: 'Eager to kneel',
+    vibe: 'Pretty, obedient, and desperate to be told what to do. She asks permission before she comes.',
+    look: 'Black bob, soft eyeliner, leather mini worn like a gift wrap, eyes down until you say look up.',
+    color: '#ff6ad5',
+    accent: '#ffd0f0',
   },
 }
 

@@ -53,6 +53,11 @@ export type SexArtId =
   | 'sex_group_kitchen'
   | 'sex_dare_maya'
   | 'sex_dare_riley'
+  | 'sex_orgy'
+  | 'sex_choke'
+  | 'sex_impact'
+  | 'sex_bdsm'
+  | 'sex_cnc'
 
 export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning' | SexArtId
 
@@ -110,6 +115,23 @@ export type Flags = {
   cuckoldLive: boolean
   publicUse: boolean
   friendshipBroken: boolean
+  orgyNight: boolean
+  chokingPlay: boolean
+  impactPlay: boolean
+  bdsmSession: boolean
+  cncPlay: boolean
+  mayaExhibit: boolean
+  mayaFacesit: boolean
+  mayaSpit: boolean
+  mayaMirror: boolean
+  rileyPraise: boolean
+  rileyPet: boolean
+  rileyOverstim: boolean
+  rileyDegrade: boolean
+  jadeFemdom: boolean
+  jadeService: boolean
+  jadeSensory: boolean
+  jadeDenial: boolean
   phase: 'early' | 'mid' | 'late' | 'harem'
 }
 
@@ -206,6 +228,23 @@ export const INITIAL_FLAGS: Flags = {
   cuckoldLive: false,
   publicUse: false,
   friendshipBroken: false,
+  orgyNight: false,
+  chokingPlay: false,
+  impactPlay: false,
+  bdsmSession: false,
+  cncPlay: false,
+  mayaExhibit: false,
+  mayaFacesit: false,
+  mayaSpit: false,
+  mayaMirror: false,
+  rileyPraise: false,
+  rileyPet: false,
+  rileyOverstim: false,
+  rileyDegrade: false,
+  jadeFemdom: false,
+  jadeService: false,
+  jadeSensory: false,
+  jadeDenial: false,
   phase: 'early',
 }
 

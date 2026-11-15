@@ -24,7 +24,7 @@ export const SKILL_META: Record<
   dominance: {
     label: 'Dominance',
     short: 'DOM',
-    blurb: 'Orders, posture, Jade-coded.',
+    blurb: 'Orders, posture, Lola-coded.',
     color: '#c6ff4a',
   },
   nerve: {

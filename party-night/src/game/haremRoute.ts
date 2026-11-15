@@ -5,7 +5,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_pitch: {
     id: 'harem_pitch',
     speaker: 'you',
-    text: 'You look at all three of them and say it plain: you do not want to pick. You want the house. Maya’s eyebrows shoot up. Riley almost drops her cup. Jade goes very still — the dangerous kind of still.',
+    text: 'You look at all three of them and say it plain: you do not want to pick. You want the house. Maya’s eyebrows shoot up. Riley almost drops her cup. Lola goes very still — the dangerous kind of still.',
     focus: 'all',
     choices: [{ text: 'Hold the silence', next: 'harem_reaction' }],
   },
@@ -13,7 +13,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_reaction: {
     id: 'harem_reaction',
     speaker: 'all',
-    text: 'Maya: “Holy shit.” Riley: “That is… illegal for our friendship.” Jade: “It is not illegal. It is expensive.” She steps closer. “If you want a harem in this lease, you earn it. One claim each. Then a ceremony. Then you belong to the house as much as it belongs to you.”',
+    text: 'Maya: “Holy shit.” Riley: “That is… illegal for our friendship.” Lola: “It is not illegal. It is expensive.” She steps closer. “If you want a harem in this lease, you earn it. One claim each. Then a ceremony. Then you belong to the house as much as it belongs to you.”',
     focus: 'all',
     choices: [
       {
@@ -38,7 +38,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_terms: {
     id: 'harem_terms',
     speaker: 'jade',
-    text: 'Jade ticks rules on her fingers. “No choosing favorites in public. No screenshots without a vote. Tyler gets blocked before Maya’s claim counts. Riley admits the spring almost-kiss out loud. I keep veto. Break a rule and I open the folder.” Maya salutes. Riley swallows.',
+    text: 'Lola ticks rules on her fingers. “No choosing favorites in public. No screenshots without a vote. Tyler gets blocked before Maya’s claim counts. Riley admits the spring almost-kiss out loud. I keep veto. Break a rule and I open the folder.” Maya salutes. Riley swallows.',
     focus: 'jade',
     choices: [
       {
@@ -52,7 +52,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
         effect: { flags: { phase: 'harem' } },
       },
       {
-        text: 'Start with Jade — get the veto drunk on power',
+        text: 'Start with Lola — get the veto drunk on power',
         next: 'harem_claim_jade',
         effect: { flags: { phase: 'harem' } },
       },
@@ -115,7 +115,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_after_maya: {
     id: 'harem_after_maya',
     speaker: 'maya',
-    text: 'Maya fixes her lipstick over a ruined smile. “One down. Two to go. If Jade tries to veto me, remind her I already moaned on camera for the archive.”',
+    text: 'Maya fixes her lipstick over a ruined smile. “One down. Two to go. If Lola tries to veto me, remind her I already moaned on camera for the archive.”',
     focus: 'maya',
     choices: [
       {
@@ -124,7 +124,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.claimedRiley,
       },
       {
-        text: 'Claim Jade next',
+        text: 'Claim Lola next',
         next: 'harem_claim_jade',
         require: (s) => !s.flags.claimedJade,
       },
@@ -159,7 +159,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_riley_confess: {
     id: 'harem_riley_confess',
     speaker: 'riley',
-    text: 'Riley stares at the photo. “I kissed Jade’s almost-boyfriend in our kitchen. I stopped. I hated stopping. I want to fail for real this time.” Tears and heat. “Please claim me like I am already guilty.”',
+    text: 'Riley stares at the photo. “I kissed Lola’s almost-boyfriend in our kitchen. I stopped. I hated stopping. I want to fail for real this time.” Tears and heat. “Please claim me like I am already guilty.”',
     focus: 'riley',
     choices: [
       {
@@ -173,7 +173,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_riley_nsfw: {
     id: 'harem_riley_nsfw',
     speaker: 'riley',
-    text: 'Riley comes with the friendship photo in her peripheral vision, whispering sorry and thank you in the same breath. You leave a necklace of marks Jade will inventory. “Tell them I’m claimed,” she begs softly. “Tell Maya I am not sweet tonight.”',
+    text: 'Riley comes with the friendship photo in her peripheral vision, whispering sorry and thank you in the same breath. You leave a necklace of marks Lola will inventory. “Tell them I’m claimed,” she begs softly. “Tell Maya I am not sweet tonight.”',
     focus: 'riley',
     nsfw: true,
     art: 'sex_riley_ride',
@@ -201,7 +201,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
         require: (s) => !s.flags.claimedMaya,
       },
       {
-        text: 'Claim Jade next',
+        text: 'Claim Lola next',
         next: 'harem_claim_jade',
         require: (s) => !s.flags.claimedJade,
       },
@@ -213,11 +213,11 @@ export const HAREM_SCENES: Record<string, Scene> = {
     ],
   },
 
-  // —— CLAIM JADE ——
+  // —— CLAIM LOLA ——
   harem_claim_jade: {
     id: 'harem_claim_jade',
     speaker: 'jade',
-    text: 'Jade does not take you to a closet. She takes you to her desk, opens the evidence folder, and turns the laptop toward you. “Claim me and you inherit this. Use it wrong and I burn you. Use it right and the house stays obedient.”',
+    text: 'Lola does not take you to a closet. She takes you to her desk, opens the evidence folder, and turns the laptop toward you. “Claim me and you inherit this. Use it wrong and I burn you. Use it right and the house stays obedient.”',
     focus: 'jade',
     choices: [
       {
@@ -236,7 +236,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_jade_kneel: {
     id: 'harem_jade_kneel',
     speaker: 'jade',
-    text: 'Jade kneels like a queen temporarily loaning the floor. “Do not get used to this.” Then she takes you with archival focus, eyes open, recording nothing — for once — because the claim itself is the file.',
+    text: 'Lola kneels like a queen temporarily loaning the floor. “Do not get used to this.” Then she takes you with archival focus, eyes open, recording nothing — for once — because the claim itself is the file.',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_kneel',
@@ -252,13 +252,13 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_jade_nsfw: {
     id: 'harem_jade_nsfw',
     speaker: 'jade',
-    text: 'Jade comes on her own desk calendar, biting your shoulder hard enough to brand. “I am claimed,” she says like a verdict she wrote herself. “Now the others answer to both of us — carefully.” She redraws MINE on your throat.',
+    text: 'Lola comes on her own desk calendar, biting your shoulder hard enough to brand. “I am claimed,” she says like a verdict she wrote herself. “Now the others answer to both of us — carefully.” She redraws MINE on your throat.',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_bed',
     choices: [
       {
-        text: 'Seal Jade’s claim',
+        text: 'Seal Lola’s claim',
         next: 'harem_after_jade',
         effect: {
           affection: { jade: 3 },
@@ -271,7 +271,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_after_jade: {
     id: 'harem_after_jade',
     speaker: 'jade',
-    text: 'Jade closes the laptop. “Two more claims, or joint night if you finished the set. Do not make me ask twice.”',
+    text: 'Lola closes the laptop. “Two more claims, or joint night if you finished the set. Do not make me ask twice.”',
     focus: 'jade',
     choices: [
       {
@@ -296,7 +296,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_joint_intro: {
     id: 'harem_joint_intro',
     speaker: 'narrator',
-    text: 'All three claimed. The guest bedroom becomes a throne room with bad lighting. Maya locks the door. Riley dims the fairy lights she stole from her own room. Jade opens Notes and titles a doc: HOUSE HAREM v1.',
+    text: 'All three claimed. The guest bedroom becomes a throne room with bad lighting. Maya locks the door. Riley dims the fairy lights she stole from her own room. Lola opens Notes and titles a doc: HOUSE HAREM v1.',
     focus: 'all',
     choices: [
       {
@@ -324,7 +324,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_joint_1: {
     id: 'harem_joint_1',
     speaker: 'narrator',
-    text: 'They start by using each other for you — Maya’s mouth on Riley while Jade holds Riley’s wrists and narrates. “Look how soft she breaks. Look how loud Maya gets when she is not the center.” When Riley comes, Jade kisses the sound off her lips and points you in.',
+    text: 'They start by using each other for you — Maya’s mouth on Riley while Lola holds Riley’s wrists and narrates. “Look how soft she breaks. Look how loud Maya gets when she is not the center.” When Riley comes, Lola kisses the sound off her lips and points you in.',
     focus: 'all',
     nsfw: true,
     art: 'sex_maya_riley',
@@ -340,13 +340,13 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_joint_2: {
     id: 'harem_joint_2',
     speaker: 'maya',
-    text: 'Maya climbs on next, facing Jade, making Jade watch every bounce. “Veto this,” Maya taunts. Jade does not. She leans in and bites Maya’s nipple instead. Maya comes swearing loyalty to a lease.',
+    text: 'Maya climbs on next, facing Lola, making Lola watch every bounce. “Veto this,” Maya taunts. Lola does not. She leans in and bites Maya’s nipple instead. Maya comes swearing loyalty to a lease.',
     focus: 'maya',
     nsfw: true,
     art: 'sex_maya_after',
     choices: [
       {
-        text: 'Pull Jade onto you after',
+        text: 'Pull Lola onto you after',
         next: 'harem_joint_3',
         effect: { affection: { maya: 2, jade: 2 }, flags: { jealousyTrap: true } },
       },
@@ -356,7 +356,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_joint_3: {
     id: 'harem_joint_3',
     speaker: 'jade',
-    text: 'Jade rides like sentencing. She makes Maya and Riley hold her hands. “Say you are house,” she orders you. You say it. She comes with a tremor she will deny tomorrow, then wipes her mouth and smiles. “Ceremony.”',
+    text: 'Lola rides like sentencing. She makes Maya and Riley hold her hands. “Say you are house,” she orders you. You say it. She comes with a tremor she will deny tomorrow, then wipes her mouth and smiles. “Ceremony.”',
     focus: 'jade',
     nsfw: true,
     art: 'sex_jade_bed',
@@ -372,7 +372,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_ceremony: {
     id: 'harem_ceremony',
     speaker: 'all',
-    text: 'Phone notes. Candle Maya stole from a bathroom. They stand close enough to share breath and rewrite the sacred rule: we share him. We share blame. We share mornings. Riley cries once. Maya laughs once. Jade hits save.',
+    text: 'Phone notes. Candle Maya stole from a bathroom. They stand close enough to share breath and rewrite the sacred rule: we share him. We share blame. We share mornings. Riley cries once. Maya laughs once. Lola hits save.',
     focus: 'all',
     art: 'harem_pact',
     choices: [
@@ -387,7 +387,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_joint_4: {
     id: 'harem_joint_4',
     speaker: 'narrator',
-    text: 'Final round is slower and filthier — less performance, more possession. They take turns saying your name like a password. When you finish, they pass the proof between their mouths without being told. Jade: “Archive optional.” Maya: “Archive mandatory.” Riley: “Please just hold me after.”',
+    text: 'Final round is slower and filthier — less performance, more possession. They take turns saying your name like a password. When you finish, they pass the proof between their mouths without being told. Lola: “Archive optional.” Maya: “Archive mandatory.” Riley: “Please just hold me after.”',
     focus: 'all',
     nsfw: true,
     art: 'sex_group_living',
@@ -403,7 +403,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_morning: {
     id: 'harem_morning',
     speaker: 'narrator',
-    text: 'Morning. Coffee. Stolen hoodie on Maya. Riley’s marks half-hidden by her jersey. Jade already editing HOUSE HAREM v1.1. The party trash is still everywhere. Nobody pretends last night was a dream.',
+    text: 'Morning. Coffee. Stolen hoodie on Maya. Riley’s marks half-hidden by her jersey. Lola already editing HOUSE HAREM v1.1. The party trash is still everywhere. Nobody pretends last night was a dream.',
     focus: 'all',
     art: 'harem_morning',
     choices: [
@@ -429,7 +429,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   harem_schedule: {
     id: 'harem_schedule',
     speaker: 'riley',
-    text: 'Riley opens a shared calendar like this is wholesome. “Maya Mondays. Jade veto overrides. Me on soft nights. Party nights are free use.” She blushes. “I cannot believe I said free use out loud.”',
+    text: 'Riley opens a shared calendar like this is wholesome. “Maya Mondays. Lola veto overrides. Me on soft nights. Party nights are free use.” She blushes. “I cannot believe I said free use out loud.”',
     focus: 'riley',
     choices: [{ text: 'Save the calendar', next: 'harem_ending_gate' }],
   },
@@ -461,7 +461,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   rent_negotiation: {
     id: 'rent_negotiation',
     speaker: 'jade',
-    text: 'Jade corners you by the fridge. “Rent is due conceptually. Maya is short. Riley is soft. I am practical. Pay in performance and I will… reallocate chores.” She means sex. She always means sex when she sounds like a landlord.',
+    text: 'Lola corners you by the fridge. “Rent is due conceptually. Maya is short. Riley is soft. I am practical. Pay in performance and I will… reallocate chores.” She means sex. She always means sex when she sounds like a landlord.',
     focus: 'jade',
     choices: [
       {
@@ -480,7 +480,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   rent_nsfw: {
     id: 'rent_nsfw',
     speaker: 'narrator',
-    text: 'They take rent on the kitchen counter in shifts while the party thumps. Maya films ten seconds “for accounting.” Riley tallies orgasms like chores. Jade initials your throat in eyeliner: PAID.',
+    text: 'They take rent on the kitchen counter in shifts while the party thumps. Maya films ten seconds “for accounting.” Riley tallies orgasms like chores. Lola initials your throat in eyeliner: PAID.',
     focus: 'all',
     nsfw: true,
     art: 'sex_group_kitchen',
@@ -499,7 +499,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
   porch_blackmail: {
     id: 'porch_blackmail',
     speaker: 'jade',
-    text: 'On the back porch, Jade shows you a draft post: blurry, damning, captioned roommate of the year. “Help me finish the harem properly and this stays private. Get boring and campus gets a newsletter.”',
+    text: 'On the back porch, Lola shows you a draft post: blurry, damning, captioned roommate of the year. “Help me finish the harem properly and this stays private. Get boring and campus gets a newsletter.”',
     focus: 'jade',
     choices: [
       {
