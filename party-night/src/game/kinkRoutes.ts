@@ -40,7 +40,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'CNC — laundry ambush script [DOM 5]',
+        text: 'Ambush Maya in the laundry — CNC [DOM 5]',
         next: 'kink_maya_cnc',
         require: (s) => !s.flags.mayaCnc,
         need: { dominance: 5, nerve: 4 },
@@ -134,12 +134,12 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_maya_cnc: {
     id: 'kink_maya_cnc',
     speaker: 'maya',
-    text: 'Maya sits on the dryer and goes deadly clear. “CNC. Caught-in-laundry script. I fight, I swear, I say no. You pin me anyway. Lease ends it instantly — two taps if my mouth is busy. Aftercare on this exact dryer. If you freeze when I safeword, we never do this again. Ready?”',
+    text: 'Maya sits on the dryer and goes deadly clear. “CNC. Caught-in-laundry script. I fight, I swear, I say no. You pin me anyway. Lease ends it instantly — two taps if my mouth is busy. Aftercare on this exact dryer. If you freeze when I safeword, we never do this again.” She hops down and walks out. Your cue.',
     focus: 'maya',
     chapter: 'Act II · Kinks',
     choices: [
       {
-        text: 'Confirm the script and start the ambush',
+        text: 'Pin her against the machines',
         next: 'kink_maya_cnc_play',
         effect: { affection: { maya: 1 }, skills: { dominance: 1 } },
       },
@@ -220,7 +220,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'CNC — hallway ambush script [DOM 5]',
+        text: 'Ambush Riley in the hallway — CNC [DOM 5]',
         next: 'kink_riley_cnc',
         require: (s) => !s.flags.rileyCnc,
         need: { dominance: 5, charm: 3 },
@@ -314,12 +314,12 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_riley_cnc: {
     id: 'kink_riley_cnc',
     speaker: 'riley',
-    text: 'Riley shows you her phone twice — limits typed neat. “Hallway ambush. Soft noes. Mean voice. Lease stops everything. Lola can watch from a cracked door as safety if you want. Aftercare is blanket and checking I am okay. I am scared and I still want it.”',
+    text: 'Riley shows you her phone twice — limits typed neat. “Hallway ambush. Soft noes. Mean voice. Lease stops everything. Lola can watch from a cracked door as safety if you want. Aftercare is blanket and checking I am okay. I am scared and I still want it.” She puts the phone away and steps into the hall.',
     focus: 'riley',
     chapter: 'Act II · Kinks',
     choices: [
       {
-        text: 'Agree to the script and wait in the hall',
+        text: 'Pin her to the hallway wall',
         next: 'kink_riley_cnc_play',
         effect: { affection: { riley: 1 }, skills: { dominance: 1 } },
       },
@@ -400,7 +400,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'CNC — planned to be taken [DOM 6]',
+        text: 'Take Lola like she planned — CNC [DOM 6]',
         next: 'kink_jade_cnc',
         require: (s) => !s.flags.jadeCnc,
         need: { dominance: 6, nerve: 4 },
@@ -494,12 +494,12 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
   kink_jade_cnc: {
     id: 'kink_jade_cnc',
     speaker: 'jade',
-    text: 'Lola scripts her CNC soft and scared on purpose, eyes on the floor. “I will fight a little. I will say no. Lease stops everything. Two taps if I cannot speak. Aftercare means you hold me and say I was brave — and that I am still good. Please… decide for me.”',
+    text: 'Lola scripts her CNC soft and scared on purpose, eyes on the floor. “I will fight a little. I will say no. Lease stops everything. Two taps if I cannot speak. Aftercare means you hold me and say I was brave — and that I am still good.” She stays where she is, waiting to be taken.',
     focus: 'jade',
     chapter: 'Act II · Kinks',
     choices: [
       {
-        text: 'Take the script and claim her',
+        text: 'Grab her and pin her down',
         next: 'kink_jade_cnc_play',
         effect: { affection: { jade: 1 }, skills: { dominance: 1 } },
       },

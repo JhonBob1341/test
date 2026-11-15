@@ -99,7 +99,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
-        text: 'Negotiate a CNC rape-play scene [DOM 6 · NRV 5]',
+        text: 'Force a CNC rape-play scene [DOM 6 · NRV 5]',
         next: 'xt_cnc',
         require: (s) => !(s.flags.mayaCnc && s.flags.rileyCnc && s.flags.jadeCnc),
         need: { dominance: 6, nerve: 5 },
@@ -1137,24 +1137,24 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
   xt_cnc: {
     id: 'xt_cnc',
     speaker: 'jade',
-    text: 'Lola’s voice goes clinical. “CNC. Consensual non-consent. Rape play. We negotiate first, then we pretend we did not. Hard rules: safeword lease ends it instantly. Two taps ends it if you cannot speak. No permanent injury. No involving anyone who did not opt in. Who wants the scene?” Maya’s grin is feral. Riley’s voice shakes: “I… I want to try. With a script.”',
+    text: 'Lola’s voice goes clinical. “CNC. Consensual non-consent. Rape play. Limits first, then we pretend we did not. Hard rules: safeword lease ends it instantly. Two taps ends it if you cannot speak. No permanent injury. No involving anyone who did not opt in.” Maya’s grin is feral. Riley’s voice shakes: “I… I want to try. With a script.” Pick who you take.',
     focus: 'all',
     chapter: 'Act II · Escalation',
     choices: [
       {
-        text: 'Script Maya’s “caught in laundry” CNC',
+        text: 'Catch Maya in the laundry — CNC',
         next: 'xt_cnc_maya',
         require: (s) => !s.flags.mayaCnc,
         effect: { affection: { maya: 2 } },
       },
       {
-        text: 'Script Riley’s “hallway ambush” CNC',
+        text: 'Ambush Riley in the hallway — CNC',
         next: 'xt_cnc_riley',
         require: (s) => !s.flags.rileyCnc,
         effect: { affection: { riley: 2 } },
       },
       {
-        text: 'Script Lola’s “she planned to be taken” CNC',
+        text: 'Take Lola like she planned — CNC',
         next: 'xt_cnc_jade',
         require: (s) => !s.flags.jadeCnc,
         need: { dominance: 7 },
@@ -1162,7 +1162,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
         effect: { affection: { jade: 2 } },
       },
       {
-        text: 'Run a house CNC night with all three opted in [STM 6]',
+        text: 'Claim all three in a house CNC night [STM 6]',
         next: 'xt_cnc_house',
         require: (s) => !(s.flags.mayaCnc && s.flags.rileyCnc && s.flags.jadeCnc),
         need: { stamina: 6, dominance: 6, nerve: 5 },
