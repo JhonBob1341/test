@@ -51,7 +51,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     text: 'Maya already texted you one line: bathroom. green. lease. Then she plays the bitch who doesn’t want it — shoving your chest, swearing, “Get off me—” while her thighs lock around you. You pin her wrists to the tile, cover her mouth with your hand, and fuck her hard enough the mirror rattles. She comes furious and wet, then taps twice. You stop. She gasps, “Good. Now don’t be gentle.”',
     focus: 'maya',
     nsfw: true,
-    art: 'sex_maya_bathroom',
+    art: 'sex_maya_cnc_rough',
     chapter: 'Act I · Rough CNC',
     choices: [
       {
@@ -79,7 +79,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     speaker: 'maya',
     text: 'Maya fixes her lipstick like a crime scene cover-up. “That was the mean version. I liked it. Lease still works — don’t forget.” She smacks your chest. “Now go look innocent before Riley smells me on you.”',
     focus: 'maya',
-    art: 'sex_maya_after',
+    art: 'sex_maya_cnc_after',
     choices: [
       { text: 'Back to rough CNC picks', next: 'early_cnc_hub', for: 'house' },
       { text: 'Walk into the pact choice', next: 'pact_threat', for: 'house', effect: { flags: { oathPayment: true } } },
@@ -93,7 +93,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     text: 'Riley left her door cracked on purpose. Limits already in your messages: mean voice, hold me down, lease stops it. In-scene she gasps “wait— don’t—” as you shove her onto the bed, yank her jersey up, and take her hard. She fights soft, then breaks into shaking yeses she pretends are noes. Midway she whispers lease; you freeze. She pulls you back in, crying. “Green. Harder. Please don’t stop being mean.”',
     focus: 'riley',
     nsfw: true,
-    art: 'sex_riley_bed',
+    art: 'sex_riley_cnc_rough',
     chapter: 'Act I · Rough CNC',
     choices: [
       {
@@ -122,7 +122,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     speaker: 'riley',
     text: 'Riley hides under her blanket and counts breaths with you. “Scary. Hot. Safe.” She kisses your knuckles. “Thank you for stopping. Thank you for not staying stopped.”',
     focus: 'riley',
-    art: 'sex_riley_couch',
+    art: 'sex_riley_cnc_after',
     choices: [
       { text: 'Back to rough CNC picks', next: 'early_cnc_hub', for: 'house' },
       { text: 'Walk into the pact choice', next: 'pact_threat', for: 'house', effect: { flags: { oathPayment: true } } },
@@ -136,7 +136,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     text: 'Lola kneels first — then begs you to ignore that she asked. “Please take me like I said no. Hair. Floor. Rough. Lease if I mean it.” You fist her hair, shove her down, and use her mouth then her cunt while she whimpers no into the carpet. She comes shaking, then taps twice. You release. She presses her forehead to your boot. “Praise. Water. Tell me I was good for being ruined.”',
     focus: 'jade',
     nsfw: true,
-    art: 'sex_jade_pin',
+    art: 'sex_jade_cnc_rough',
     chapter: 'Act I · Rough CNC',
     choices: [
       {
@@ -165,7 +165,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     speaker: 'jade',
     text: 'Lola drinks from your palm like that was the point. “Aggressive is allowed when I ask for aggressive.” She straightens her skirt with trembling hands. “Please do it again later. Harder.”',
     focus: 'jade',
-    art: 'sex_jade_kneel',
+    art: 'sex_jade_cnc_after',
     choices: [
       { text: 'Back to rough CNC picks', next: 'early_cnc_hub', for: 'house' },
       { text: 'Walk into the pact choice', next: 'pact_threat', for: 'house', effect: { flags: { oathPayment: true } } },
@@ -179,7 +179,7 @@ export const EARLY_CNC_SCENES: Record<string, Scene> = {
     text: 'They lock the guest room together — three greens in the chat, one safeword, one hour. What follows is messy and loud on purpose: Maya pinned to the dresser, Riley muffled into a pillow, Lola held open between them. Safewords fire once and are honored instantly. When the timer ends, the roughness drops. Blankets. Water. Maya laughing like she got away with murder.',
     focus: 'all',
     nsfw: true,
-    art: 'sex_cnc',
+    art: 'sex_cnc_house_rough',
     chapter: 'Act I · Rough CNC',
     choices: [
       {

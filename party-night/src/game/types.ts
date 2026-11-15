@@ -58,6 +58,13 @@ export type SexArtId =
   | 'sex_impact'
   | 'sex_bdsm'
   | 'sex_cnc'
+  | 'sex_maya_cnc_rough'
+  | 'sex_maya_cnc_after'
+  | 'sex_riley_cnc_rough'
+  | 'sex_riley_cnc_after'
+  | 'sex_jade_cnc_rough'
+  | 'sex_jade_cnc_after'
+  | 'sex_cnc_house_rough'
 
 export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning' | SexArtId
 
