@@ -142,6 +142,15 @@ export type Flags = {
   jadeDenial: boolean
   jadeCnc: boolean
   jadeCncRough: boolean
+  deepNight: boolean
+  truthCircle: boolean
+  jealousyNight: boolean
+  secondRoundMaya: boolean
+  secondRoundRiley: boolean
+  secondRoundJade: boolean
+  neighborScare: boolean
+  bottleGame: boolean
+  almostDawn: boolean
   phase: 'early' | 'mid' | 'late' | 'harem'
 }
 
@@ -263,6 +272,15 @@ export const INITIAL_FLAGS: Flags = {
   jadeDenial: false,
   jadeCnc: false,
   jadeCncRough: false,
+  deepNight: false,
+  truthCircle: false,
+  jealousyNight: false,
+  secondRoundMaya: false,
+  secondRoundRiley: false,
+  secondRoundJade: false,
+  neighborScare: false,
+  bottleGame: false,
+  almostDawn: false,
   phase: 'early',
 }
 

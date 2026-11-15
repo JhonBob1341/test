@@ -3,7 +3,7 @@ import type { Choice, GirlId, Scene } from './types'
 export type ChoiceBucket = GirlId | 'house'
 
 const HOUSE_NEXT =
-  /^(title|agegate|name|archetype|street|mid_hub|late_hub|fallout_continue|extreme_hub|harem_pitch|ending_route|ending_resolve)$/
+  /^(title|agegate|name|archetype|street|mid_hub|deep_hub|late_hub|fallout_continue|extreme_hub|harem_pitch|ending_route|ending_resolve|leave_attempt)$/
 
 const HOUSE_TEXT =
   /\b(back (to|into)|slide back|return to|step back|party|house menu|escalation menu|play again)\b/i

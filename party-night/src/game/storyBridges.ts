@@ -63,6 +63,11 @@ export const STORY_BRIDGE_SCENES: Record<string, Scene> = {
         next: 'mid_hub',
         effect: { flags: { phase: 'mid', skillTour: true } },
       },
+      {
+        text: 'Push past midnight into deep night',
+        next: 'deep_hub',
+        effect: { flags: { phase: 'mid', skillTour: true } },
+      },
     ],
   },
 

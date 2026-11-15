@@ -1,3 +1,4 @@
+import { DEEP_NIGHT_SCENES } from './deepNight'
 import { EARLY_CNC_SCENES } from './earlyCnc'
 import { EXTREME_TABOO_SCENES } from './extremeTaboo'
 import { HAREM_SCENES } from './haremRoute'
@@ -1243,8 +1244,8 @@ const BASE_SCENES: Record<string, Scene> = {
           s.flags.pactBroken || hookedCount(s.flags) >= 1 || s.flags.threesomeUnlocked || s.flags.blackmailJade,
       },
       {
-        text: 'Follow the night upstairs before dawn',
-        next: 'late_hub',
+        text: 'Let the night go deeper past midnight',
+        next: 'deep_hub',
         require: (s) =>
           s.flags.balconyMaya ||
           s.flags.kitchenRiley ||
@@ -1256,13 +1257,24 @@ const BASE_SCENES: Record<string, Scene> = {
           s.flags.freeUse ||
           s.flags.breedingDare ||
           s.flags.publicUse ||
-          hookedCount(s.flags) >= 2 ||
+          s.flags.cncPlay ||
+          hookedCount(s.flags) >= 1 ||
           deepCount(s.flags) >= 1,
-        effect: { flags: { phase: 'late' } },
+      },
+      {
+        text: 'Follow the night upstairs before dawn',
+        next: 'late_hub',
+        require: (s) =>
+          Boolean(
+            s.flags.deepNight ||
+              (s.flags.almostDawn && deepCount(s.flags) >= 2) ||
+              (s.flags.truthCircle && s.flags.bottleGame),
+          ),
+        effect: { flags: { phase: 'late', deepNight: true } },
       },
       {
         text: 'Try to leave before the house finishes you',
-        next: 'ending_route',
+        next: 'leave_attempt',
       },
     ],
   },
@@ -1775,7 +1787,7 @@ const BASE_SCENES: Record<string, Scene> = {
   late_hub: {
     id: 'late_hub',
     speaker: 'narrator',
-    text: 'Upstairs smells like perfume and decisions that will not fit in a group chat. The pact is a corpse on the carpet. Dawn is bullying the blinds. Whatever you do next becomes the version of the night they keep.',
+    text: 'Upstairs smells like perfume and decisions that will not fit in a group chat. The pact is a corpse on the carpet. Dawn is bullying the blinds. Whatever you do next becomes the version of the night they keep — unless you drag the night downstairs one more time first.',
     focus: 'all',
     chapter: 'Act III · After Hours',
     choices: [
@@ -1798,22 +1810,22 @@ const BASE_SCENES: Record<string, Scene> = {
       {
         text: 'Take Maya alone for a last ruin',
         next: 'finale_maya',
-        require: (s) => s.affection.maya >= 6,
+        require: (s) => s.affection.maya >= 6 && (s.flags.secondRoundMaya || s.flags.deepMaya || s.flags.deepNight),
       },
       {
         text: 'Take Riley alone while the house sleeps',
         next: 'finale_riley',
-        require: (s) => s.affection.riley >= 6,
+        require: (s) => s.affection.riley >= 6 && (s.flags.secondRoundRiley || s.flags.deepRiley || s.flags.deepNight),
       },
       {
         text: 'Take Lola alone and accept the project',
         next: 'finale_jade',
-        require: (s) => s.affection.jade >= 6,
+        require: (s) => s.affection.jade >= 6 && (s.flags.secondRoundJade || s.flags.deepJade || s.flags.deepNight),
       },
       {
         text: 'Leave a door unlocked on purpose',
         next: 'finale_caught_bait',
-        require: (s) => s.flags.caughtAlmost || s.flags.phoneLeak,
+        require: (s) => s.flags.caughtAlmost || s.flags.phoneLeak || s.flags.neighborScare,
       },
       {
         text: 'Let Lola escalate past games',
@@ -1828,8 +1840,19 @@ const BASE_SCENES: Record<string, Scene> = {
         softLock: true,
       },
       {
+        text: 'Go back downstairs — deep night still has veins',
+        next: 'deep_hub',
+        require: (s) => !s.flags.almostDawn || !s.flags.truthCircle || !s.flags.bottleGame,
+      },
+      {
         text: 'Try to sneak out before sunrise',
         next: 'ending_route',
+        require: (s) =>
+          s.flags.deepNight ||
+          deepCount(s.flags) >= 2 ||
+          hookedCount(s.flags) >= 2 ||
+          s.flags.ceremonyDone ||
+          s.flags.threesomeUnlocked,
       },
     ],
   },
@@ -2154,6 +2177,7 @@ export const SCENES: Record<string, Scene> = {
   ...EXTREME_TABOO_SCENES,
   ...KINK_ROUTE_SCENES,
   ...EARLY_CNC_SCENES,
+  ...DEEP_NIGHT_SCENES,
   ...STORY_BRIDGE_SCENES,
 }
 

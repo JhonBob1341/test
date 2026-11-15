@@ -48,6 +48,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
       },
       { text: 'Back to escalating with Maya', next: 'maya_escalate' },
       { text: 'Back into the party', next: 'mid_hub' },
+      { text: 'Drop into deep night', next: 'deep_hub' },
     ],
   },
 
@@ -231,6 +232,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
       },
       { text: 'Back to escalating with Riley', next: 'riley_escalate' },
       { text: 'Back into the party', next: 'mid_hub' },
+      { text: 'Drop into deep night', next: 'deep_hub' },
     ],
   },
 
@@ -414,6 +416,7 @@ export const KINK_ROUTE_SCENES: Record<string, Scene> = {
       },
       { text: 'Back to escalating with Lola', next: 'jade_escalate' },
       { text: 'Back into the party', next: 'mid_hub' },
+      { text: 'Drop into deep night', next: 'deep_hub' },
     ],
   },
 
