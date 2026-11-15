@@ -161,6 +161,8 @@ export type Choice = {
   /** Soft gate: show locked button with requirement */
   softLock?: boolean
   require?: (state: GameState) => boolean
+  /** Force this choice into a character dropdown or the shared house row */
+  for?: GirlId | 'house'
 }
 
 export type Speaker = GirlId | 'narrator' | 'you' | 'all'

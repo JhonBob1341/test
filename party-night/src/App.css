@@ -510,6 +510,93 @@
   gap: 0.75rem;
 }
 
+.choice-cast {
+  display: grid;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.choice-cast-grid {
+  align-items: start;
+}
+
+.choice-cast-grid.cols-1 {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.choice-cast-grid.cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.choice-cast-grid.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.choice-cast-grid-only {
+  gap: 0.65rem;
+}
+
+.choice-cast-col {
+  display: grid;
+  gap: 0.45rem;
+  min-width: 0;
+}
+
+.choice-select {
+  display: grid;
+  gap: 0.28rem;
+  min-width: 0;
+}
+
+.choice-select-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--girl, var(--amber)) 80%, #fff);
+}
+
+.choice-select.is-empty .choice-select-label {
+  color: #9f8a82;
+  opacity: 0.75;
+}
+
+.choice-dropdown {
+  appearance: none;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  color: var(--ink);
+  background:
+    linear-gradient(45deg, transparent 50%, var(--amber) 50%) calc(100% - 16px) calc(50% - 2px) / 7px 7px no-repeat,
+    linear-gradient(135deg, var(--amber) 50%, transparent 50%) calc(100% - 10px) calc(50% - 2px) / 7px 7px no-repeat,
+    rgba(12, 7, 9, 0.96);
+  border: 1px solid color-mix(in srgb, var(--girl, var(--line)) 45%, var(--line));
+  padding: 0.75rem 2rem 0.75rem 0.8rem;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.choice-dropdown:hover,
+.choice-dropdown:focus-visible {
+  border-color: color-mix(in srgb, var(--girl, var(--accent)) 70%, #fff);
+  outline: none;
+  background-color: rgba(255, 77, 109, 0.1);
+}
+
+.choice-dropdown:disabled,
+.choice-dropdown option:disabled {
+  color: #b69a90;
+}
+
+.choice-house {
+  display: grid;
+  gap: 0.65rem;
+}
+
 .name-field {
   display: grid;
   gap: 0.4rem;
@@ -654,6 +741,17 @@
   .shell.has-hud .shell-main {
     padding-left: 1rem;
     padding-right: calc(var(--hud-rail-width, 280px) + 0.75rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .choice-cast-grid.cols-2,
+  .choice-cast-grid.cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .choice-cast-grid.cols-1 {
+    max-width: none;
   }
 }
 

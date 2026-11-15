@@ -1,9 +1,11 @@
 import { useMemo, useState } from 'react'
+import { ChoiceCast } from './components/ChoiceCast'
 import { EndingArt } from './components/EndingArt'
 import { PartyCast } from './components/Portrait'
 import { Meters } from './components/Meters'
 import { SkillsPanel } from './components/SkillsPanel'
 import { CHARACTERS } from './game/characters'
+import { groupChoices, shouldUseCastDropdowns } from './game/choiceTarget'
 import { applySkillDelta, hasSkills, skillReqLabel, SKILL_ORDER, type Skills } from './game/skills'
 import { resolveEndingScene, SCENES } from './game/story'
 import {
@@ -87,6 +89,9 @@ export default function App() {
       return true
     })
   }, [scene, state])
+
+  const useDropdowns = shouldUseCastDropdowns(scene, visibleChoices)
+  const choiceGroups = useMemo(() => groupChoices(visibleChoices, scene), [visibleChoices, scene])
 
   function go(choice: Choice) {
     if (choice.need && !hasSkills(state.skills, choice.need)) return
@@ -195,7 +200,19 @@ export default function App() {
             {entered && scene.id !== 'agegate' && scene.id !== 'name' && (
               <div className="chapter-pill">{chapter}</div>
             )}
-            {showArt && artKey ? <EndingArt art={artKey} /> : <PartyCast focus={scene.focus ?? 'none'} />}
+            {showArt && artKey ? (
+              <EndingArt art={artKey} />
+            ) : useDropdowns ? (
+              <ChoiceCast
+                focus={scene.focus ?? 'all'}
+                groups={{ maya: choiceGroups.maya, riley: choiceGroups.riley, jade: choiceGroups.jade }}
+                house={[]}
+                skills={state.skills}
+                onPick={go}
+              />
+            ) : (
+              <PartyCast focus={scene.focus ?? 'none'} />
+            )}
             <article className={`dialogue ${scene.nsfw ? 'is-nsfw' : ''}`}>
               <div className="speaker" style={speakerColor ? { color: speakerColor } : undefined}>
                 {speakerLabel}
@@ -224,22 +241,50 @@ export default function App() {
             </label>
           )}
 
-          {visibleChoices.map((choice) => {
-            const locked = Boolean(choice.need && !hasSkills(state.skills, choice.need))
-            const req = skillReqLabel(choice.need)
-            return (
-              <button
-                key={choice.text + choice.next}
-                type="button"
-                className={`choice ${locked ? 'locked' : ''}`}
-                disabled={locked}
-                onClick={() => go(choice)}
-              >
-                <span>{choice.text}</span>
-                {req && <span className="choice-req">{locked ? `Need ${req}` : req}</span>}
-              </button>
-            )
-          })}
+          {useDropdowns && showArt && (
+            <ChoiceCast
+              focus="none"
+              groups={{ maya: choiceGroups.maya, riley: choiceGroups.riley, jade: choiceGroups.jade }}
+              house={[]}
+              skills={state.skills}
+              onPick={go}
+              compact
+            />
+          )}
+
+          {useDropdowns
+            ? choiceGroups.house.map((choice) => {
+                const locked = Boolean(choice.need && !hasSkills(state.skills, choice.need))
+                const req = skillReqLabel(choice.need)
+                return (
+                  <button
+                    key={choice.text + choice.next}
+                    type="button"
+                    className={`choice ${locked ? 'locked' : ''}`}
+                    disabled={locked}
+                    onClick={() => go(choice)}
+                  >
+                    <span>{choice.text}</span>
+                    {req && <span className="choice-req">{locked ? `Need ${req}` : req}</span>}
+                  </button>
+                )
+              })
+            : visibleChoices.map((choice) => {
+                const locked = Boolean(choice.need && !hasSkills(state.skills, choice.need))
+                const req = skillReqLabel(choice.need)
+                return (
+                  <button
+                    key={choice.text + choice.next}
+                    type="button"
+                    className={`choice ${locked ? 'locked' : ''}`}
+                    disabled={locked}
+                    onClick={() => go(choice)}
+                  >
+                    <span>{choice.text}</span>
+                    {req && <span className="choice-req">{locked ? `Need ${req}` : req}</span>}
+                  </button>
+                )
+              })}
         </section>
       </main>
       </div>
