@@ -105,6 +105,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley reads every filthy clause while Maya films and Jade corrects pronunciation. By “available without asking,” Riley is crying and wet. “I hate how hard this makes me,” she whispers, then signs.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bathroom',
     choices: [
       {
         text: 'Seal with immediate use',
@@ -128,6 +129,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'You test free-use in the living room after locking the front door. No romance. No asking. Maya on her knees first, Riley bent over the couch arm, Jade timing rounds like a tyrant. When someone knocks, Jade mouths “still free” and does not stop you.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Mark the contract satisfied',
@@ -182,6 +184,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Jade lifts her hair. You buckle the choker. Her pulse jumps against your knuckles. “Say it.” You say she belongs to the night. She fucks you with the collar on, eyes furious with relief, and comes whispering “keep it.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_bed',
     choices: [
       {
         text: 'Leave it on her',
@@ -201,6 +204,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley sobs when the buckle clicks — not from pain. Jade stands behind her and holds her wrists. “Good girl traitors wear jewelry,” Jade says. You take Riley from behind while she stares at their friendship photo and comes with the collar tight.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_couch',
     choices: [
       {
         text: 'Call her house property',
@@ -220,6 +224,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Maya wants the window open. Collar on, skirt up, she waves at the street between thrusts. “If Tyler ever drives by, he can learn visually.” She comes laughing with the choker printed into her throat.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_after',
     choices: [
       {
         text: 'Tighten it one notch',
@@ -267,6 +272,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Maya rides bare and mean, chanting the dare like a prayer. “Fill me — roommate slut — pact killer—” When you finish inside her she clamps down and laughs through it. “If I panic tomorrow, you still did it. That is the point.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [
       {
         text: 'Hold her through the aftershock',
@@ -286,6 +292,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley sits in the corner chair as ordered. Maya makes eye contact with her while you finish inside. Riley’s hand is under her jersey. “I am so fucked up for watching,” she whispers. Maya: “Join the club. Literally.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Pull Riley over to clean Maya up',
@@ -301,6 +308,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley’s mouth on Maya is apology and theft at once. Jade opens the door mid-act, watches ten seconds, and says, “Add breeding clause to the doc,” like she is updating a syllabus.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Log the clause',
@@ -348,6 +356,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley films herself taking you, voice breaking as she addresses Jade by name. “I broke the pact. I wanted to. Come punish me.” Send. Delivered. She comes from the notification buzz alone.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [
       {
         text: 'Wait for Jade’s arrival',
@@ -363,6 +372,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'You make Riley say it until it sticks: house whore, pact traitor, soft girl ruined. She repeats it into a pillow, then without the pillow, then while smiling. “Okay. I’m not coming back from that.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bathroom',
     choices: [
       {
         text: 'Finish the corruption',
@@ -378,6 +388,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Jade arrives already wet with rage. She does not yell. She fucks Riley’s mouth while you take Riley from behind — a punishment that looks exactly like a reward. “She is corrupted,” Jade says afterward. “Good. Corrupt people are easier to schedule.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Add her to the extreme ledger',
@@ -427,6 +438,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Tasks: make Maya confess Tyler treason on voice note; make Riley crawl; fuck Jade in the hallway mirror. Timer ticking. Maya does the voice note laughing. Riley crawls flushed. You take Jade against the mirror while party bass covers the slap of skin.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Beat the timer',
@@ -502,6 +514,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Tyler’s face goes white, then ugly. Maya rides you harder for the lens. “This is what boring gets you.” She finishes loud, ends the call, and blocks him mid-vibration. “Situationship: deceased. Roommate slut: thriving.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_bathroom',
     choices: [
       {
         text: 'Brand the win',
@@ -521,6 +534,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'You mute Tyler and keep his horrified face on-screen like art. Maya watches him watch her come undone. When she can speak, she whispers, “That was the meanest orgasm of my life,” and kisses you with zero remorse.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_bathroom',
     choices: [
       {
         text: 'Leave him muted in the archive',
@@ -542,6 +556,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     focus: 'all',
     chapter: 'Act II · Escalation',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Use Maya first while a stranger stares',
@@ -564,6 +579,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Maya comes with a stranger’s phone half-raised. She flips them off mid-orgasm. “Post it. Caption: ethics.” Jade confiscates the phone and keeps walking like security for sin.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_outside',
     choices: [
       {
         text: 'Continue the hallway shift',
@@ -579,6 +595,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Riley bites your wrist bloody-soft to stay silent as footsteps pass. Tears of heat. When the hall clears she gasps, “I came when they looked away. I am not okay. Do it again.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_couch',
     choices: [
       {
         text: 'Do it again',
@@ -594,6 +611,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'Jade takes the last turn facing the stairwell like a challenge. She does not hide her face. When she finishes she fixes her lipstick and says, “Public use logged. Anyone who talks pays oath.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_stairs',
     choices: [
       {
         text: 'Log it and move on',
@@ -642,6 +660,7 @@ export const EXTREME_TABOO_SCENES: Record<string, Scene> = {
     text: 'It is not tender. It is memorial sex — biting, crying, laughing, claiming. When it ends, Riley asks if they can still be friends in the morning. Jade: “We can be worse. Worse lasts longer.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Lock the corruption ending path',

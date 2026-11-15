@@ -42,14 +42,22 @@ function applyChoice(state: GameState, choice: Choice): GameState {
   }
 }
 
-function freshState(name = 'You'): GameState {
+function freshState(name = 'You', sceneId = 'title'): GameState {
   return {
-    sceneId: 'title',
+    sceneId,
     affection: { ...INITIAL_AFFECTION },
     skills: { ...INITIAL_SKILLS },
     flags: { ...INITIAL_FLAGS, playerName: name },
     history: [],
   }
+}
+
+function bootState(): GameState {
+  const params = new URLSearchParams(window.location.search)
+  const jump = params.get('scene')
+  const name = params.get('name') || 'Alex'
+  if (jump && SCENES[jump]) return freshState(name, jump)
+  return freshState(name)
 }
 
 function chapterFor(state: GameState, fallback?: string): string {
@@ -61,9 +69,13 @@ function chapterFor(state: GameState, fallback?: string): string {
 }
 
 export default function App() {
-  const [state, setState] = useState<GameState>(() => freshState())
-  const [nameDraft, setNameDraft] = useState('Alex')
-  const [entered, setEntered] = useState(false)
+  const [state, setState] = useState<GameState>(() => bootState())
+  const [nameDraft, setNameDraft] = useState(
+    () => new URLSearchParams(window.location.search).get('name') || 'Alex',
+  )
+  const [entered, setEntered] = useState(() =>
+    Boolean(new URLSearchParams(window.location.search).get('scene')),
+  )
 
   const scene = SCENES[state.sceneId] ?? SCENES.title
 

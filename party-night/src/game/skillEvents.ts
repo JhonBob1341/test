@@ -152,6 +152,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     text: 'You make it filthy enough that Riley covers her mouth and Jade’s eyes sharpen. Maya moans into your neck on purpose. “If Jade bills me for this, you are paying in oath.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_outside',
     choices: [
       {
         text: 'Keep dancing like nothing happened',
@@ -403,6 +404,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     text: 'You hold the plank and tell Maya exactly how you would use the favor. She goes quiet, then grins. “Fuck. Jade is going to hate how hard that just made me.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_after',
     choices: [
       {
         text: 'Collect later',
@@ -512,6 +514,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     text: 'Jade corrects your stance with her knee between your legs and her voice in your ear. When you finally hold the look she wants, she rewards you with a slow, filthy kiss — then stops. “Homework: use that on Riley without crumbling.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_closet',
     choices: [
       {
         text: 'Accept homework',
@@ -586,6 +589,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     text: 'Riley on the counter, jersey up, biting a wooden spoon so Jade will not hear. She comes fast and sorry and grateful. “Okay. Dominance works on me. Please do not weaponize that unless I ask.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_kitchen',
     choices: [
       {
         text: 'Help her fix her clothes',
@@ -605,6 +609,7 @@ export const SKILL_EVENT_SCENES: Record<string, Scene> = {
     text: 'You finish the cookies and finish Riley with the mixer still running as cover noise. She laughs into your shoulder, wrecked and delighted. “That was the most discreet crime of my life.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_kitchen',
     choices: [
       {
         text: 'Leave no crumbs',

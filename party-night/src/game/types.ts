@@ -14,7 +14,23 @@ export type EndingId =
   | 'caught'
   | 'corrupt'
 
-export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning'
+export type SexArtId =
+  | 'sex_maya_laundry'
+  | 'sex_maya_bathroom'
+  | 'sex_maya_balcony'
+  | 'sex_maya_outside'
+  | 'sex_maya_after'
+  | 'sex_riley_couch'
+  | 'sex_riley_bed'
+  | 'sex_riley_kitchen'
+  | 'sex_riley_bathroom'
+  | 'sex_jade_closet'
+  | 'sex_jade_stairs'
+  | 'sex_jade_bed'
+  | 'sex_group_couch'
+  | 'sex_group_hallway'
+
+export type SceneArtId = EndingId | 'harem_pact' | 'harem_morning' | SexArtId
 
 export type Flags = {
   playerName: string

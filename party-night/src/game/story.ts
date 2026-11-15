@@ -339,6 +339,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Dryer thumps like a second bassline. Maya hops onto the washer, thighs open, already pulling her panties aside. “Quiet — unless you want my roommates to hear me cheating on a situationship and a pact in the same thrust.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [
       {
         text: 'Fuck her on the washer',
@@ -364,6 +365,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Lock clicks. Maya on the sink, thighs open. “Quiet — unless you want my best friends to hear me being a fucking hypocrite.” She guides your hand between her legs. “Soaked. Pact dead. Make oath payment look cheap.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_bathroom',
     choices: [
       {
         text: 'Fuck her hard against the mirror',
@@ -384,6 +386,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'The washer rattles under Maya as you take her. She laughs through moans. “Tell me I am a bad roommate — say it—” She comes loud enough that the dryer buzzes like applause. “Fuck. I am going to smell like you in the group chat.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [{ text: 'Finish with her', next: 'maya_after', effect: { affection: { maya: 2 } } }],
   },
 
@@ -393,6 +396,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'You turn Maya toward the door, hand over her mouth, fucking her while footsteps pass. She drips down her thighs. When someone jiggles the handle, she comes — silent, violent, traitorous.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [{ text: 'Slip out before you are caught', next: 'maya_after', effect: { affection: { maya: 2 } } }],
   },
 
@@ -402,6 +406,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya watches you write on her skin and gets wetter for it. “Jade is going to murder me. Riley is going to cry-masturbate. Tyler is going to—” You thrust and she forgets the rest, laughing filthy as she comes with the insult still drying on her stomach.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [{ text: 'Leave the writing on', next: 'maya_after', effect: { affection: { maya: 2 } } }],
   },
 
@@ -411,6 +416,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya’s heels dig into your back. Mirror fogs. “Tell me I am a bad friend — say I am their slutty problem now—” She comes loud enough that someone knocks. Maya just laughs.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [{ text: 'Finish with her', next: 'maya_after', effect: { affection: { maya: 2 } } }],
   },
 
@@ -420,6 +426,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'You deny her until she is shaking. “Please — I will owe them — I will do oath payment on my knees — just fuck me—” You give her everything. She sobs through the orgasm like a contract signing.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_after',
     choices: [{ text: 'Let her come down', next: 'maya_after', effect: { affection: { maya: 2 } } }],
   },
 
@@ -466,6 +473,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Round two is meaner. Maya on her knees on the laundry tile, looking up while she takes you deep, eyes watering with pride. “If Riley walks in, she joins or she watches. Those are the only moral options left.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_after',
     choices: [
       {
         text: 'Finish down her throat',
@@ -486,6 +494,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley opens the door, freezes, then steps in and locks it. “You absolute bitches.” Maya pulls her down by the jersey. Within a minute Riley is kissing Maya while you fuck Maya from behind — a roommate sandwich of treason.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Make them kiss through Maya’s orgasm',
@@ -630,6 +639,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Music covers the wet sound of your fingers between Riley’s thighs. She keeps a polite conversation with Maya — until her voice hitch-breaks. Maya squints. “You good?” Riley smiles, eyes glassy. “Perfect. Just… warm.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_couch',
     choices: [
       {
         text: 'Make her come right there',
@@ -650,6 +660,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley bites her cup as she comes, thighs locking your wrist. A soft ruined sound escapes anyway. Maya’s eyes go wide — half scandal, half hunger. Riley whispers, “If Jade finds out I came on her favorite couch, she will end me. Worth it.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_couch',
     choices: [
       {
         text: 'Let Maya “accidentally” notice more',
@@ -684,6 +695,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley’s room smells like clean sheets and guilt. Fairy lights. A photo of the three of them on the desk. She pushes you down, jersey gone. “I look sweet. I am not. Call me their good girl while you fuck the lease ethics out of me.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [
       {
         text: 'Let her ride — watch her face',
@@ -714,6 +726,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley rides with filthy commentary and soft eyes. “Feel that? That is me cheating on a friendship.” She comes first, shaking, then laughs like theft. “Okay. Wow. We are so going to hell — and then brunch.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [{ text: 'Aftercare, then chaos', next: 'riley_after', effect: { affection: { riley: 2 } } }],
   },
 
@@ -723,6 +736,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'On her back, Riley goes beautifully ruined — nails, open legs, sweet voice begging dirty. “Harder — please — do not stop—” When she finishes, she kisses you soft. “If Maya asks, I was helping you find a charger. If Jade asks… invent a god.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [{ text: 'Hold her a second', next: 'riley_after', effect: { affection: { riley: 2 }, flags: { sharedSecret: true } } }],
   },
 
@@ -732,6 +746,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley moans into your phone on purpose, naming you, naming the pact, naming how wet she is for breaking it. “Send that to Jade if I ever get boring,” she pants. “Or send it tonight. I am feeling evil.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [
       {
         text: 'Keep it as leverage',
@@ -752,6 +767,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley stares at the three smiling faces on her desk while you fuck her into the mattress. Tears of heat, not regret. “I love them,” she gasps. “I am still going to come.” She does — hard — whispering sorry to a photograph.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bathroom',
     choices: [{ text: 'Kiss the apology off her mouth', next: 'riley_after', effect: { affection: { riley: 3 } } }],
   },
 
@@ -785,6 +801,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Round two is quieter and filthier. Riley on her stomach, face in a pillow embroidered with the house name, begging you to leave marks Jade will interrogate. You do. She comes muffling your name into cotton.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [
       {
         text: 'Ask what she is scared to want next',
@@ -874,6 +891,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Coats swallow sound. Jade drops to her knees with terrifying calm. “If you moan loud enough for Maya to hear, I will not stop — I will get meaner.” Then her mouth is on you, slow, filthy, absolutely in charge.',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_closet',
     choices: [
       {
         text: 'Take it — hands in her hair',
@@ -929,6 +947,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Jade takes you deep, eyes watering, pride intact. When you finish, she stands, wipes her mouth, presses two fingers to your lips. “Mine for the night. Say it — or I tell Riley you came down my throat while she was still being sweet to you.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_closet',
     choices: [
       {
         text: '“Yours.”',
@@ -949,6 +968,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'You pin Jade against winter coats and slide into her. She gasps once — then laughs, possessive. “Yes. Use me. Let them wonder.” She comes biting your neck hard enough to leave a mark she will brag about. “That is my signature. And my claim.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_closet',
     choices: [{ text: 'Wear the mark', next: 'jade_after', effect: { affection: { jade: 2 }, flags: { markedByJade: true } } }],
   },
 
@@ -958,6 +978,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'The door stays cracked. Somewhere in the hall, Maya freezes — then stays. Jade notices and fucks you harder on purpose, eyes locked on the gap. “Wave to your audience,” she whispers. Maya does not leave.',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_closet',
     choices: [
       {
         text: 'Invite Maya in with a look',
@@ -978,6 +999,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Jade props her phone on a shoe box and fucks you for the lens like a prosecutor building a case. “Smile,” she breathes. “This is what loyalty looks like when it fails.” She comes on camera without breaking eye contact.',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_closet',
     choices: [
       {
         text: 'Ask who gets the file',
@@ -993,6 +1015,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya slips in, already breathless. “This is so fucked.” Jade grabs Maya’s jaw and kisses her like punishment. “Share,” Jade orders. Maya drops to her knees beside her roommate without another joke — only a moan.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Let them share you',
@@ -1008,6 +1031,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Two mouths. Two egos. Maya messy and eager; Jade precise and cruel. When you finish, they kiss with you still on their tongues — a betrayal sealed in spit. Jade wipes Maya’s chin. “Riley is going to cry. Or beg. I cannot wait.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Ask Jade what comes after cute treason',
@@ -1052,6 +1076,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Jade takes you against the hallway linen closet this time — riskier, meaner. She writes MINE at the base of your throat in eyeliner. “If Riley kisses you, she tastes me. That is the point.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_bed',
     choices: [
       {
         text: 'Accept the brand',
@@ -1238,6 +1263,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'They take turns using you in the living room after locking the front door. Maya loud. Riley apologetic and soaking. Jade directing angles like a tyrant choreographer. At one point Jade makes Maya and Riley kiss with your come still on Riley’s tongue. “Friendship,” Jade says. “Revised.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Survive the revision',
@@ -1285,6 +1311,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya calls Tyler on speaker, voice sweet. “Hey baby—” You fuck her from behind over the railing while she asks about his night. She muffles a moan as a cough. When she hangs up she comes laughing. “I am going to hell with perfect nails.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_balcony',
     choices: [
       {
         text: 'Call that a new low — and keep going',
@@ -1300,6 +1327,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya braces on the railing, skirt up, biting a laugh as you take her with the neighborhood as possible audience. “Slutty balcony treason,” she pants. “Put it in the group chat. Caption: roommate of the year.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_balcony',
     choices: [
       {
         text: 'Finish and threaten to post',
@@ -1315,6 +1343,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya texts Riley: “balcony. bring ice. ignore the moaning.” Minutes later Riley appears, freezes, and does not leave. Maya locks eyes with her while you keep going. “Watch,” Maya mouths. Riley’s hand slides under her own jersey.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Tell Riley to join',
@@ -1335,6 +1364,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley steps in shaking. Maya kisses her like a dare. You end up between them — Maya loud, Riley muffling moans into Maya’s neck, both breaking the same oath on the same railing. After, Riley: “Jade can never know.” Maya: “Jade already knows.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_maya_outside',
     choices: [
       {
         text: 'Deal with that later',
@@ -1390,6 +1420,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley grips the sink, jersey hiked, whispering sorry to no one as you take her among half-washed cups. “Roommate rules,” she pants. “Broken. Broken. Broken—” She comes on the third broken, laughing wetly into the faucet.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_kitchen',
     choices: [{ text: 'Clean nothing', next: 'mid_hub', effect: { affection: { riley: 2 }, flags: { sharedSecret: true } } }],
   },
 
@@ -1399,6 +1430,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'You lift Riley onto the counter. She wraps around you, muffling moans into your neck while the party thumps next door. “I am so easy for you,” she breathes. “Best-friend slut. Roommate slut. Do not stop.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_kitchen',
     choices: [
       {
         text: 'Give her everything',
@@ -1419,6 +1451,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley calls Jade on speaker, voice shaking with arousal. “I broke the pact. I came on him. Twice. On your couch.” Silence. Then Jade: “Put him on. And keep your legs open.” Riley obeys while Jade listens like evidence.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_kitchen',
     choices: [
       {
         text: 'Perform for Jade over the phone',
@@ -1479,6 +1512,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Jade’s thighs frame your face. She holds the banister and tries to look bored while you ruin that plan. When she comes, it is quiet and vicious — then she pulls you up to taste herself on your mouth. “Forgiven. Barely. Now ask nicer for the rest of them.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_stairs',
     choices: [{ text: 'Ask nicer', next: 'mid_hub', effect: { affection: { jade: 2 } } }],
   },
 
@@ -1533,6 +1567,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya kisses Riley like a dare that turned into hunger. Riley makes a soft broken sound and fists Maya’s top. Jade watches you watching. “Good. Now upstairs. Payment continues.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [{ text: 'Follow the sentence', next: 'late_hub', effect: { flags: { phase: 'late' } } }],
   },
 
@@ -1576,6 +1611,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya and Riley end up on the den rug with Jade counting. Fingers. Mouths. Soft swearing. When Jade says stop, they are both shaking. “Now him,” Jade orders. You finish what the dare started while they still taste like each other.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Obey',
@@ -1594,6 +1630,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya bends over the arm of a couch in a locked den. Riley watches biting her lip. Jade times nothing and still somehow judges. Maya comes loud on purpose. “Scoreboard,” she gasps. “I win being the worst roommate.”',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [
       {
         text: 'Ask who is next',
@@ -1612,6 +1649,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley takes you on the den floor with her roommates staring. She tries to stay quiet and fails. Maya coaches. Jade corrects her posture like a tyrant. When Riley comes, she sobs a laugh. “I hate how much I like being seen.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_couch',
     choices: [
       {
         text: 'Kiss her in front of them',
@@ -1630,6 +1668,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Jade refuses to look soft even while stuffed full of you. She makes Maya hold her wrists. She makes Riley count. She comes like a verdict. “Good,” she says after. “Now you understand the chain of command.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_stairs',
     choices: [
       {
         text: 'Obey the chain',
@@ -1729,6 +1768,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Maya locks the guest room and strips like she is late for sin. “One more. For Tyler. For the scrapbook. For the betrayal. For me.” She rides you facing the mirror so she can watch herself being exactly what her roommates warned about.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_after',
     choices: [
       {
         text: 'Ruin her for the night',
@@ -1752,6 +1792,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Riley wants lights on. “I want to see your face when I say I love being their whore for you.” She means it like romance. She comes twice, crying a little, then asks if you will still text her after the friend group explodes.',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [
       {
         text: 'Promise — then finish her properly',
@@ -1775,6 +1816,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Jade does not ask. She pins, takes, narrates. “You do not get a soft ending with me. You get a collar made of attention.” She makes you say her roommates’ names while you fuck her — then forbids you from choosing them tomorrow.',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_bed',
     choices: [
       {
         text: 'Obey through the orgasm',
@@ -1798,6 +1840,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'You leave a door unlocked on purpose. The party finds you mid-sin with at least one roommate. Phones up. Screams. Maya bows. Riley hides and waves. Jade stares into a lens like she planned the premiere.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Own the scandal',
@@ -1862,6 +1905,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Hands everywhere. Maya rides your face while Riley takes you deep, moaning into Maya’s mouth. Jade directs like sin with a clipboard — then straddles you last, possessive, locking eyes as she finishes you while her roommates kiss her throat. The bed is a crime scene of lipstick and laughter.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Afterglow',
@@ -1877,6 +1921,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'No rules survive contact. Maya and Riley share you in a messy rhythm while Jade bites, guides, and eventually laughs — actually laughs — when the three of them collapse into limbs and smug, slutty victory. Downstairs, the playlist keeps pretending the lease is fine.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Afterglow',
@@ -1892,6 +1937,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'They compete. Maya goes louder. Riley goes sweeter. Jade goes meaner. You crown no winner with words — only with where you finish. All three kiss the proof off each other afterward like sportsmanlike demons.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_hallway',
     choices: [
       {
         text: 'Admit you want this again',
@@ -1907,6 +1953,7 @@ const BASE_SCENES: Record<string, Scene> = {
     text: 'Oath payment mode is less romance, more sentencing. Jade ties Maya’s wrists with a scarf. Riley holds your hips steady. They pass you between them until the word “roommate” means nothing holy. Jade records one tasteful second “for the archive.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Serve the sentence',

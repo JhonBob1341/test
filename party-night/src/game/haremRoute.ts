@@ -99,6 +99,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Maya comes twice on the washer, laughing through it, phone face-up with Tyler’s muted call still ringing into nowhere. “Tell them I’m claimed,” she gasps. “Tell Riley I folded like laundry.” You write HOUSE GIRL across her stomach in lipstick.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_laundry',
     choices: [
       {
         text: 'Mark the claim complete',
@@ -175,6 +176,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Riley comes with the friendship photo in her peripheral vision, whispering sorry and thank you in the same breath. You leave a necklace of marks Jade will inventory. “Tell them I’m claimed,” she begs softly. “Tell Maya I am not sweet tonight.”',
     focus: 'riley',
     nsfw: true,
+    art: 'sex_riley_bed',
     choices: [
       {
         text: 'Seal Riley’s claim',
@@ -237,6 +239,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Jade kneels like a queen temporarily loaning the floor. “Do not get used to this.” Then she takes you with archival focus, eyes open, recording nothing — for once — because the claim itself is the file.',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_bed',
     choices: [
       {
         text: 'Pull her up and finish the claim',
@@ -252,6 +255,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Jade comes on her own desk calendar, biting your shoulder hard enough to brand. “I am claimed,” she says like a verdict she wrote herself. “Now the others answer to both of us — carefully.” She redraws MINE on your throat.',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_bed',
     choices: [
       {
         text: 'Seal Jade’s claim',
@@ -323,6 +327,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'They start by using each other for you — Maya’s mouth on Riley while Jade holds Riley’s wrists and narrates. “Look how soft she breaks. Look how loud Maya gets when she is not the center.” When Riley comes, Jade kisses the sound off her lips and points you in.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Take Riley while they kiss',
@@ -338,6 +343,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Maya climbs on next, facing Jade, making Jade watch every bounce. “Veto this,” Maya taunts. Jade does not. She leans in and bites Maya’s nipple instead. Maya comes swearing loyalty to a lease.',
     focus: 'maya',
     nsfw: true,
+    art: 'sex_maya_after',
     choices: [
       {
         text: 'Pull Jade onto you after',
@@ -353,6 +359,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Jade rides like sentencing. She makes Maya and Riley hold her hands. “Say you are house,” she orders you. You say it. She comes with a tremor she will deny tomorrow, then wipes her mouth and smiles. “Ceremony.”',
     focus: 'jade',
     nsfw: true,
+    art: 'sex_jade_bed',
     choices: [
       {
         text: 'Begin the pact rewrite ceremony',
@@ -383,6 +390,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'Final round is slower and filthier — less performance, more possession. They take turns saying your name like a password. When you finish, they pass the proof between their mouths without being told. Jade: “Archive optional.” Maya: “Archive mandatory.” Riley: “Please just hold me after.”',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Hold all three into morning',
@@ -475,6 +483,7 @@ export const HAREM_SCENES: Record<string, Scene> = {
     text: 'They take rent on the kitchen counter in shifts while the party thumps. Maya films ten seconds “for accounting.” Riley tallies orgasms like chores. Jade initials your throat in eyeliner: PAID.',
     focus: 'all',
     nsfw: true,
+    art: 'sex_group_couch',
     choices: [
       {
         text: 'Receipt accepted',
