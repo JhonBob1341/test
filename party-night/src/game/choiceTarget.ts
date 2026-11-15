@@ -75,6 +75,7 @@ export function shouldUseCastDropdowns(scene: Scene, choices: Choice[]): boolean
     return false
   }
   const groups = groupChoices(choices, scene)
-  const girlHits = groups.maya.length + groups.riley.length + groups.jade.length
-  return girlHits > 0 || scene.focus === 'all' || scene.focus === 'maya' || scene.focus === 'riley' || scene.focus === 'jade'
+  const girlsWithChoices = (['maya', 'riley', 'jade'] as GirlId[]).filter((id) => groups[id].length > 0)
+  // Dropdowns only when multiple roommates each have actions to pick from
+  return girlsWithChoices.length >= 2
 }
